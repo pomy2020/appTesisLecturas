@@ -35,5 +35,6 @@ Para ejecutar la aplicación
 	Crear la base de datos applecturas
 	Ejecutar el script de la carpeta scriptbasededatos
 	Ejecutar la aplicación usando emulador o como proyecto local.
+        Prueba desde el local
 
 
