@@ -1,0 +1,1 @@
+C:\Users\Pedro\Desktop\appRegistroLecturas-master\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\AppLecturas.UWP.csproj;x86
