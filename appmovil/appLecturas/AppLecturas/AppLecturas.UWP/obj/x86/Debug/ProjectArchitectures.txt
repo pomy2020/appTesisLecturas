@@ -1,1 +1,1 @@
-C:\Users\Pedro\Desktop\appRegistroLecturas-master\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\AppLecturas.UWP.csproj;x86
+C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\AppLecturas.UWP.csproj;x86

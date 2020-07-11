@@ -19718,11 +19718,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Pedro\\Desktop\\appRegistroLecturas-master\\appmovil\\appLecturas\\AppLecturas\\AppLecturas.UWP\\AppLecturas.UWP.csproj",
+      "projectUniqueName": "C:\\Users\\Pedro\\Documents\\GitHub\\appTesisLecturas\\appmovil\\appLecturas\\AppLecturas\\AppLecturas.UWP\\AppLecturas.UWP.csproj",
       "projectName": "AppLecturas.UWP",
-      "projectPath": "C:\\Users\\Pedro\\Desktop\\appRegistroLecturas-master\\appmovil\\appLecturas\\AppLecturas\\AppLecturas.UWP\\AppLecturas.UWP.csproj",
+      "projectPath": "C:\\Users\\Pedro\\Documents\\GitHub\\appTesisLecturas\\appmovil\\appLecturas\\AppLecturas\\AppLecturas.UWP\\AppLecturas.UWP.csproj",
       "packagesPath": "C:\\Users\\Pedro\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Pedro\\Desktop\\appRegistroLecturas-master\\appmovil\\appLecturas\\AppLecturas\\AppLecturas.UWP\\obj\\",
+      "outputPath": "C:\\Users\\Pedro\\Documents\\GitHub\\appTesisLecturas\\appmovil\\appLecturas\\AppLecturas\\AppLecturas.UWP\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -19744,8 +19744,8 @@
       "frameworks": {
         "uap10.0.16299": {
           "projectReferences": {
-            "C:\\Users\\Pedro\\Desktop\\appRegistroLecturas-master\\appmovil\\appLecturas\\AppLecturas\\AppLecturas\\AppLecturas.csproj": {
-              "projectPath": "C:\\Users\\Pedro\\Desktop\\appRegistroLecturas-master\\appmovil\\appLecturas\\AppLecturas\\AppLecturas\\AppLecturas.csproj"
+            "C:\\Users\\Pedro\\Documents\\GitHub\\appTesisLecturas\\appmovil\\appLecturas\\AppLecturas\\AppLecturas\\AppLecturas.csproj": {
+              "projectPath": "C:\\Users\\Pedro\\Documents\\GitHub\\appTesisLecturas\\appmovil\\appLecturas\\AppLecturas\\AppLecturas\\AppLecturas.csproj"
             }
           }
         }

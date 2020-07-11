@@ -1809,11 +1809,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Pedro\\Desktop\\appRegistroLecturas-master\\appmovil\\appLecturas\\AppLecturas\\AppLecturas.iOS\\AppLecturas.iOS.csproj",
+      "projectUniqueName": "C:\\Users\\Pedro\\Documents\\GitHub\\appTesisLecturas\\appmovil\\appLecturas\\AppLecturas\\AppLecturas.iOS\\AppLecturas.iOS.csproj",
       "projectName": "AppLecturas.iOS",
-      "projectPath": "C:\\Users\\Pedro\\Desktop\\appRegistroLecturas-master\\appmovil\\appLecturas\\AppLecturas\\AppLecturas.iOS\\AppLecturas.iOS.csproj",
+      "projectPath": "C:\\Users\\Pedro\\Documents\\GitHub\\appTesisLecturas\\appmovil\\appLecturas\\AppLecturas\\AppLecturas.iOS\\AppLecturas.iOS.csproj",
       "packagesPath": "C:\\Users\\Pedro\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Pedro\\Desktop\\appRegistroLecturas-master\\appmovil\\appLecturas\\AppLecturas\\AppLecturas.iOS\\obj\\",
+      "outputPath": "C:\\Users\\Pedro\\Documents\\GitHub\\appTesisLecturas\\appmovil\\appLecturas\\AppLecturas\\AppLecturas.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -1834,8 +1834,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\Pedro\\Desktop\\appRegistroLecturas-master\\appmovil\\appLecturas\\AppLecturas\\AppLecturas\\AppLecturas.csproj": {
-              "projectPath": "C:\\Users\\Pedro\\Desktop\\appRegistroLecturas-master\\appmovil\\appLecturas\\AppLecturas\\AppLecturas\\AppLecturas.csproj"
+            "C:\\Users\\Pedro\\Documents\\GitHub\\appTesisLecturas\\appmovil\\appLecturas\\AppLecturas\\AppLecturas\\AppLecturas.csproj": {
+              "projectPath": "C:\\Users\\Pedro\\Documents\\GitHub\\appTesisLecturas\\appmovil\\appLecturas\\AppLecturas\\AppLecturas\\AppLecturas.csproj"
             }
           }
         }
