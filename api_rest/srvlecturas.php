@@ -36,9 +36,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
     $input = $_POST;
     $sql = "INSERT INTO lecturas
-          (fecha,anterior,actual,consumo,basico,exceso,pais,observacion,imagen,latitud,longitud,estado,medidor_id,created_at,updated_at)
+          (fecha,anterior,actual,consumo,basico,exceso,pais,observacion,imagen,latitud,longitud,estado,medidor_id,user_id,created_at,updated_at)
           VALUES
-          (:Fecha,:Anterior, :Actual,:Consumo,:Basico,:Exceso,:Pais,:Observacion,:Imagen,:Latitud,:Longitud,:Estado,:Medidor_id,:Created_at,:Updated_at)";
+          (:Fecha,:Anterior, :Actual,:Consumo,:Basico,:Exceso,:Pais,:Observacion,:Imagen,:Latitud,:Longitud,:Estado,:Medidor_id,:User_id,:Created_at,:Updated_at)";
     $statement = $dbConn->prepare($sql);
     bindAllValues($statement, $input);
     $statement->execute();
