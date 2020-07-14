@@ -22,6 +22,7 @@ class CreateLecturasTable extends Migration
             $table->float('basico',8,2);
             $table->float('exceso',8,2);
             $table->text('observacion')->nullable();
+            $table->text('pais');
             $table->text('imagen')->nullable();
             $table->float('latitud',10,6)->nullable();
             $table->float('longitud',10,6)->nullable();
