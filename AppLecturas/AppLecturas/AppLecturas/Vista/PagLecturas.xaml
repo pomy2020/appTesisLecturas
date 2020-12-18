@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppLecturas.Vista.PagLecturas">
+    <ContentPage.Content>
+        <StackLayout Margin="20,35,20,20">
+            <Button Text="Ver todas las lecturas"
+                Clicked="Button_ClickedAsync" />
+            <Button x:Name="ButSincr"  Text="Sincronizar con servidor remoto"
+                Clicked="Button_Clicked_SincronizarAsync" />
+            <Button x:Name="BuscarPorFecha"  Text="Buscar por mes y año"
+                Clicked="BuscarPorFecha_Clicked" />
+            <Entry x:Name="txtMesBuscar" Placeholder="Ingrese el Mes" FontSize="Micro"></Entry>
+            <Entry x:Name="txtAñoBuscar" Placeholder="Ingrese el Año" FontSize="Micro"></Entry>
+            <ListView x:Name="listView" ItemSelected="listView_ItemSelected">
+                <ListView.Header>
+
+                    <Grid HorizontalOptions="FillAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                            <ColumnDefinition Width="4*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text ="Id" FontSize="Small" Grid.Column="0"/>
+                        <Label Text ="Fecha" FontSize="Small" Grid.Column="1"/>
+                        <Label Text ="Nombre" FontSize="Small" Grid.Column="2"/>
+                        <Label Text ="Apellido" FontSize="Small" Grid.Column="3" />
+                        <Label Text ="Lectura anterior" FontSize="Small" Grid.Column="4"/>
+                        <Label Text ="Lectura actual" FontSize="Small" Grid.Column="5"/>
+                        <Label Text ="Consumo en m3" FontSize="Small" Grid.Column="6"/>
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout BackgroundColor="AliceBlue"
+                        Orientation="Vertical">
+                                <Grid HorizontalOptions="FillAndExpand">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Text="{Binding Id}" FontSize="Micro" HorizontalOptions="FillAndExpand" Grid.Column="0" TextColor="#f35e20"></Label>
+                                    <Label Text="{Binding Fecha , StringFormat='{0:MM/dd/yyyy}'}" FontSize="Micro" HorizontalOptions="FillAndExpand"  Grid.Column="1" TextColor="#503026"></Label>
+                                    <Label Text="{Binding Nombre}" FontSize="Micro" HorizontalOptions="FillAndExpand"  Grid.Column="2" TextColor="#503026"></Label>
+                                    <Label Text="{Binding Apellido}" FontSize="Micro" HorizontalOptions="FillAndExpand"  Grid.Column="3" TextColor="#503026"></Label>
+                                    <Label Text="{Binding Anterior}" FontSize="Micro" HorizontalOptions="FillAndExpand"  Grid.Column="4" TextColor="#503026"></Label>
+                                    <Label Text="{Binding Actual}" FontSize="Micro" HorizontalOptions="FillAndExpand"  Grid.Column="5" TextColor="#503026"></Label>
+                                    <Label Text="{Binding Consumo}" FontSize="Micro" HorizontalOptions="FillAndExpand"  Grid.Column="6" TextColor="#503026"></Label>
+   
+                                </Grid>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+
+        
