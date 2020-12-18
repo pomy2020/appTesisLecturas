@@ -12,7 +12,7 @@ return [
     | you may use many connections at once using the Database library.
     |
     */
-
+    //en está linea se define el motro de base de datos que vamos a utilizar en este proyecto
     'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
