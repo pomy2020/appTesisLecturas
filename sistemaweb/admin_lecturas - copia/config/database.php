@@ -12,7 +12,7 @@ return [
     | you may use many connections at once using the Database library.
     |
     */
-
+     //CON ESTE GESTOR DE BASE DE DATOS VAMOS A TRABAJAR EN EL PROYECTO
     'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
