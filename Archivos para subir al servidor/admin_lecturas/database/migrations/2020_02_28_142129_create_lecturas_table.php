@@ -1,4 +1,4 @@
-  <?php
+<?php
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -21,13 +21,14 @@ class CreateLecturasTable extends Migration
             $table->float('consumo',8,2);
             $table->float('basico',8,2);
             $table->float('exceso',8,2);
+            $table->text('pais');
             $table->text('observacion')->nullable();
             $table->text('imagen')->nullable();
             $table->float('latitud',10,6)->nullable();
             $table->float('longitud',10,6)->nullable();
             $table->string('estado');
-            $table->Integer('medidor_id');
-            $table->Integer('user_id');
+            $table->unsignedInteger('medidor_id');
+            $table->unsignedInteger('user_id');
             $table->timestamps();
         });
     }

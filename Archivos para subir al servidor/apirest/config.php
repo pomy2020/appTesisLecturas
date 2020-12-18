@@ -1,10 +1,10 @@
-<?php
-
-$db = [
-    'host' => 'localhost',
-    'username' => 'id13866308_usrbaselecturas',
-    'password' => '4w0nK&^RY!T_zrXI',
-    'db' => 'id13866308_baselecturas' //Cambiar al nombre de tu base de datos
-];
-
+<?php
+
+$db = [
+    'host' => 'localhost',
+    'username' => 'id15686382_pedro',
+    'password' => 'Us0>ZY8V^Z\2cm9s',
+    'db' => 'id15686382_baselecturas' //Cambiar al nombre de tu base de datos
+];
+
 ?>

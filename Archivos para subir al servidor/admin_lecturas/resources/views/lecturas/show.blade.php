@@ -18,6 +18,7 @@
                     <p><strong>Básico</strong>  {{ $lectura->basico }}</p>
                     <p><strong>Exceso</strong>  {{ $lectura->exceso }}</p>
                     <p><strong>Observacion</strong>  {{ $lectura->observacion }}</p>
+                    <p><strong>pais</strong>       {{ $lectura->pais }}      </p>
                     <img class="card-img-top" src="http://localhost/admin_lecturas/public/images/{{$lectura->imagen}}" alt="">
                     <p><strong>Latitud</strong>  {{ $lectura->latitud }}</p>
                     <p><strong>Longitud</strong>  {{ $lectura->longitud }}</p>

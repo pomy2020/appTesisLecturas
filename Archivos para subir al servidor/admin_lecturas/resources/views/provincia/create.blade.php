@@ -5,10 +5,14 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">TRABAJO DE TITULACIÓN DE PEDRO MEJÍA EN ESTÁ JUNTA DE AGUA</div>
+                <div class="panel-heading">Provincias</div>
 
                 <div class="panel-body">                    
-                    Junta de Administración de Agua Potable Zumbahuayco
+                    {{ Form::open(['route' => 'provincia.store']) }}
+
+                        @include('provincia.partials.form')
+                        
+                    {{ Form::close() }}
                 </div>
             </div>
         </div>

@@ -20,6 +20,14 @@ class UserController extends Controller
 
         return view('users.index', compact('users'));
     }
+     public function create()
+    {
+        //
+        $roles = Role::get();
+        $sectores_usr = [];
+        $sectores = ['Portete','Pedregal','La Union','Rayoloma'];
+        return view('users.create', compact('roles','sectores','sectores_usr'));
+    }
 
     /**
      * Display the specified resource.
@@ -33,6 +41,31 @@ class UserController extends Controller
         $sectores = explode(",", $user->sector);
 
         return view('users.show', compact('user','sectores'));
+    }
+     public function store(Request $request)
+    {
+        
+        //validaciones
+        $validator = $request->validate([
+        'name'=>'required|max:50',
+        'email'=>'required|max:100',
+        ]);
+         $sectores = $request->get('sectores');
+        $sectores_asig = '';
+        if($sectores != null)
+        foreach ($sectores as $sector) {
+            $sectores_asig=$sectores_asig.$sector.',';
+        }
+        
+        $userNuevo = new User;
+        $userNuevo->name = $request->name;
+        $userNuevo->email = $request->email;
+        $userNuevo->sector = $sectores_asig;
+        $userNuevo->password = bcrypt($request->password);
+        $userNuevo->save();
+        $userNuevo->roles()->sync($request->get('roles'));
+        return back()->with('info','usuario creado correctamente');          
+         
     }
 
     /**

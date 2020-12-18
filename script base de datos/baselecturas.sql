@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-07-2020 a las 18:47:45
+-- Tiempo de generación: 15-12-2020 a las 20:43:23
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.2.26
 
@@ -36,14 +36,14 @@ CREATE TABLE `lecturas` (
   `consumo` double(8,2) NOT NULL,
   `basico` double(8,2) NOT NULL,
   `exceso` double(8,2) NOT NULL,
-  `pais` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pais` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `observacion` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `imagen` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `latitud` double(10,6) DEFAULT NULL,
   `longitud` double(10,6) DEFAULT NULL,
   `estado` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `medidor_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `medidor_id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -53,12 +53,14 @@ CREATE TABLE `lecturas` (
 --
 
 INSERT INTO `lecturas` (`id`, `fecha`, `anterior`, `actual`, `consumo`, `basico`, `exceso`, `pais`, `observacion`, `imagen`, `latitud`, `longitud`, `estado`, `medidor_id`, `user_id`, `created_at`, `updated_at`) VALUES
-(25, '2020-06-03', 0.00, 4.00, 4.00, 4.00, 0.00, '', 'consumo de mayo', '/storage/emulated/0/Android/data/com.jaapsaz.applecturas/files/Pictures/temp/IMG_20200529_164123.jpg', -2.957834, -78.989726, 'A', 36, 4, '2020-06-03 00:00:00', '2020-06-03 00:00:00'),
-(27, '2020-06-09', 0.00, 6.00, 6.00, 4.00, 5.00, '', 'consumo da mayo', '/storage/emulated/0/Android/data/com.jaapsaz.applecturas/files/Pictures/temp/IMG_20200529_164123_1.jpg', -2.957820, -78.989781, 'A', 4, 2, '2020-06-09 00:00:00', '2020-06-09 00:00:00'),
-(28, '2020-06-09', 0.00, 5.00, 5.00, 4.00, 0.00, '', 'consumo', '/storage/emulated/0/Android/data/com.jaapsaz.applecturas/files/Pictures/temp/IMG_20200529_164123_2.jpg', -2.957908, -78.989749, 'A', 5, 2, '2020-06-09 00:00:00', '2020-06-09 00:00:00'),
-(29, '2020-06-11', 0.00, 3.00, 3.00, 4.00, 0.00, '', 'registro consumo de mayo', '', -2.834150, -78.904850, 'A', 1, 2, '2020-06-11 00:00:00', '2020-06-11 00:00:00'),
-(30, '2020-06-14', 0.00, 6.00, 6.00, 4.00, 5.00, '', 'consumo del mes de junio', 'C:\\Users\\Pedro\\AppData\\Local\\Packages\\5b3748c2-7622-4db5-82b5-dc1bbcafffdc_4e5qs8q3t1ytc\\LocalState\\20190809_172137.jpg', 0.000000, 0.000000, 'A', 8, 2, '2020-06-14 00:00:00', '2020-06-14 00:00:00'),
-(31, '2020-06-14', 0.00, 4.00, 4.00, 4.00, 0.00, '', 'consumo de junio', '/storage/emulated/0/Android/data/com.jaapsaz.applecturas/files/Pictures/temp/IMG_20200529_164123.jpg', -2.957204, -78.989597, 'A', 11, 2, '2020-06-14 00:00:00', '2020-06-14 00:00:00');
+(1, '2020-11-15', 0.00, 6.00, 6.00, 0.00, 0.00, '', 'consumo de noviembre', 'C:\\Users\\Pedro\\AppData\\Local\\Packages\\5b3748c2-7622-4db5-82b5-dc1bbcafffdc_4e5qs8q3t1ytc\\LocalState\\20190725_172627 - Copia - Copia - Copia.jpg', 0.000000, 0.000000, 'A', 6, 3, '2020-11-15 05:00:00', '2020-11-15 05:00:00'),
+(2, '2020-11-15', 0.00, 6.00, 6.00, 5.00, 5.00, '', 'consumo noviembre', '', 0.000000, 0.000000, 'A', 13, 2, '2020-11-15 05:00:00', '2020-11-15 05:00:00'),
+(3, '2020-11-15', 0.00, 7.00, 7.00, 5.00, 10.00, '', 'consumo de noviembre', 'C:\\Users\\Pedro\\AppData\\Local\\Packages\\5b3748c2-7622-4db5-82b5-dc1bbcafffdc_4e5qs8q3t1ytc\\LocalState\\20190603_071736 - copia (10).jpg', 0.000000, 0.000000, 'A', 17, 2, '2020-11-15 05:00:00', '2020-11-15 05:00:00'),
+(4, '2020-11-15', 0.00, 5.00, 5.00, 5.00, 0.00, '', 'consumo de noviembre', 'C:\\Users\\Pedro\\AppData\\Local\\Packages\\5b3748c2-7622-4db5-82b5-dc1bbcafffdc_4e5qs8q3t1ytc\\LocalState\\20190725_172609.jpg', 0.000000, 0.000000, 'A', 7, 2, '2020-11-15 05:00:00', '2020-11-15 05:00:00'),
+(5, '2020-11-15', 0.00, 3.00, 3.00, 5.00, 0.00, '', 'consumo de noviembre', 'C:\\Users\\Pedro\\AppData\\Local\\Packages\\5b3748c2-7622-4db5-82b5-dc1bbcafffdc_4e5qs8q3t1ytc\\LocalState\\20190725_155530.jpg', 0.000000, 0.000000, 'A', 15, 3, '2020-11-15 05:00:00', '2020-11-15 05:00:00'),
+(6, '2020-11-15', 0.00, 5.00, 5.00, 5.00, 0.00, '', 'consumo de noviembre', '', 0.000000, 0.000000, 'A', 16, 2, '2020-11-15 05:00:00', '2020-11-15 05:00:00'),
+(7, '2020-11-15', 0.00, 4.00, 4.00, 5.00, 0.00, '', 'consumo de noviembre', 'C:\\Users\\Pedro\\AppData\\Local\\Packages\\5b3748c2-7622-4db5-82b5-dc1bbcafffdc_4e5qs8q3t1ytc\\LocalState\\20190725_172609 - copia.jpg', 0.000000, 0.000000, 'A', 2, 3, '2020-11-15 05:00:00', '2020-11-15 05:00:00'),
+(8, '2020-11-18', 0.00, 5.00, 5.00, 5.00, 0.00, '', 'consumo de noviembre', '', 0.000000, 0.000000, 'A', 10, 3, '2020-11-18 05:00:00', '2020-11-18 05:00:00');
 
 -- --------------------------------------------------------
 
@@ -76,7 +78,7 @@ CREATE TABLE `medidors` (
   `imagen` varchar(120) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `latitud` double(10,6) DEFAULT NULL,
   `longitud` double(10,6) DEFAULT NULL,
-  `persona_id` int(11) DEFAULT NULL,
+  `persona_id` int(10) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -86,51 +88,23 @@ CREATE TABLE `medidors` (
 --
 
 INSERT INTO `medidors` (`id`, `codigo`, `numero`, `marca`, `modelo`, `sector`, `imagen`, `latitud`, `longitud`, `persona_id`, `created_at`, `updated_at`) VALUES
-(1, 'MED1', 1, 'LAsi', 'abc', 'Portete', 'sinimg.jpg', NULL, NULL, 1, '2020-05-27 16:15:26', '2020-06-12 13:09:34'),
-(2, 'MED2', 2, 'LAsi', 'abc', 'Portete', 'sinimg.jpg', NULL, NULL, 2, '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(3, 'MED3', 3, 'LAsi', 'abc', 'Portete', 'sinimg.jpg', NULL, NULL, 3, '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(4, 'MED4', 4, 'LAsi', 'abc', 'Portete', 'sinimg.jpg', NULL, NULL, 4, '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(5, 'MED5', 5, 'LAsi', 'abc', 'Portete', 'sinimg.jpg', NULL, NULL, 5, '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(6, 'MED6', 6, 'LAsi', 'abc', 'Portete', 'sinimg.jpg', NULL, NULL, 6, '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(7, 'MED7', 7, 'LAsi', 'abc', 'Pedregal', 'sinimg.jpg', NULL, NULL, 7, '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(8, 'MED8', 8, 'LAsi', 'abc', 'Portete', 'sinimg.jpg', NULL, NULL, 8, '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(9, 'MED9', 9, 'LAsi', 'abc', 'Portete', 'sinimg.jpg', NULL, NULL, 9, '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(10, 'MED10', 10, 'LAsi', 'abc', 'Portete', 'sinimg.jpg', NULL, NULL, 10, '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(11, 'MED11', 11, 'LAsi', 'abc', 'Portete', 'sinimg.jpg', NULL, NULL, 11, '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(12, 'MED12', 12, 'LAsi', 'abc', 'Portete', 'sinimg.jpg', NULL, NULL, 12, '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(13, 'MED13', 13, 'LAsi', 'abc', 'Rayoloma', 'sinimg.jpg', NULL, NULL, 13, '2020-05-27 16:15:26', '2020-06-12 13:13:20'),
-(14, 'MED14', 14, 'LAsi', 'abc', 'Portete', 'sinimg.jpg', NULL, NULL, 14, '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(15, 'MED15', 15, 'LAsi', 'abc', 'Portete', 'sinimg.jpg', NULL, NULL, 15, '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(16, 'MED16', 16, 'sin marca', 'sin modelo', 'La Unión', '1590578146kisscat.jpg', NULL, NULL, 21, '2020-05-27 16:15:46', '2020-05-27 16:17:36'),
-(17, 'MED17', 17, 'sm', 'sm', 'La Unión', NULL, NULL, NULL, 17, '2020-06-02 20:09:28', '2020-06-02 20:09:28'),
-(18, 'MED18', 18, 'sm', 'sm', 'La Unión', NULL, NULL, NULL, 18, '2020-06-02 20:10:12', '2020-06-02 20:10:12'),
-(19, 'MED19', 19, 'sm', 'sm', 'La Unión', NULL, NULL, NULL, 19, '2020-06-02 20:10:37', '2020-06-02 20:10:37'),
-(20, 'MED20', 20, 'sm', 'sm', 'La Unión', NULL, NULL, NULL, 20, '2020-06-02 20:11:29', '2020-06-02 20:11:29'),
-(21, 'MED21', 21, 'sm', 'sm', 'La Unión', NULL, NULL, NULL, 21, '2020-06-02 20:12:05', '2020-06-02 20:12:05'),
-(22, 'MED22', 22, 'sm', 'sm', 'La Unión', NULL, NULL, NULL, 22, '2020-06-02 20:12:37', '2020-06-02 20:12:37'),
-(23, 'MED23', 23, 'sm', 'sm', 'La Unión', NULL, NULL, NULL, 23, '2020-06-02 20:13:00', '2020-06-02 20:13:00'),
-(24, 'MED24', 24, 'sm', 'sm', 'La Unión', NULL, NULL, NULL, 24, '2020-06-02 20:14:11', '2020-06-02 20:14:11'),
-(25, 'MED25', 25, 'sm', 'sm', 'La Unión', NULL, NULL, NULL, 25, '2020-06-02 20:25:45', '2020-06-02 20:25:45'),
-(26, 'MED26', 26, 'sm', 'sm', 'Pedregal', NULL, NULL, NULL, 26, '2020-06-02 20:27:26', '2020-06-02 20:27:26'),
-(27, 'MED27', 27, 'sm', 'sm', 'Pedregal', NULL, NULL, NULL, 27, '2020-06-02 20:28:00', '2020-06-02 20:28:00'),
-(28, 'MED28', 28, 'sm', 'sm', 'Pedregal', NULL, NULL, NULL, 28, '2020-06-02 20:28:32', '2020-06-02 20:28:32'),
-(29, 'MED29', 29, 'sm', 'sm', 'Pedregal', NULL, NULL, NULL, 29, '2020-06-02 20:30:28', '2020-06-02 20:30:28'),
-(30, 'MED30', 30, 'sm', 'sm', 'Pedregal', NULL, NULL, NULL, 30, '2020-06-02 20:30:52', '2020-06-02 20:30:52'),
-(31, 'MED31', 31, 'sm', 'sm', 'Pedregal', NULL, NULL, NULL, 31, '2020-06-02 20:31:30', '2020-06-02 20:31:30'),
-(32, 'MED32', 32, 'sm', 'sm', 'Pedregal', NULL, NULL, NULL, 32, '2020-06-02 20:32:15', '2020-06-02 20:32:15'),
-(33, 'MED33', 33, 'sm', 'sm', 'Pedregal', NULL, NULL, NULL, 33, '2020-06-02 20:32:49', '2020-06-02 20:32:49'),
-(34, 'MED34', 34, 'sm', 'sm', 'Pedregal', NULL, NULL, NULL, 34, '2020-06-02 20:40:59', '2020-06-02 20:40:59'),
-(35, 'MED35', 35, 'sm', 'sm', 'Pedregal', NULL, NULL, NULL, 35, '2020-06-02 20:41:34', '2020-06-02 20:41:34'),
-(36, 'MED36', 36, 'sm', 'sm', 'Rayoloma', NULL, NULL, NULL, 36, '2020-06-02 21:02:40', '2020-06-02 21:02:40'),
-(37, 'MED37', 37, 'sm', 'sm', 'Rayoloma', NULL, NULL, NULL, 37, '2020-06-02 21:03:08', '2020-06-02 21:03:08'),
-(38, 'MED38', 38, 'sm', 'sm', 'Rayoloma', NULL, NULL, NULL, 38, '2020-06-02 21:08:09', '2020-06-02 21:08:09'),
-(39, 'MED39', 39, 'sm', 'sm', 'Rayoloma', NULL, NULL, NULL, 39, '2020-06-02 21:16:11', '2020-06-02 21:16:11'),
-(40, 'MED40', 40, 'sm', 'sm', 'Rayoloma', NULL, NULL, NULL, 40, '2020-06-02 21:16:33', '2020-06-02 21:16:33'),
-(41, 'MED41', 41, 'sm', 'sm', 'Rayoloma', NULL, NULL, NULL, 41, '2020-06-02 21:56:41', '2020-06-02 21:56:41'),
-(42, 'MED42', 42, 'sm', 'sm', 'Rayoloma', NULL, NULL, NULL, 42, '2020-06-02 21:57:04', '2020-06-02 21:57:04'),
-(43, 'MED43', 43, 'sm', 'sm', 'Rayoloma', NULL, NULL, NULL, 43, '2020-06-02 21:57:52', '2020-06-02 21:57:52'),
-(44, 'MED44', 44, 'sm', 'sm', 'Rayoloma', NULL, NULL, NULL, 44, '2020-06-02 21:58:16', '2020-06-02 21:58:16'),
-(45, 'MED45', 45, 'sm', 'sm', 'Rayoloma', NULL, NULL, NULL, 45, '2020-06-02 21:58:52', '2020-06-02 21:58:52');
+(1, 'MED1', 1, 'LAsi', 'abc', 'Portete', 'sinimg.jpg', NULL, NULL, 1, '2020-11-14 04:35:31', '2020-11-14 04:35:31'),
+(2, 'MED2', 2, 'LAsi', 'abc', 'Portete', 'sinimg.jpg', NULL, NULL, 2, '2020-11-14 04:35:31', '2020-11-14 04:35:31'),
+(3, 'MED3', 3, 'LAsi', 'abc', 'Portete', 'sinimg.jpg', NULL, NULL, 3, '2020-11-14 04:35:31', '2020-11-14 04:35:31'),
+(4, 'MED4', 4, 'LAsi', 'abc', 'Portete', 'sinimg.jpg', NULL, NULL, 4, '2020-11-14 04:35:32', '2020-11-14 04:35:32'),
+(5, 'MED5', 5, 'LAsi', 'abc', 'Portete', 'sinimg.jpg', NULL, NULL, 5, '2020-11-14 04:35:32', '2020-11-14 04:35:32'),
+(6, 'MED6', 6, 'LAsi', 'abc', 'Portete', 'sinimg.jpg', NULL, NULL, 6, '2020-11-14 04:35:32', '2020-11-14 04:35:32'),
+(7, 'MED7', 7, 'LAsi', 'abc', 'Pedregal', 'sinimg.jpg', NULL, NULL, 7, '2020-11-14 04:35:32', '2020-11-14 04:35:32'),
+(8, 'MED8', 8, 'LAsi', 'abc', 'Portete', 'sinimg.jpg', NULL, NULL, 8, '2020-11-14 04:35:32', '2020-11-14 04:35:32'),
+(9, 'MED9', 9, 'LAsi', 'abc', 'Portete', 'sinimg.jpg', NULL, NULL, 9, '2020-11-14 04:35:32', '2020-11-14 04:35:32'),
+(10, 'MED10', 10, 'LAsi', 'abc', 'Portete', 'sinimg.jpg', NULL, NULL, 10, '2020-11-14 04:35:32', '2020-11-14 04:35:32'),
+(11, 'MED11', 11, 'LAsi', 'abc', 'Portete', 'sinimg.jpg', NULL, NULL, 11, '2020-11-14 04:35:32', '2020-11-14 04:35:32'),
+(12, 'MED12', 12, 'LAsi', 'abc', 'Portete', 'sinimg.jpg', NULL, NULL, 12, '2020-11-14 04:35:32', '2020-11-14 04:35:32'),
+(13, 'MED13', 13, 'LAsi', 'abc', 'Rayoloma', 'sinimg.jpg', NULL, NULL, 13, '2020-11-14 04:35:32', '2020-11-14 04:35:32'),
+(14, 'MED14', 14, 'LAsi', 'abc', 'Portete', 'sinimg.jpg', NULL, NULL, 14, '2020-11-14 04:35:32', '2020-11-14 04:35:32'),
+(15, 'MED15', 15, 'LAsi', 'abc', 'Portete', 'sinimg.jpg', NULL, NULL, 15, '2020-11-14 04:35:32', '2020-11-14 04:35:32'),
+(16, 'MED16', 16, 'INBERCONTA', '2020', 'La Union', NULL, NULL, NULL, 21, '2020-11-16 01:17:59', '2020-11-16 01:21:11'),
+(17, 'MED17', 17, 'IBERCONTA', '2020', 'La Union', NULL, NULL, NULL, 22, '2020-11-16 01:18:31', '2020-11-16 01:21:47');
 
 -- --------------------------------------------------------
 
@@ -149,18 +123,22 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(57, '2018_01_16_214348_create_products_table', 1),
-(226, '2014_10_12_000000_create_users_table', 2),
-(227, '2014_10_12_100000_create_password_resets_table', 2),
-(228, '2015_01_20_084450_create_roles_table', 2),
-(229, '2015_01_20_084525_create_role_user_table', 2),
-(230, '2015_01_24_080208_create_permissions_table', 2),
-(231, '2015_01_24_080433_create_permission_role_table', 2),
-(232, '2015_12_04_003040_add_special_role_column', 2),
-(233, '2017_10_17_170735_create_permission_user_table', 2),
-(234, '2020_02_26_165718_create_personas_table', 2),
-(235, '2020_02_26_195454_create_medidors_table', 2),
-(236, '2020_02_28_142129_create_lecturas_table', 2);
+(534, '2014_10_12_000000_create_users_table', 1),
+(535, '2014_10_12_100000_create_password_resets_table', 1),
+(536, '2015_01_20_084450_create_roles_table', 1),
+(537, '2015_01_20_084525_create_role_user_table', 1),
+(538, '2015_01_24_080208_create_permissions_table', 1),
+(539, '2015_01_24_080433_create_permission_role_table', 1),
+(540, '2015_12_04_003040_add_special_role_column', 1),
+(541, '2017_10_17_170735_create_permission_user_table', 1),
+(542, '2018_01_16_214348_create_products_table', 1),
+(543, '2020_02_26_165718_create_personas_table', 1),
+(544, '2020_02_26_195454_create_medidors_table', 1),
+(545, '2020_02_28_142129_create_lecturas_table', 1),
+(546, '2020_07_22_011342_add_foreign_key_medidores_table', 1),
+(547, '2020_07_22_011501_add_foreign_key_lecturas_table', 1),
+(548, '2020_07_31_192058_create_provincias_table', 1),
+(549, '2020_11_13_152507_create_politicas_table', 1);
 
 -- --------------------------------------------------------
 
@@ -194,25 +172,25 @@ CREATE TABLE `permissions` (
 --
 
 INSERT INTO `permissions` (`id`, `name`, `slug`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'Navegar usuarios', 'users.index', 'Lista y navega todos los usuarios del sistema', '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(2, 'Ver detalle de usuario', 'users.show', 'Ve en detalle cada usuario del sistema', '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(3, 'Edición de usuarios', 'users.edit', 'Podría editar cualquier dato de un usuario del sistema', '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(4, 'Eliminar usuario', 'users.destroy', 'Podría eliminar cualquier usuario del sistema', '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(5, 'Navegar roles', 'roles.index', 'Lista y navega todos los roles del sistema', '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(6, 'Ver detalle de un rol', 'roles.show', 'Ve en detalle cada rol del sistema', '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(7, 'Creación de roles', 'roles.create', 'Podría crear nuevos roles en el sistema', '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(8, 'Edición de roles', 'roles.edit', 'Podría editar cualquier dato de un rol del sistema', '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(9, 'Eliminar roles', 'roles.destroy', 'Podría eliminar cualquier rol del sistema', '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(10, 'Navegar Abonados', 'personas.index', 'Lista y navega todos los Abonados del sistema', '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(11, 'Ver detalle de un Abonado', 'personas.show', 'Ve en detalle cada abonado del sistema', '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(12, 'Creación de Abonado', 'personas.create', 'Podría crear nuevos abonados en el sistema', '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(13, 'Edición de Abonado', 'personas.edit', 'Podría editar cualquier dato de un abonado del sistema', '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(14, 'Eliminar Abonado', 'personas.destroy', 'Podría eliminar cualquier Abonado del sistema', '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(15, 'Navegar medidores', 'medidores.index', 'Lista y navega todos los medidores del sistema', '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(16, 'Ver detalle de medidor', 'medidores.show', 'Ve en detalle cada medidor del sistema', '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(17, 'Edición de medidores', 'medidores.edit', 'Podría editar cualquier dato de un medidor del sistema', '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(18, 'Eliminar medidor', 'medidores.destroy', 'Podría eliminar cualquier medidor del sistema', '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(19, 'Navegar Lecturas', 'lecturas.index', 'Lista y navega todas las lecturas del sistema', '2020-05-27 16:15:26', '2020-05-27 16:15:26');
+(1, 'Navegar usuarios', 'users.index', 'Lista y navega todos los usuarios del sistema', '2020-11-14 04:35:29', '2020-11-14 04:35:29'),
+(2, 'Ver detalle de usuario', 'users.show', 'Ve en detalle cada usuario del sistema', '2020-11-14 04:35:29', '2020-11-14 04:35:29'),
+(3, 'Edición de usuarios', 'users.edit', 'Podría editar cualquier dato de un usuario del sistema', '2020-11-14 04:35:29', '2020-11-14 04:35:29'),
+(4, 'Eliminar usuario', 'users.destroy', 'Podría eliminar cualquier usuario del sistema', '2020-11-14 04:35:29', '2020-11-14 04:35:29'),
+(5, 'Navegar roles', 'roles.index', 'Lista y navega todos los roles del sistema', '2020-11-14 04:35:29', '2020-11-14 04:35:29'),
+(6, 'Ver detalle de un rol', 'roles.show', 'Ve en detalle cada rol del sistema', '2020-11-14 04:35:29', '2020-11-14 04:35:29'),
+(7, 'Creación de roles', 'roles.create', 'Podría crear nuevos roles en el sistema', '2020-11-14 04:35:29', '2020-11-14 04:35:29'),
+(8, 'Edición de roles', 'roles.edit', 'Podría editar cualquier dato de un rol del sistema', '2020-11-14 04:35:29', '2020-11-14 04:35:29'),
+(9, 'Eliminar roles', 'roles.destroy', 'Podría eliminar cualquier rol del sistema', '2020-11-14 04:35:29', '2020-11-14 04:35:29'),
+(10, 'Navegar Abonados', 'personas.index', 'Lista y navega todos los Abonados del sistema', '2020-11-14 04:35:29', '2020-11-14 04:35:29'),
+(11, 'Ver detalle de un Abonado', 'personas.show', 'Ve en detalle cada abonado del sistema', '2020-11-14 04:35:29', '2020-11-14 04:35:29'),
+(12, 'Creación de Abonado', 'personas.create', 'Podría crear nuevos abonados en el sistema', '2020-11-14 04:35:29', '2020-11-14 04:35:29'),
+(13, 'Edición de Abonado', 'personas.edit', 'Podría editar cualquier dato de un abonado del sistema', '2020-11-14 04:35:29', '2020-11-14 04:35:29'),
+(14, 'Eliminar Abonado', 'personas.destroy', 'Podría eliminar cualquier Abonado del sistema', '2020-11-14 04:35:30', '2020-11-14 04:35:30'),
+(15, 'Navegar medidores', 'medidores.index', 'Lista y navega todos los medidores del sistema', '2020-11-14 04:35:30', '2020-11-14 04:35:30'),
+(16, 'Ver detalle de medidor', 'medidores.show', 'Ve en detalle cada medidor del sistema', '2020-11-14 04:35:30', '2020-11-14 04:35:30'),
+(17, 'Edición de medidores', 'medidores.edit', 'Podría editar cualquier dato de un medidor del sistema', '2020-11-14 04:35:30', '2020-11-14 04:35:30'),
+(18, 'Eliminar medidor', 'medidores.destroy', 'Podría eliminar cualquier medidor del sistema', '2020-11-14 04:35:30', '2020-11-14 04:35:30'),
+(19, 'Navegar Lecturas', 'lecturas.index', 'Lista y navega todas las lecturas del sistema', '2020-11-14 04:35:30', '2020-11-14 04:35:30');
 
 -- --------------------------------------------------------
 
@@ -233,7 +211,7 @@ CREATE TABLE `permission_role` (
 --
 
 INSERT INTO `permission_role` (`id`, `permission_id`, `role_id`, `created_at`, `updated_at`) VALUES
-(1, 19, 2, '2020-05-27 16:21:31', '2020-05-27 16:21:31');
+(1, 19, 2, '2020-11-14 20:15:53', '2020-11-14 20:15:53');
 
 -- --------------------------------------------------------
 
@@ -271,60 +249,92 @@ CREATE TABLE `personas` (
 --
 
 INSERT INTO `personas` (`id`, `cedula`, `nombre`, `apellido`, `telefono`, `email`, `created_at`, `updated_at`) VALUES
-(1, '0301633285', 'Robinson', 'Cuzco', '2850544', 'ingrcuzco@gmail.com', '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(2, '0300050697', 'Roberto', 'Andrade', '0981828905', 'rmandrade@gmail.com', '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(3, '0104718218', 'Elisabeth', 'Arévalo', '0981828905', 'ekarevalo@gmail.com', '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(4, '0101695914', 'Astudillo', 'Teodoro', '7000569', 'tastudillo@gmail.com', '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(5, '0100998343', 'María Alegría', 'Banegas', '7000112', 'mabanegas@gmail.com', '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(6, '0100939743', 'Ruben', 'Banegas', '7000113', 'rbanegas@gmail.com', '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(7, '0101900199', 'Luis Edison', 'Cabrera Pesantez', '7000114', 'lecabrera@gmail.com', '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(8, '1400555296', 'Edison Ramiro', 'Calle Andrade', '7000115', 'ercalle@gmail.com', '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(9, '0100138726', 'RAFAEL GAVINO', 'CARPIO ESPINOZA', '7000116', 'gbcambisaca@gmail.com', '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(10, '0102875796', 'RAUL', 'CEDILLO PALTA', '7000116', 'rcedillo@gmail.com', '2020-05-27 16:15:26', '2020-05-31 15:26:13'),
-(11, '0301686226', 'DANIEL SALVADOR', 'CORAIZACA NAULA', '7000116', 'dcoraizaca@gmail.com', '2020-05-27 16:15:26', '2020-05-31 15:26:42'),
-(12, '0104012059', 'LUIS FEDERICO', 'CULLQUICONDOR LAIME', '7000116', 'lcullqui@gmail.com', '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(13, '0301781316', 'JORGE LEONARDO', 'CULLQUICONDOR SUMBA', '7000116', 'jcullqui@gmail.com', '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(14, '0301332557', 'SEGUNDO MANUEL', 'CULLQUICONDOR SUMBA', '7000116', 'scullqui@gmail.com', '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(15, '0103553186', 'GALO FABIAN', 'CUZCO COYAGO', '7000116', 'gcuzcocoyago@gmail.com', '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(16, '0301282372', 'DIEGO LEONARDO', 'CUZCO CUZCO', '7000116', 'dcuzcoc@gmail.com', '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(17, '0301261863', 'DORA ERMELINDA', 'CUZCO CUZCO', '7000116', 'decuzcoc@gmail.com', '2020-05-27 16:15:26', '2020-06-01 11:50:14'),
-(18, '0301386330', 'JORGE ROLANDO', 'CUZCO CUZCO', '7000116', 'jcuzcoc@gmail.com', '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(19, '0301423208', 'JOSÉ RAFAEL', 'CUZCO CUZCO', '7000116', 'jcuzcoc@gmail.com', '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(20, '0301166815', 'LUIS GUSTAVO', 'CUZCO CUZCO', '7000116', 'lcuzcoc@gmail.com', '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(21, '0301495826', 'JAVIER MARCELO', 'CUZCO MEJIA', NULL, NULL, '2020-05-27 16:18:35', '2020-05-27 16:18:35'),
-(22, '0300268208', 'José Francisco', 'Cuzco Mejía', '7000263', 'jfcuzcom@gmail.com', '2020-06-02 19:34:41', '2020-06-02 19:34:41'),
-(23, '0300795093', 'María Teresa', 'Cuzco Mejía', '7000237', 'mtcuzcom@gmail.com', '2020-06-02 19:37:55', '2020-06-02 19:37:55'),
-(24, '0301730917', 'Pablo Genaro', 'Cuzco Mejía', '0981828902', 'pgcuzcom@gmail.com', '2020-06-02 19:45:01', '2020-06-02 19:45:01'),
-(25, '0300281250', 'Digna María', 'Cuzco Quito', '7000252', 'dmcuzcoq@gmail.com', '2020-06-02 19:47:00', '2020-06-02 19:47:00'),
-(26, '0300859014', 'Julio Marcelo', 'Cuzco Quito', '0981828901', 'jmcuzcoq@gmail.com', '2020-06-02 19:48:28', '2020-06-02 19:48:28'),
-(27, '0300086568', 'Luis Alberto', 'Cuzco Quito', '7000252', 'lacuzcoq@gmail.com', '2020-06-02 19:49:15', '2020-06-02 19:49:15'),
-(28, '0300277290', 'Luis Ariolfo', 'Cuzco Quito', '7000214', 'lacuzcoqq@gmail.com', '2020-06-02 19:54:09', '2020-06-02 19:54:09'),
-(29, '0301733523', 'Lupe Fernanda', 'Cuzco Quito', '0981828907', 'lfcuzcoq@gmail.com', '2020-06-02 19:55:58', '2020-06-02 19:55:58'),
-(30, '0300148665', 'Manuel Jesús', 'Cuzco Quito', '7000257', 'mjcuzcoq@gmail.com', '2020-06-02 20:00:57', '2020-06-02 20:00:57'),
-(31, '0301224671', 'Victor Guillermo', 'Cuzco Quito', '0998526532', 'vgcuzcoq@gmail.com', '2020-06-02 20:01:42', '2020-06-02 20:01:42'),
-(32, '0103792545', 'Karina Elisabeth', 'Cuzco Quituisaca', '0982568963', 'kecuzcoq@gmail.com', '2020-06-02 20:02:37', '2020-06-02 20:02:37'),
-(33, '0103792537', 'Juan Fernando', 'Cuzco Quituisaca', '0981562485', 'jfcuzcoq@gmail.com', '2020-06-02 20:03:24', '2020-06-02 20:03:24'),
-(34, '0300772217', 'Luis Alejandro', 'Cuzco Sumba', '7000300', 'lacuzcos@gmail.com', '2020-06-02 20:04:07', '2020-06-02 20:04:07'),
-(35, '0300270337', 'María Lucía', 'Cuzco Sumba', '7000253', 'mlcuzcos@gmail.com', '2020-06-02 20:04:44', '2020-06-02 20:04:44'),
-(36, '0300263894', 'Victor Manuel', 'Cuzco Zumba', '7000256', 'vmcuzcoz@gmail.com', '2020-06-02 20:05:51', '2020-06-02 20:05:51'),
-(37, '0104740105', 'Marcos Israel', 'Deleg Mejía', '7000569', 'midelegm@gmail.com', '2020-06-02 20:08:01', '2020-06-02 20:08:01'),
-(38, '0302201587', 'María Magdalena', 'Dumanaula Quito', '7000325', 'mmdumanaulaq@gmail.com', '2020-06-02 21:19:38', '2020-06-02 21:19:38'),
-(39, '0300800059', 'Luis Serafín', 'Dumanaula Velecela', '7000217', 'lsdumanaulav@gmail.com', '2020-06-02 21:25:11', '2020-06-02 21:25:11'),
-(40, '0102012739', 'Ivan Patricio', 'Duran Bonilla', '0985263588', 'ipduranb@gmail.com', '2020-06-02 21:27:09', '2020-06-02 21:27:09'),
-(41, '0300904315', 'Segundo Francisco', 'Espinoza Bueno', '0984528569', 'sfespinozab@gmail.com', '2020-06-02 21:28:41', '2020-06-02 21:28:41'),
-(42, '0102846086', 'Leonardo Javier', 'García Ramos', '7000189', 'ljgarciar@gmail.com', '2020-06-02 21:29:53', '2020-06-02 21:29:53'),
-(43, '0300508652', 'Manuel Alejandro', 'Gomez Mejía', '7000258', 'magomezm@gmail.com', '2020-06-02 21:30:50', '2020-06-02 21:30:50'),
-(44, '0104382676', 'María Catalina', 'Gomez Mejía', '7000139', 'mcgomezm@gmail.com', '2020-06-02 21:31:47', '2020-06-02 21:31:47'),
-(45, '0102207032', 'María Juana', 'Gomez Mejía', '7000259', 'mjgomezm@gmail.com', '2020-06-02 21:36:02', '2020-06-02 21:36:02'),
-(46, '0301172060', 'Segundo Manuel', 'Gomez Mejía', '7000250', 'smgomezm@gmail.com', '2020-06-02 21:37:02', '2020-06-02 21:37:02'),
-(47, '0103579181', 'María Gerardina', 'Gomez Sumba', '7000589', 'mggomezs@gmail.com', '2020-06-02 21:43:48', '2020-06-02 21:43:48'),
-(48, '1708493083', 'María Simona', 'Guamán Pichisaca', '7000714', 'msguamanp@gmail.com', '2020-06-02 21:45:04', '2020-06-02 21:45:04'),
-(49, '1703807873', 'Luis Hernesto', 'Herrera Morales', '7000567', 'lhherreram@gmail.com', '2020-06-02 21:45:52', '2020-06-02 21:45:52'),
-(50, '0104509294', 'Wilmer Danilo', 'Lalvay Yunga', '0985263258', 'wdlalvayy@gmail.com', '2020-06-02 21:50:09', '2020-06-02 21:50:09'),
-(51, '0103151668', 'César Eliceo', 'Lata Quito', '7000251', 'celataq@gmail.com', '2020-06-02 21:51:13', '2020-06-02 21:51:13'),
-(52, '0301939237', 'Miguel Ángel', 'Lata Quito', '7000846', 'malataq@gmail.com', '2020-06-02 21:52:02', '2020-06-02 21:52:02'),
-(53, '0101477735', 'María Celina de Jesús', 'León Peralta', '7000439', 'mcleonp@gmail.com', '2020-06-02 21:54:22', '2020-06-02 21:54:22'),
-(54, '0302020995', 'Luis Antonio', 'León Songor', NULL, 'laleons@gmail.com', '2020-06-02 21:55:06', '2020-06-02 21:55:06');
+(1, '0301633285', 'Robinson', 'Cuzco', '2850544', 'ingrcuzco@gmail.com', '2020-11-14 04:35:30', '2020-11-14 04:35:30'),
+(2, '0300050697', 'Roberto', 'Andrade', '0981828905', 'rmandrade@gmail.com', '2020-11-14 04:35:31', '2020-11-14 04:35:31'),
+(3, '0104718218', 'Elisabeth', 'Arévalo', '0981828905', 'ekarevalo@gmail.com', '2020-11-14 04:35:31', '2020-11-14 04:35:31'),
+(4, '0101695914', 'Astudillo', 'Teodoro', '7000569', 'tastudillo@gmail.com', '2020-11-14 04:35:31', '2020-11-14 04:35:31'),
+(5, '0100998343', 'María Alegría', 'Banegas', '7000112', 'mabanegas@gmail.com', '2020-11-14 04:35:31', '2020-11-14 04:35:31'),
+(6, '0100939743', 'Ruben', 'Banegas', '7000113', 'rbanegas@gmail.com', '2020-11-14 04:35:31', '2020-11-14 04:35:31'),
+(7, '0101900199', 'Luis Edison', 'Cabrera Pesantez', '7000114', 'lecabrera@gmail.com', '2020-11-14 04:35:31', '2020-11-14 04:35:31'),
+(8, '1400555296', 'Edison Ramiro', 'Calle Andrade', '7000115', 'ercalle@gmail.com', '2020-11-14 04:35:31', '2020-11-14 04:35:31'),
+(9, '0100138726', 'RAFAEL GAVINO', 'CARPIO ESPINOZA', '7000116', 'carpioerg@gmail.com', '2020-11-14 04:35:31', '2020-11-14 04:35:31'),
+(10, '0102875796', 'RAUL', 'CEDILLO PALTA', '7000116', 'cedillopr@gmail.com', '2020-11-14 04:35:31', '2020-11-14 04:35:31'),
+(11, '0301686226', 'DANIEL SALVADOR', 'CORAIZACA NAULA', '7000116', 'coraizacadsn@gmail.com', '2020-11-14 04:35:31', '2020-11-14 04:35:31'),
+(12, '0104012059', 'LUIS FEDERICO', 'CULLQUICONDOR LAIME', '7000116', 'lcullqui@gmail.com', '2020-11-14 04:35:31', '2020-11-14 04:35:31'),
+(13, '0301781316', 'JORGE LEONARDO', 'CULLQUICONDOR SUMBA', '7000116', 'jcullqui@gmail.com', '2020-11-14 04:35:31', '2020-11-14 04:35:31'),
+(14, '0301332557', 'SEGUNDO MANUEL', 'CULLQUICONDOR SUMBA', '7000116', 'scullqui@gmail.com', '2020-11-14 04:35:31', '2020-11-14 04:35:31'),
+(15, '0103553186', 'GALO FABIAN', 'CUZCO COYAGO', '7000116', 'gcuzcocoyago@gmail.com', '2020-11-14 04:35:31', '2020-11-14 04:35:31'),
+(16, '0301282372', 'DIEGO LEONARDO', 'CUZCO CUZCO', '7000116', 'dlcuzcoc@gmail.com', '2020-11-14 04:35:31', '2020-11-14 04:35:31'),
+(17, '0301261863', 'DORA ERMELINDA', 'CUZCO CUZCO', '7000116', 'decuzcoc@gmail.com', '2020-11-14 04:35:31', '2020-11-14 04:35:31'),
+(18, '0301386330', 'JORGE ROLANDO', 'CUZCO CUZCO', '7000116', 'jrcuzcoc@gmail.com', '2020-11-14 04:35:31', '2020-11-14 04:35:31'),
+(19, '0301423208', 'JOSÉ RAFAEL', 'CUZCO CUZCO', '7000116', 'jrcuzcoc@gmail.com', '2020-11-14 04:35:31', '2020-11-14 04:35:31'),
+(20, '0301166815', 'LUIS GUSTAVO', 'CUZCO CUZCO', '7000116', 'lcuzcoc@gmail.com', '2020-11-14 04:35:31', '2020-11-14 04:35:31'),
+(21, '1204104796', 'PEDRO OMAR', 'MEJIA YEPEZ', '4127778', 'pmejia1979@hotmail.com', '2020-11-16 01:19:54', '2020-11-16 01:19:54'),
+(22, '1204114785', 'LUIS FABIAN', 'YEPEZ MEJIA', '4127772', 'pmejia1979@hotmail.com', '2020-11-16 01:20:33', '2020-11-16 01:20:33');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `politicas`
+--
+
+CREATE TABLE `politicas` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `cantidadConsumo` double(8,2) NOT NULL,
+  `valorConsumo` double(8,2) NOT NULL,
+  `valorExeso` double(8,2) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `politicas`
+--
+
+INSERT INTO `politicas` (`id`, `cantidadConsumo`, `valorConsumo`, `valorExeso`, `created_at`, `updated_at`) VALUES
+(1, 5.00, 5.00, 5.00, '2020-11-14 04:36:20', '2020-11-14 04:57:02');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `products`
+--
+
+CREATE TABLE `products` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `provincias`
+--
+
+CREATE TABLE `provincias` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `nombre` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `poblacion` double(10,2) NOT NULL,
+  `parroquias` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `provincias`
+--
+
+INSERT INTO `provincias` (`id`, `nombre`, `poblacion`, `parroquias`, `created_at`, `updated_at`) VALUES
+(1, 'Azuay', 4000000.00, 50, '2020-11-14 04:35:33', '2020-11-14 04:35:33'),
+(2, 'Cañar', 2000000.00, 40, '2020-11-14 04:35:33', '2020-11-14 04:35:33'),
+(3, 'Los Rios', 1500000.00, 30, '2020-11-14 04:35:33', '2020-11-14 04:35:33'),
+(4, 'Guayas', 6000000.00, 90, '2020-11-14 04:35:33', '2020-11-14 04:35:33'),
+(5, 'El oro', 1000000.00, 60, '2020-11-14 04:35:33', '2020-11-14 04:35:33'),
+(6, 'Manabi', 5000000.00, 70, '2020-11-14 04:35:33', '2020-11-14 04:35:33'),
+(7, 'Esmeraldas', 4000000.00, 45, '2020-11-14 04:35:34', '2020-11-14 04:35:34');
 
 -- --------------------------------------------------------
 
@@ -347,8 +357,8 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `name`, `slug`, `description`, `created_at`, `updated_at`, `special`) VALUES
-(1, 'Admin', 'slug', NULL, '2020-05-27 16:15:26', '2020-05-27 16:15:26', 'all-access'),
-(2, 'Lector', 'Lector', 'Lector de medidores', '2020-05-27 16:21:31', '2020-05-27 16:21:31', NULL);
+(1, 'Admin', 'slug', NULL, '2020-11-14 04:35:30', '2020-11-14 04:35:30', 'all-access'),
+(2, 'Lector', 'Lector', 'lector de agua de medidores potable', '2020-11-14 20:15:53', '2020-11-14 20:15:53', NULL);
 
 -- --------------------------------------------------------
 
@@ -370,11 +380,8 @@ CREATE TABLE `role_user` (
 
 INSERT INTO `role_user` (`id`, `role_id`, `user_id`, `created_at`, `updated_at`) VALUES
 (1, 1, 1, NULL, NULL),
-(2, 2, 2, '2020-05-27 16:22:43', '2020-05-27 16:22:43'),
-(3, 2, 3, '2020-06-01 22:08:25', '2020-06-01 22:08:25'),
-(4, 2, 4, '2020-06-01 22:08:44', '2020-06-01 22:08:44'),
-(5, 2, 5, '2020-06-01 22:10:04', '2020-06-01 22:10:04'),
-(6, 2, 6, '2020-06-09 16:56:00', '2020-06-09 16:56:00');
+(2, 2, 2, '2020-11-14 20:16:22', '2020-11-14 20:16:22'),
+(3, 2, 3, '2020-11-14 20:17:12', '2020-11-14 20:17:12');
 
 -- --------------------------------------------------------
 
@@ -398,12 +405,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `sector`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Gerardo Cuzco', 'gcuzco@gmail.com', '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', NULL, 'BHI2sEfZEXGpsg199swhC0PeXNZmpM3UOgci6CYqfXmLHsFSKWaDOi2vHiCb', '2020-05-27 16:15:26', '2020-05-27 16:15:26'),
-(2, 'Pedro Mejía', 'pomy@gmail.com', '$2y$10$97G8lkmC2HxGs50nKH3A5uz1uFn2DbqFdNPGhHaGgYURQyGZoxXaO', 'Portete,', 'gTqjH3y3PektnrSr1Ihjd14HB8muUxcVqtjG8sGrkhKY1crzEB08KCVONpCE', '2020-05-27 16:22:04', '2020-06-12 12:47:47'),
-(3, 'Nelson Sumba', 'nsumba@gmail.com', '$2y$10$AtpYkYemPnNiQ7hUZQNKiukMvFn3NDBLfGJAt72.d1xur8DomFZny', 'Pedregal,', 'Kl4RKuS9BYo79sPpsxLRio1NE09YrOpfuJB2z94FRosv70WVp7Y2JDwAEyGJ', '2020-06-01 22:06:40', '2020-06-12 12:48:08'),
-(4, 'Carlos Quito', 'cquito@gmail.com', '$2y$10$wjvdmdUgQSZ9Jo4jC5Oxwepe8FizHbj3eynOwt0ecBLne8rOTEEkK', 'La Unión,', 'JYSDWmvSs5rzVljbYjFLXACERE1DkBlYdnOywYDoiatFZMR4oOFRSQRwDwi0', '2020-06-01 22:07:16', '2020-06-12 12:48:20'),
-(5, 'Maria Cruz', 'mcruz@gmail.com', '$2y$10$sdtRKbYf6QEzfWQmaQlaTuOQEZEQGzFVhwkU6YoiU84GKlo1uOSKC', 'Rayoloma,', 'VRbJ3unlhnsfURilDLRcVj6pheiiUEwKfp11BTvW8yENQJl3cy5TsivlZgTN', '2020-06-01 22:09:30', '2020-06-12 12:48:31'),
-(6, 'omar mejia', 'omejia@gmail.com', '$2y$10$1JmZdlIFqlu3jliAx/uF3ugda7H/yq8JsdegQW7OIG9yTxcT9a0ku', 'Portete,La Unión,Rayoloma,', 'AdayJFsFByxOMzSfHWJfA8q3NqnZu23qd4nHlXwPegXhhAfxMI25jpT9DawF', '2020-06-09 16:54:37', '2020-06-15 02:48:52');
+(1, 'Gerardo Cuzco', 'gcuzco@gmail.com', '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', NULL, 'KqDflCgcTN', '2020-11-14 04:35:30', '2020-11-14 04:35:30'),
+(2, 'Bella Yepez', 'byepez@gmail.com', '$2y$10$iVuTrn5m3Humu/BcqklkHO5wMLuHWIw30Z4/2P/C5xTIiLC/ysxNe', 'Pedregal,La Union,Rayoloma,', NULL, '2020-11-14 20:14:47', '2020-11-16 01:12:34'),
+(3, 'demo2', 'demo2@demo.com', '$2y$10$ONJ9muAk9H6iF7TBFq.AG.rmKaMO/M8Pz3eaLJpGtTZb0fG4x6Xn.', 'Portete,La Union,', NULL, '2020-11-14 20:17:12', '2020-11-14 20:17:12');
 
 --
 -- Índices para tablas volcadas
@@ -413,7 +417,9 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `sector`, `remember_toke
 -- Indices de la tabla `lecturas`
 --
 ALTER TABLE `lecturas`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `lecturas_medidor_id_foreign` (`medidor_id`),
+  ADD KEY `lecturas_user_id_foreign` (`user_id`);
 
 --
 -- Indices de la tabla `medidors`
@@ -421,7 +427,8 @@ ALTER TABLE `lecturas`
 ALTER TABLE `medidors`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `medidors_codigo_unique` (`codigo`),
-  ADD UNIQUE KEY `medidors_numero_unique` (`numero`);
+  ADD UNIQUE KEY `medidors_numero_unique` (`numero`),
+  ADD KEY `medidors_persona_id_foreign` (`persona_id`);
 
 --
 -- Indices de la tabla `migrations`
@@ -466,6 +473,24 @@ ALTER TABLE `personas`
   ADD UNIQUE KEY `personas_cedula_unique` (`cedula`);
 
 --
+-- Indices de la tabla `politicas`
+--
+ALTER TABLE `politicas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `provincias`
+--
+ALTER TABLE `provincias`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `roles`
 --
 ALTER TABLE `roles`
@@ -496,19 +521,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `lecturas`
 --
 ALTER TABLE `lecturas`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `medidors`
 --
 ALTER TABLE `medidors`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=237;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=550;
 
 --
 -- AUTO_INCREMENT de la tabla `permissions`
@@ -532,7 +557,25 @@ ALTER TABLE `permission_user`
 -- AUTO_INCREMENT de la tabla `personas`
 --
 ALTER TABLE `personas`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT de la tabla `politicas`
+--
+ALTER TABLE `politicas`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `provincias`
+--
+ALTER TABLE `provincias`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -544,17 +587,30 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `role_user`
 --
 ALTER TABLE `role_user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `lecturas`
+--
+ALTER TABLE `lecturas`
+  ADD CONSTRAINT `lecturas_medidor_id_foreign` FOREIGN KEY (`medidor_id`) REFERENCES `medidors` (`id`),
+  ADD CONSTRAINT `lecturas_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Filtros para la tabla `medidors`
+--
+ALTER TABLE `medidors`
+  ADD CONSTRAINT `medidors_persona_id_foreign` FOREIGN KEY (`persona_id`) REFERENCES `personas` (`id`);
 
 --
 -- Filtros para la tabla `permission_role`

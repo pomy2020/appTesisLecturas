@@ -3,12 +3,18 @@ include "../../apirest/config.php";
 include "../../apirest/utils.php";
 
 
-$dbConn =  connect($db);
+if(isset($_SERVER['PHP_AUTH_USER']) && isset($_SERVER['PHP_AUTH_PW']))
+{
+      $dbConn =  connect($db);
+      $email = $_SERVER['PHP_AUTH_USER'];
+      $password = $_SERVER['PHP_AUTH_PW'];
+if(validar_usuario_password($email,$password,$dbConn))
+{
 
 /*
   listar todas las lecturas o solo una
  */
-if ($_SERVER['REQUEST_METHOD'] == 'GET')
+  if ($_SERVER['REQUEST_METHOD'] == 'GET')
 {
     if (isset($_GET['StrIds']))
     {
@@ -24,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
         Basico,
         Exceso,
         Observacion,
-        Estado=1,
+        Estado,
         Latitud,
         Longitud,
         Medidor_id,
@@ -48,22 +54,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
         header("HTTP/1.1 400 Bad Request");
     }
     }
-    else {
-      //Mostrar lista de lecturas
-      $sql = $dbConn->prepare("SELECT * FROM lecturas");
-      $sql->execute();
-      $sql->setFetchMode(PDO::FETCH_ASSOC);
-      header("HTTP/1.1 200 OK");
-      echo json_encode( $sql->fetchAll());
-      exit();
-  }
+
 }
 
 // Crear una nueva lectura
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-    try
-    { 
     $input = $_POST;
     $sql = "INSERT INTO lecturas
           (fecha,anterior,actual,consumo,basico,exceso,observacion,imagen,latitud,longitud,estado,medidor_id,user_id,created_at,updated_at)
@@ -80,48 +76,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
       echo json_encode($input);
       exit();
    }
-    }
-   catch (PDOException $e)
-    {
-        header("HTTP/1.1 400 Bad Request");
-    }
 }
-
-//Borrar
-if ($_SERVER['REQUEST_METHOD'] == 'DELETE')
-{
-  $id = $_GET['id'];
-  $statement = $dbConn->prepare("DELETE FROM lecturas where id=:id");
-  $statement->bindValue(':id', $id);
-  $statement->execute();
-  header("HTTP/1.1 200 OK");
-  exit();
-}
-
-//Actualizar
-if ($_SERVER['REQUEST_METHOD'] == 'PUT')
-{
-    $input = $_GET;
-    echo $input['id'];
-    $lecturaId = $input['id'];
-    $fields = getParams($input);
-
-    $sql = "
-          UPDATE lecturas
-          SET $fields
-          WHERE id='$lecturaId'
-           ";
-
-    $statement = $dbConn->prepare($sql);
-    bindAllValues($statement, $input);
-
-    $statement->execute();
-    header("HTTP/1.1 200 OK");
-    exit();
-}
-
 
 //En caso de que ninguna de las opciones anteriores se haya ejecutado
 header("HTTP/1.1 400 Bad Request");
+}
+else
+//cuando no concide los datos de usuario
+header("HTTP/1.1 401 Unauthorized");
+}
+else
+//cuando no se envian las credenciales
+header("HTTP/1.1 403 Forbidden");
 
 ?>

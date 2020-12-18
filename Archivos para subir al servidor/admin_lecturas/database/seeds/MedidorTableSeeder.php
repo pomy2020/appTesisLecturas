@@ -18,7 +18,7 @@ class MedidorTableSeeder extends Seeder
             'numero'        => '1',
             'marca'   	=> 'LAsi',
             'modelo'		=> 'abc',
-            'sector'		=> 'portete',
+            'sector'		=> 'Portete',
             'imagen'		=> 'sinimg.jpg',
             'persona_id'		=> '1',
         ]);
@@ -27,7 +27,7 @@ class MedidorTableSeeder extends Seeder
             'numero'        => '2',
             'marca'     => 'LAsi',
             'modelo'        => 'abc',
-            'sector'        => 'portete',
+            'sector'        => 'Portete',
             'imagen'        => 'sinimg.jpg',
             'persona_id'        => '2',
         ]);
@@ -36,7 +36,7 @@ class MedidorTableSeeder extends Seeder
             'numero'        => '3',
             'marca'     => 'LAsi',
             'modelo'        => 'abc',
-            'sector'        => 'portete',
+            'sector'        => 'Portete',
             'imagen'        => 'sinimg.jpg',
             'persona_id'        => '3',
         ]);
@@ -45,7 +45,7 @@ class MedidorTableSeeder extends Seeder
             'numero'        => '4',
             'marca'     => 'LAsi',
             'modelo'        => 'abc',
-            'sector'        => 'portete',
+            'sector'        => 'Portete',
             'imagen'        => 'sinimg.jpg',
             'persona_id'        => '4',
         ]);
@@ -54,7 +54,7 @@ class MedidorTableSeeder extends Seeder
             'numero'        => '5',
             'marca'     => 'LAsi',
             'modelo'        => 'abc',
-            'sector'        => 'portete',
+            'sector'        => 'Portete',
             'imagen'        => 'sinimg.jpg',
             'persona_id'        => '5',
         ]);
@@ -63,7 +63,7 @@ class MedidorTableSeeder extends Seeder
             'numero'        => '6',
             'marca'     => 'LAsi',
             'modelo'        => 'abc',
-            'sector'        => 'portete',
+            'sector'        => 'Portete',
             'imagen'        => 'sinimg.jpg',
             'persona_id'        => '6',
         ]);
@@ -72,7 +72,7 @@ class MedidorTableSeeder extends Seeder
             'numero'        => '7',
             'marca'     => 'LAsi',
             'modelo'        => 'abc',
-            'sector'        => 'pedregal',
+            'sector'        => 'Pedregal',
             'imagen'        => 'sinimg.jpg',
             'persona_id'        => '7',
         ]);
@@ -81,7 +81,7 @@ class MedidorTableSeeder extends Seeder
             'numero'        => '8',
             'marca'     => 'LAsi',
             'modelo'        => 'abc',
-            'sector'        => 'portete',
+            'sector'        => 'Portete',
             'imagen'        => 'sinimg.jpg',
             'persona_id'        => '8',
         ]);
@@ -90,7 +90,7 @@ class MedidorTableSeeder extends Seeder
             'numero'        => '9',
             'marca'     => 'LAsi',
             'modelo'        => 'abc',
-            'sector'        => 'portete',
+            'sector'        => 'Portete',
             'imagen'        => 'sinimg.jpg',
             'persona_id'        => '9',
         ]);
@@ -99,7 +99,7 @@ class MedidorTableSeeder extends Seeder
             'numero'        => '10',
             'marca'     => 'LAsi',
             'modelo'        => 'abc',
-            'sector'        => 'portete',
+            'sector'        => 'Portete',
             'imagen'        => 'sinimg.jpg',
             'persona_id'        => '10',
         ]);
@@ -108,7 +108,7 @@ class MedidorTableSeeder extends Seeder
             'numero'        => '11',
             'marca'     => 'LAsi',
             'modelo'        => 'abc',
-            'sector'        => 'portete',
+            'sector'        => 'Portete',
             'imagen'        => 'sinimg.jpg',
             'persona_id'        => '11',
         ]);
@@ -117,7 +117,7 @@ class MedidorTableSeeder extends Seeder
             'numero'        => '12',
             'marca'     => 'LAsi',
             'modelo'        => 'abc',
-            'sector'        => 'portete',
+            'sector'        => 'Portete',
             'imagen'        => 'sinimg.jpg',
             'persona_id'        => '12',
         ]);
@@ -126,7 +126,7 @@ class MedidorTableSeeder extends Seeder
             'numero'        => '13',
             'marca'     => 'LAsi',
             'modelo'        => 'abc',
-            'sector'        => 'rayo loma',
+            'sector'        => 'Rayoloma',
             'imagen'        => 'sinimg.jpg',
             'persona_id'        => '13',
         ]);
@@ -135,7 +135,7 @@ class MedidorTableSeeder extends Seeder
             'numero'        => '14',
             'marca'     => 'LAsi',
             'modelo'        => 'abc',
-            'sector'        => 'portete',
+            'sector'        => 'Portete',
             'imagen'        => 'sinimg.jpg',
             'persona_id'        => '14',
         ]);
@@ -144,7 +144,7 @@ class MedidorTableSeeder extends Seeder
             'numero'        => '15',
             'marca'     => 'LAsi',
             'modelo'        => 'abc',
-            'sector'        => 'portete',
+            'sector'        => 'Portete',
             'imagen'        => 'sinimg.jpg',
             'persona_id'        => '15',
         ]);

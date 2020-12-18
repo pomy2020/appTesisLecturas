@@ -24,7 +24,7 @@ class CreateMedidorsTable extends Migration
             $table->string('imagen')->nullable();
             $table->float('latitud',10,6)->nullable();
             $table->float('longitud',10,6)->nullable();
-            $table->Integer('persona_id')->nullable();;
+            $table->unsignedInteger('persona_id')->nullable();
             $table->timestamps();
         });
     }

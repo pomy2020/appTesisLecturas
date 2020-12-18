@@ -16,7 +16,7 @@
 </div>
 <div class="form-group">
 	{{ Form::label('Sector', 'Sector') }}
-	{{ Form::select('sector', array('La unión' => 'La Unión', 'Portete' => 'Portete','Pedregal' => 'Pedregal','Rayoloma' => 'Rayoloma'),'portete', ['class' => 'form-control'])}}
+	{{ Form::select('sector', array('La Unión' => 'La Unión', 'Portete' => 'Portete','Pedregal' => 'Pedregal','Rayoloma' => 'Rayoloma'),'$medidor->sector', ['class' => 'form-control'])}}
 
 </div>
 <div class="form-group">

@@ -11,8 +11,8 @@
                     'method' => 'GET']) !!} 
                         @include('medidores.partials.formAbonado')
                         @if($abonado != null)
-                            Nombre: {{$abonado->nombre}}
-                            <br> 
+                            Nombre: {{$abonado->nombre}} 
+                            <br>
                             Apellido: {{$abonado->apellido}} 
                         @endif
                     {!! Form::close() !!}

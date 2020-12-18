@@ -82,7 +82,7 @@ class PersonaTableSeeder extends Seeder
             'Nombre'        => 'RAFAEL GAVINO',
             'Apellido'      => 'CARPIO ESPINOZA',
             'telefono'      => '7000116',
-            'email'     => 'gbcambisaca@gmail.com',
+            'email'     => 'carpioerg@gmail.com',
         ]);
 
         Persona::create([
@@ -90,7 +90,7 @@ class PersonaTableSeeder extends Seeder
             'Nombre'        => 'RAUL',
             'Apellido'      => 'CEDILLO PALTA',
             'telefono'      => '7000116',
-            'email'     => 'gbcambisaca@gmail.com',
+            'email'     => 'cedillopr@gmail.com',
         ]);
 
         Persona::create([
@@ -98,7 +98,7 @@ class PersonaTableSeeder extends Seeder
             'Nombre'        => 'DANIEL SALVADOR',
             'Apellido'      => 'CORAIZACA NAULA',
             'telefono'      => '7000116',
-            'email'     => 'gbcambisaca@gmail.com',
+            'email'     => 'coraizacadsn@gmail.com',
         ]);
 
         Persona::create([
@@ -138,7 +138,7 @@ class PersonaTableSeeder extends Seeder
             'Nombre'        => 'DIEGO LEONARDO',
             'Apellido'      => 'CUZCO CUZCO',
             'telefono'      => '7000116',
-            'email'     => 'dcuzcoc@gmail.com',
+            'email'     => 'dlcuzcoc@gmail.com',
         ]);
 
         Persona::create([
@@ -146,7 +146,7 @@ class PersonaTableSeeder extends Seeder
             'Nombre'        => 'DORA ERMELINDA',
             'Apellido'      => 'CUZCO CUZCO',
             'telefono'      => '7000116',
-            'email'     => 'dcuzcoc@gmail.com',
+            'email'     => 'decuzcoc@gmail.com',
         ]);
 
         Persona::create([
@@ -154,7 +154,7 @@ class PersonaTableSeeder extends Seeder
             'Nombre'        => 'JORGE ROLANDO',
             'Apellido'      => 'CUZCO CUZCO',
             'telefono'      => '7000116',
-            'email'     => 'jcuzcoc@gmail.com',
+            'email'     => 'jrcuzcoc@gmail.com',
         ]);
 
         Persona::create([
@@ -162,7 +162,7 @@ class PersonaTableSeeder extends Seeder
             'Nombre'        => 'JOSÉ RAFAEL',
             'Apellido'      => 'CUZCO CUZCO',
             'telefono'      => '7000116',
-            'email'     => 'jcuzcoc@gmail.com',
+            'email'     => 'jrcuzcoc@gmail.com',
         ]);
 
         Persona::create([

@@ -41,7 +41,56 @@ Route::middleware(['auth'])->group(function () {
 
 	Route::get('roles/{role}/edit', 'RoleController@edit')->name('roles.edit')
 		->middleware('permission:roles.edit');
-	//Users
+
+		//Provincia
+	Route::post('provincia/store', 'ProvinciaController@store')->name('provincia.store')
+		->middleware('permission:provincia.store');
+
+	Route::get('Provincia/{provincia?}', 'ProvinciaController@index')->name('provincia.index')
+		->middleware('permission:provincia.index');
+
+	Route::get('provincia/create', 'provinciaController@create')->name('provincia.create')
+		->middleware('permission:provincia.create');
+
+	Route::put('provincia/{provincia}', 'provinciaController@update')->name('provincia.update')
+		->middleware('permission:provincia.edit');
+
+	Route::get('provincia/{provincia}', 'ProvinciaController@show')->name('provincia.show')
+		->middleware('permission:provincia.show');
+
+	Route::delete('provincia/{provincia}', 'ProvinciaController@destroy')->name('provincia.destroy')
+		->middleware('permission:provincia.destroy');
+
+	Route::get('provincia/{provincia}/edit', 'ProvinciaController@edit')->name('provincia.edit')
+		->middleware('permission:provincia.edit');	
+	
+	//politicas
+		Route::post('politica/store', 'PoliticaController@store')->name('politica.store')
+		->middleware('permission:politica.store');
+
+	Route::get('Politica/{politica?}', 'PoliticaController@index')->name('politica.index')
+		->middleware('permission:politica.index');
+
+	Route::get('politica/create', 'politicaController@create')->name('politica.create')
+		->middleware('permission:politica.create');
+
+	Route::put('politica/{politica}', 'politicaController@update')->name('politica.update')
+		->middleware('permission:politica.edit');
+
+	Route::get('politica/{politica}', 'PoliticaController@show')->name('politica.show')
+		->middleware('permission:politica.show');
+
+	Route::delete('politica/{politica}', 'PoliticaController@destroy')->name('politica.destroy')
+		->middleware('permission:politica.destroy');
+
+	Route::get('politica/{politica}/edit', 'PoliticaController@edit')->name('politica.edit')
+		->middleware('permission:politica.edit');
+	//User
+		Route::post('users/store', 'UserController@store')->name('users.store')
+		->middleware('permission:users.create');
+		Route::get('users/create', 'UserController@create')->name('users.create')
+		->middleware('permission:users.create');
+
 	Route::get('users', 'UserController@index')->name('users.index')
 		->middleware('permission:users.index');
 

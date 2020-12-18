@@ -61,6 +61,16 @@
                             <a class="nav-link" href="{{ route('roles.index') }}">Roles</a>
                         </li>
                         @endcan
+                        @can('provincia.index')
+                        <li class="nav-item">                            
+                            <a class="nav-link" href="{{ route('provincia.index') }}">provincias</a>
+                        </li>
+                        @endcan
+                         @can('politica.index')
+                        <li class="nav-item">                            
+                            <a class="nav-link" href="{{ route('politica.index') }}">politicas</a>
+                        </li>
+                        @endcan
                     </ul>
 
                     <!-- Right Side Of Navbar -->
