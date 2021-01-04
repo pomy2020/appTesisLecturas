@@ -12,7 +12,50 @@
                         Reporte en PDF
                     </a>    
                 </div>
+                <form>
+                <div class="panel-heading">
+                 <label for="mes">Seleccione mes:</label>
 
+<select class="form-control form-control-sm" name="mes" id="mes">
+  <option value="1">Enero</option>
+  <option value="2">Febrero</option>
+  <option value="3">Marzo</option>
+  <option value="4">Abril</option>
+   <option value="5">Mayo</option>
+  <option value="6">Junio</option>
+  <option value="7">Julio</option>
+  <option value="8">Agosto</option>
+   <option value="9">Septiembre</option>
+  <option value="10">Octubre</option>
+  <option value="11">Noviembre</option>
+  <option value="12">Diciembre</option>
+</select> 
+
+<label for="anio">Seleccione año:</label>
+
+<select class="form-control form-control-sm" name="anio" id="anio">
+  <option value="2020">2020</option>
+  <option value="2021">2021</option>
+  <option value="2022">2022</option>
+  <option value="2023">2023</option>
+</select> 
+
+<label for="sector">Seleccione sector:</label>
+
+<select class="form-control form-control-sm" name="sector" id="sector">
+  <option value="Portete">Portete</option>
+  <option value="Pedregal">Pedregal</option>
+  <option value="La Unión">La Unión</option>
+  <option value="Rayoloma">Rayoloma</option>
+</select> 
+<div class="form-check">
+    <input type="checkbox" class="form-check-input" id="todos" name="todos">
+    <label class="form-check-label" for="todos">Ver Todas las lecturas</label>
+  </div>
+ <button type="submit" class="btn btn-sm btn-primary pull-right">Buscar</button>
+ </div>
+                </form>
+                
                 <div class="panel-body">
                     <table class="table table-striped table-hover">
                         <thead>

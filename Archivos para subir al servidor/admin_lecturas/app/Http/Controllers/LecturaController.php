@@ -13,16 +13,32 @@ class LecturaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $lecturas = Lectura::
-            Join('medidors', 'medidors.id', '=', 'lecturas.medidor_id')
+        $todos=$request['todos'];
+        if($todos==false)
+        {
+        $mes=$request['mes'];
+        $anio=$request['anio'];
+        $sector=$request['sector'];
+        $lecturas = Lectura::whereYear('fecha', '=', $anio)
+        ->whereMonth('fecha', '=', $mes)
+            ->Join('medidors', 'medidors.id', '=', 'lecturas.medidor_id')
+            ->Join('personas', 'personas.id', '=', 'medidors.persona_id')
+            ->Join('users', 'users.id', '=', 'lecturas.user_id')
+            ->Where('medidors.sector', '=',$sector)
+            ->select('lecturas.*' ,'personas.nombre','personas.apellido','medidors.sector','medidors.codigo','users.name')
+            ->paginate();
+        }
+        else
+        {
+            $lecturas = Lectura::Join('medidors', 'medidors.id', '=', 'lecturas.medidor_id')
             ->Join('personas', 'personas.id', '=', 'medidors.persona_id')
             ->Join('users', 'users.id', '=', 'lecturas.user_id')
             ->select('lecturas.*' ,'personas.nombre','personas.apellido','medidors.sector','medidors.codigo','users.name')
             ->paginate();
-        //return $medidores;
+        }
         return view('lecturas.index', compact('lecturas'));
     }
 
