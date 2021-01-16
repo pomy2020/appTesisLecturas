@@ -15,7 +15,7 @@ class MedidorTableSeeder extends Seeder
         //
         Medidor::create([
             'codigo'        => 'MED1',
-            'numero'        => '1',
+            'numero'        => '2000-036457',
             'marca'   	=> 'LAsi',
             'modelo'		=> 'abc',
             'sector'		=> 'Portete',
@@ -24,7 +24,7 @@ class MedidorTableSeeder extends Seeder
         ]);
         Medidor::create([
             'codigo'        => 'MED2',
-            'numero'        => '2',
+            'numero'        => '2001-097865',
             'marca'     => 'LAsi',
             'modelo'        => 'abc',
             'sector'        => 'Portete',
@@ -33,7 +33,7 @@ class MedidorTableSeeder extends Seeder
         ]);
         Medidor::create([
             'codigo'        => 'MED3',
-            'numero'        => '3',
+            'numero'        => '2000-965123',
             'marca'     => 'LAsi',
             'modelo'        => 'abc',
             'sector'        => 'Portete',
@@ -42,7 +42,7 @@ class MedidorTableSeeder extends Seeder
         ]);
         Medidor::create([
             'codigo'        => 'MED4',
-            'numero'        => '4',
+            'numero'        => '2000-417653',
             'marca'     => 'LAsi',
             'modelo'        => 'abc',
             'sector'        => 'Portete',
@@ -51,7 +51,7 @@ class MedidorTableSeeder extends Seeder
         ]);
         Medidor::create([
             'codigo'        => 'MED5',
-            'numero'        => '5',
+            'numero'        => '2004-123456',
             'marca'     => 'LAsi',
             'modelo'        => 'abc',
             'sector'        => 'Portete',
@@ -60,7 +60,7 @@ class MedidorTableSeeder extends Seeder
         ]);
         Medidor::create([
             'codigo'        => 'MED6',
-            'numero'        => '6',
+            'numero'        => '2005-190806',
             'marca'     => 'LAsi',
             'modelo'        => 'abc',
             'sector'        => 'Portete',
@@ -69,7 +69,7 @@ class MedidorTableSeeder extends Seeder
         ]);
         Medidor::create([
             'codigo'        => 'MED7',
-            'numero'        => '7',
+            'numero'        => '2007-167890',
             'marca'     => 'LAsi',
             'modelo'        => 'abc',
             'sector'        => 'Pedregal',
@@ -78,7 +78,7 @@ class MedidorTableSeeder extends Seeder
         ]);
         Medidor::create([
             'codigo'        => 'MED8',
-            'numero'        => '8',
+            'numero'        => '2006-114480',
             'marca'     => 'LAsi',
             'modelo'        => 'abc',
             'sector'        => 'Portete',
@@ -87,7 +87,7 @@ class MedidorTableSeeder extends Seeder
         ]);
         Medidor::create([
             'codigo'        => 'MED9',
-            'numero'        => '9',
+            'numero'        => '2008-908790',
             'marca'     => 'LAsi',
             'modelo'        => 'abc',
             'sector'        => 'Portete',
@@ -96,7 +96,7 @@ class MedidorTableSeeder extends Seeder
         ]);
         Medidor::create([
             'codigo'        => 'MED10',
-            'numero'        => '10',
+            'numero'        => '2010-123901',
             'marca'     => 'LAsi',
             'modelo'        => 'abc',
             'sector'        => 'Portete',
@@ -105,7 +105,7 @@ class MedidorTableSeeder extends Seeder
         ]);
         Medidor::create([
             'codigo'        => 'MED11',
-            'numero'        => '11',
+            'numero'        => '2011-902304',
             'marca'     => 'LAsi',
             'modelo'        => 'abc',
             'sector'        => 'Portete',
@@ -114,7 +114,7 @@ class MedidorTableSeeder extends Seeder
         ]);
         Medidor::create([
             'codigo'        => 'MED12',
-            'numero'        => '12',
+            'numero'        => '2012-450987',
             'marca'     => 'LAsi',
             'modelo'        => 'abc',
             'sector'        => 'Portete',
@@ -123,7 +123,7 @@ class MedidorTableSeeder extends Seeder
         ]);
         Medidor::create([
             'codigo'        => 'MED13',
-            'numero'        => '13',
+            'numero'        => '2004-190753',
             'marca'     => 'LAsi',
             'modelo'        => 'abc',
             'sector'        => 'Rayoloma',
@@ -132,7 +132,7 @@ class MedidorTableSeeder extends Seeder
         ]);
         Medidor::create([
             'codigo'        => 'MED14',
-            'numero'        => '14',
+            'numero'        => '2006-908731',
             'marca'     => 'LAsi',
             'modelo'        => 'abc',
             'sector'        => 'Portete',
@@ -141,7 +141,7 @@ class MedidorTableSeeder extends Seeder
         ]);
         Medidor::create([
             'codigo'        => 'MED15',
-            'numero'        => '15',
+            'numero'        => '2000-129064',
             'marca'     => 'LAsi',
             'modelo'        => 'abc',
             'sector'        => 'Portete',

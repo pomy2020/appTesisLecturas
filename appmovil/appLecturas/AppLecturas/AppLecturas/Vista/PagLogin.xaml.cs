@@ -17,61 +17,63 @@ namespace AppLecturas.Vista
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PagLogin : ContentPage
     {
-        ILoginManager Ilm = null;//instancia de interfaz 
-        public PagLogin(ILoginManager Ilm)//constructor recibiendo como parámetro objeto de clase interfaz Iloginmanager
+        ILoginManager Ilm = null;//declaramos un objeto Ilm de la clase IloginManager y se inicializa en nulo
+        ClsUsuario ObjUsuario;// declaro la variable de tipo cls usuario
+        public PagLogin(ILoginManager Ilm)//constructor recibiendo como parámetro objeto Ilm de clase interfaz Iloginmanager
         {
             InitializeComponent();
             this.Ilm = Ilm;//asignar variable local
         }
-        //metodo que se ejecuta cuando se muestra la interfaz
-        protected override async void OnAppearing()
-        {
-            base.OnAppearing();
-            bool IsValidSyncUsuarios = await SincronizarUsuariosAsync();
-            if (!IsValidSyncUsuarios)
-                TxtMsg.Text = "No se ha podido recuperar la información del origen remoto";
-            else
-                TxtMsg.Text = "Información recuperada correctamente desde el origen remoto";
-        }
+       //
+       
         public PagLogin()//constructor
         {
             InitializeComponent();
         }
         /// Encripta una cadena
-        private bool VerificarPassword(string StrEncPassword, string UsrPassword)
+        private bool VerificarPassword(string StrEncPassword, string UsrPassword)//metodo que compara el password ingresado por el usuario
         {
-            bool isValid = BCrypt.Net.BCrypt.Verify(StrEncPassword, UsrPassword);
+            bool isValid = BCrypt.Net.BCrypt.Verify(StrEncPassword, UsrPassword);//str es el valor del password que esta guardado del usuario con Usr es el password que ingresa el usuario
             return isValid;
         }
         //manejador evento clic del botón entrar
         private async void ButEntrar_Clicked(object sender, EventArgs e)
         {
-            CtrlUsuario ObjCtrlUsuario = new CtrlUsuario();//instancia de controlador
             try
             {
-                if (!string.IsNullOrWhiteSpace(TxtEmail.Text))//validar email no nulo
+                if (!string.IsNullOrWhiteSpace(TxtEmail.Text))//Este metodo es de la clase String del paquete de la plataforma .Net, que me valida el email no nulo
                     if (!string.IsNullOrWhiteSpace(TxtPassword.Text))//validar password no nulo
                         if (TxtEmail.TextColor == Color.Green)//validar email con formato correcto
-                            if (TxtPassword.Text.Length >= 6) //(TxtPassword.TextColor == Color.Black)//validar password con formato correcto
+                            if (TxtPassword.Text.Length >= 6)//validar que el password sea mayor o igual a 6 caracteres 
                             {
-                               var ConsUsr = await ObjCtrlUsuario.LoginUsr(TxtEmail.Text);//invoca al método login del controlador usuario
+                                CtrlUsuario ObjCtrlUsuario = new CtrlUsuario();//declaramos una varioable e instanciamos el controlador usuario
+                                ObjUsuario = new ClsUsuario();//declaramos uan variable e instanciamos la clase ClsUsuario
+                                ObjUsuario.Email = TxtEmail.Text;//asigno la propiedad email del objeto usuario
+                                ObjUsuario.Password = TxtPassword.Text;//asigno la propiedad password del objeto usuario
+                                bool IsValidSyncUsuarios = await SincronizarUsuariosAsync();
+                                if (!IsValidSyncUsuarios)
+                                    TxtMsg.Text = "No se ha podido recuperar la información del origen remoto";
+                                else
+                                    TxtMsg.Text = "Información recuperada correctamente desde el origen remoto";
+                                var ConsUsr = await ObjCtrlUsuario.LoginUsr(TxtEmail.Text);//invoca al método login del controlador usuario
                                 if (ConsUsr.Count() == 1)//si existe un registro que coincide con el email
                                 {
-                                    bool PassValido = false;
+                                    bool PassValido = false;//está variable me ayuda a guardar el resultado que me devuelva el metodo password
                                     foreach (ClsUsuario item in ConsUsr)//recorrer la lista
                                     {
-                                        if (VerificarPassword(TxtPassword.Text, item.Password))//verificar password
+                                        if (VerificarPassword(TxtPassword.Text, item.Password))//invocamos al metodo verificar password verificar password
                                         {
                                             PassValido = true;//cuando se encuentra el password
-                                            break;
+                                            break;// es para salir del bucle antes de terminar de recorrer
                                         }
                                     }
                                     if (PassValido)//si el password es valido se continua
                                     {
                                         await SincronizarPersonasAsync();
-                                        ClsUsuario ObjUsuario = ConsUsr.First();
+                                        ClsUsuario ObjUsuario = ConsUsr.First();//declaro una variable de la clase usuario, y le asigno el primer usuario del liostado de objetos que se recibio
                                         await DisplayAlert("Mensaje", "Bienvenido", "ok");//mensaje de  bienvenida
                                                                                           //ObjUsuario.ObjPerfil = ConsPerfil.First();//asignar objeto encontrado a campo de objeto usuario
+                                        ObjUsuario.Password = TxtPassword.Text;
                                         App.Current.Properties["name"] = ObjUsuario.Name;//guardar en propiedades de la aplicación el nombre del usuario
                                         App.Current.Properties["IsLoggedIn"] = true;//guardar en propiedades de la aplicación el estado como verdadero
                                         App.Current.Properties["ObjUsuario"] = ObjUsuario;//guardar el objeto usuario en propiedades de la aplicación
@@ -107,6 +109,7 @@ namespace AppLecturas.Vista
             try
             {
                 CtrlPersona ObjCtrlPersona = new CtrlPersona();
+                ObjCtrlPersona.MiUsuario = ObjUsuario;//cargamos los datos del usuario para que autentique.
                 if (ObjCtrlPersona.Esta_Conectado())
                     return await ObjCtrlPersona.SincronizarAsync();
                 else
@@ -122,9 +125,10 @@ namespace AppLecturas.Vista
         {
             try
             {
-                CtrlUsuario ObjCtrlUsuario = new CtrlUsuario();
+                CtrlUsuario ObjCtrlUsuario = new CtrlUsuario();//declarando una variable de la clase control ususario e intanciandola
+                ObjCtrlUsuario.MiUsuario = ObjUsuario;//cargamos los datos del usuario para que autentique.
                 if (ObjCtrlUsuario.Esta_Conectado())
-                    return await ObjCtrlUsuario.SincronizarAsync();
+                    return await ObjCtrlUsuario.SincronizarAsync();//me retorna verdadero o falso, dependiendo del resultado Sincronizar Async
                 else return false;
             }
             catch

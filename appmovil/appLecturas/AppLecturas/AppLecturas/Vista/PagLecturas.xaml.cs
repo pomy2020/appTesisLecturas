@@ -1,4 +1,5 @@
 ﻿using System;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -14,19 +15,48 @@ namespace AppLecturas.Vista
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PagLecturas : ContentPage
     {
-        CtrlLectura Manager;//objeto de la clase ctrllectura
+        CtrlLectura Manager;//variable de la clase control lecturas objeto de la clase ctrllectura
+        ClsUsuario ObjMiUsuario;
+
         public PagLecturas()
         {
-            InitializeComponent();
-            ButSincr.IsVisible = false;
-            Manager = new CtrlLectura();
+            InitializeComponent();//inicializamos los componentes de la clase PagLecturas
+            this.ObjMiUsuario = App.Current.Properties["ObjUsuario"] as ClsUsuario;//
+            ButSincr.IsVisible = false;//Es para mostrar el botoncito de sincronizar
+            listView.IsVisible = false;
+            
+            Manager = new CtrlLectura();//es una instancia de la clase control lectura para poder utilizar los metodos de esta clase
+            //txtMesBuscar.Text = DateTime.Now.Month.ToString();
+           // txtAñoBuscar.Text = DateTime.Now.Year.ToString();
         }
         //manejador del boton listar
-        private async void Button_ClickedAsync(object sender, EventArgs e)
+        private async void Button_ClickedAsync(object sender, EventArgs e)//boton para consultar lecturas, es un controlador 
         {
             try
             {
-                listView.ItemsSource = await Manager.Get();//consulta la lecturas y las asigna al objeto listview
+                listView.IsVisible = true;
+                CtrlMedidor ObjMedidor = new CtrlMedidor();
+                CtrlPersona ObjPersona = new CtrlPersona();
+                var lecturas = await Manager.Get();
+                var medidores = await ObjMedidor.Consultar(ObjMiUsuario.Sector);
+                var personas = await ObjPersona.Consultar();
+
+                var result = from lect in lecturas//hacemos una consulta con la variable lect, en la tabla que está cargada de la tabla lecturas
+                             join med in medidores on lect.Medidor_id equals med.Id//utilizo el join cuando estoy consultando en varias tablas, 
+                             join per in personas on med.Persona_id equals per.Id
+                             select new
+                             {
+                                 lect.Id,
+                                 lect.Fecha,
+                                 per.Nombre,
+                                 per.Apellido,
+                                 lect.Anterior,
+                                 lect.Actual,
+                                 lect.Latitud,
+                                 lect.Longitud,
+                                 lect.Consumo
+                             };
+                listView.ItemsSource = result;
             }
             catch(Exception ex)
             {
@@ -39,7 +69,11 @@ namespace AppLecturas.Vista
         {
             try
             {
-                ClsLectura ObjLectura = e.SelectedItem as ClsLectura;//asignar el objeto seleccionado a la variable obj
+                Object ObjFila = e.SelectedItem;//asignar el objeto seleccionado a la variable obj
+                var json = JsonConvert.SerializeObject(ObjFila);
+                ClsLectura ObjLectura = JsonConvert.DeserializeObject<ClsLectura>(json);
+                var consulta = await Manager.Get(ObjLectura.Id);
+                ObjLectura = consulta.First();
                 await ((NavigationPage)this.Parent).PushAsync(new PagIngresoLectura(ObjLectura, false));//mostrar la vista ingreso de lectura con los datos cargados
             }
             catch(Exception ex)
@@ -58,6 +92,68 @@ namespace AppLecturas.Vista
             catch(Exception ex)
             {
                 await DisplayAlert("Error", ex.Message, "ok");
+            }
+        }
+
+        private async void BuscarPorFecha_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                int mes, año;
+                mes = numeromes(Seleccionarmes.SelectedItem.ToString());
+                int.TryParse(Seleccionaraño.SelectedItem.ToString(), out año);
+                if (mes != 0 && año != 0)
+                {
+                    listView.IsVisible = true;
+                    CtrlMedidor ObjMedidor = new CtrlMedidor();
+                    CtrlPersona ObjPersona = new CtrlPersona();
+                    var lecturas = await Manager.Get();
+                    var medidores = await ObjMedidor.Consultar(ObjMiUsuario.Sector);
+                    var personas = await ObjPersona.Consultar();
+
+                    var result = from lect in lecturas//hacemos una consulta con la variable lect, en la tabla que está cargada de la tabla lecturas
+                                 join med in medidores on lect.Medidor_id equals med.Id//utilizo el join cuando estoy consultando en varias tablas, 
+                                 join per in personas on med.Persona_id equals per.Id
+                                 where lect.Fecha.Month == mes && lect.Fecha.Year == año
+                                 select new
+                                 {
+                                     lect.Id,
+                                     lect.Fecha,
+                                     per.Nombre,
+                                     per.Apellido,
+                                     lect.Anterior,
+                                     lect.Actual,
+                                     lect.Latitud,
+                                     lect.Longitud,
+                                     lect.Consumo,
+                                     lect.Image
+                                 };
+                    listView.ItemsSource = result;
+                }
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", ex.Message, "ok");
+            }
+
+        }
+        int numeromes(string mes)
+        {
+            switch (mes)
+            {
+                case "Enero":return 1;
+                case "Febrero": return 2;
+                case "Marzo": return 3;
+                case "Abril": return 4;
+                case "Mayo": return 5;
+                case "Junio": return 6;
+                case "Julio": return 7;
+                case "Agosto": return 8;
+                case "Septiembre": return 9;
+                case "Octubre": return 10;
+                case "Noviembre": return 11;
+                case "Diciembre": return 12;
+                default: return DateTime.Today.Month;
             }
         }
     }

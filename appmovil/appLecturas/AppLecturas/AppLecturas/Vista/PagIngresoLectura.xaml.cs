@@ -19,7 +19,7 @@ namespace AppLecturas.Vista
     public partial class PagIngresoLectura : ContentPage
     {
         bool opc;
-        ClsLectura ObjLectura;
+        ClsLectura ObjLectura;//variables de las clases que intervienen en el proceso de ingreso de la lectura 
         CtrlPersona ObjCtrlPersona;
         ClsPersona ObjPersona;
         CtrlLectura manager;
@@ -45,7 +45,7 @@ namespace AppLecturas.Vista
 
         private MediaFile Foto;//variable que almacena la foto
 
-        public Command m_seleccionarFotoComand;//representa seleccion o ejecucion de aplicación cámara
+        public Command m_seleccionarFotoComand;//variable para ejecutar la accion de la fotos representa seleccion o ejecucion de aplicación cámara
 
         public async void SeleccionarFotoAsync(object sender, EventArgs e)//cuando se requiere seleccionar una foto
         {
@@ -55,7 +55,7 @@ namespace AppLecturas.Vista
                 Foto = await ServicioFoto.Instancia.SeleccionarFotoAsync();
                 if (Foto != null)
                 {
-                    RutaFoto = Foto.Path;
+                    RutaFoto = Foto.Path;//direccion fisica donde esta guardado
                     Imagen.Source = RutaFoto;
                     ObjLectura.Imagen = ConvertirImagen();//asigno a foto a la propiedad del objeto lectura
                     ObjLectura.StrImagen = RutaFoto;//asigno la ruta a la propiedad del objeto lectura
@@ -97,13 +97,13 @@ namespace AppLecturas.Vista
             base.OnAppearing();
             this.ObjUsuario = App.Current.Properties["ObjUsuario"] as ClsUsuario;//recuperar objeto guardado en propieades de la aplicación
             ObjLectura.User_id = ObjUsuario.Id;
-            ButEliminar.IsVisible = false;
+            
             try
             {
-                manager = new CtrlLectura();//instancia de clase control
+                manager = new CtrlLectura();//instancia de clase control lectura
                 if (opc)//cuando se está creando una lectura nueva
                 {
-                    this.ObjCtrlPersona = new CtrlPersona();
+                    this.ObjCtrlPersona = new CtrlPersona();//instancia la variable en objeto de la clase control persona (abonado)
                     var ListPersona = await ObjCtrlPersona.ConsultarId(this.ObjMedidor.Persona_id);
                     if (ListPersona.Count() > 0)
                     {
@@ -119,6 +119,7 @@ namespace AppLecturas.Vista
                         TxtAnterior.Text = ObjLecAnterior.Actual.ToString();
                         ObjLectura.Anterior = ObjLecAnterior.Actual;
                     }
+                    recuperarpolitica();
                 }
                 else
                 {
@@ -205,6 +206,7 @@ namespace AppLecturas.Vista
                         if (txtCedula.Text.Length == 10 &&
                         ObjLectura.Actual >= 0)//validación cedula con 10 caracteres
                         {
+                           
                                 var ObjLecturaInsert = await manager.SaveAsync(ObjLectura);//llamada a método que inserta un nuevo registro
                                 if (ObjLecturaInsert != null)
                                 {
@@ -226,24 +228,7 @@ namespace AppLecturas.Vista
                     }
 
                 }
-                else
-                {
-                    if (this.ObjLectura.Estado == "1")
-                    {
-                        await DisplayAlert("Mensaje", "No se puede modificar porque ya ha sido sincronizado en la base de datos remota", "ok");
-                        res = null;
-                    }
-                    else
-                    {
-                        var ObjLecturaUpdate = await manager.UpdateAsync(ObjLectura);
-                        if (ObjLecturaUpdate != null)
-                        {
-                            res = ObjLecturaUpdate;//respuesta positiva
-                        }
-                        else
-                            res = null;//respuesta negativa si no se realizó correctamente 
-                    }
-                }
+                
                 if(res != null)
                 {
                     await DisplayAlert("Mensaje", "Datos guardados correctamente", "ok");
@@ -263,28 +248,30 @@ namespace AppLecturas.Vista
             float.TryParse(txtLecturaActual.Text, out float FLecturaActual);//convertir en número decimal la información ingresada en el texto
             if(FLecturaActual > ObjLectura.Anterior)//si el valor ingresado es mayor a la lectura anterior
             {
-                ObjLectura.Calcular();//lama al método calcular de la clase clslectura
+                ObjLectura.Calcular();//llama al método calcular de la clase clslectura
                 txtConsumo.Text = ObjLectura.Consumo.ToString();//mostrar variable consumo en caja de texto
             }
         }
         //manejador del botón eliminar
-        private async void ButEliminar_ClickedAsync(object sender, EventArgs e)
+        
+        private async void  recuperarpolitica() 
         {
-            if(!opc)
-                try
-                {
-                    if (this.ObjLectura.Estado == "0")
-                    {
-                        var resp = await manager.DeleteAsync(ObjLectura);
-                        await DisplayAlert("Mensaje", resp, "ok");
-                    }
-                    else
-                        await DisplayAlert("Mensaje", "No se puede eliminar porque ya ha sido sincronizado con el servidor remoto", "ok");
-                }
-            catch(Exception ex)
-                {
-                    await DisplayAlert("Mensaje", ex.Message, "ok");
-                }
+            
+            CtrlPolitica ObjctrlPolitica = new CtrlPolitica();
+            ObjctrlPolitica.MiUsuario = ObjUsuario;
+            if (ObjctrlPolitica.Esta_Conectado())
+            {
+                await ObjctrlPolitica.SincronizarAsync();
+            }
+            var consultaPolitica = await ObjctrlPolitica.Consultar();
+            if(consultaPolitica.Count() >0)
+            {
+                ClsPolitica ObjclsPolitica = consultaPolitica.First();
+                ObjLectura.CantidadConsumo = ObjclsPolitica.cantidadConsumo;
+                ObjLectura.ValorConsumo = ObjclsPolitica.valorConsumo;
+                ObjLectura.VaLorExceso = ObjclsPolitica.valorExeso;
+
+            }
         }
 
     }

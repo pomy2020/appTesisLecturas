@@ -15,13 +15,7 @@ namespace AppLecturas.Controlador
     {
         string Url;
         //método para crear la variable cliente que realizará la conexión al servidor usando el protocolo http
-        private HttpClient getCliente()
-        {
-            HttpClient client = new HttpClient();
-            client.DefaultRequestHeaders.Add("Accept", "application/json");
-            client.DefaultRequestHeaders.Add("Connection", "close");
-            return client;
-        }
+       
         
         //método asíncrono que devuelve un objeto enumerable(lista) de tipo clspersona filtrado por cédula, del paquete modelo
         public async Task<IEnumerable<ClsPersona>> ConsultarCi(string Ci)
@@ -114,6 +108,17 @@ namespace AppLecturas.Controlador
                 return false;
             }
             return false;
+        }
+        public async Task<IEnumerable<ClsPersona>> Consultar()//este metodo es para consultar todos los abonados
+        {
+            try
+            {
+                return await App.Database.GetPersonaAsync();//con el metodo get me trae  de la base de datos todo los abonados 
+            }
+            catch
+            {
+                return Enumerable.Empty<ClsPersona>();//devuelve una lista vacía
+            }
         }
     }
 }

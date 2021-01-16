@@ -10,7 +10,7 @@ namespace AppLecturas.Modelo
     {
         [PrimaryKey]
         public int Id { get; set; }
-        [Unique]
+       // [Unique]
         public string Cedula { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }

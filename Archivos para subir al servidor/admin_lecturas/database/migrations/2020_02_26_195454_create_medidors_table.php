@@ -17,7 +17,7 @@ class CreateMedidorsTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('codigo')->unique();
-            $table->integer('numero')->unique();
+            $table->string('numero')->unique();
             $table->string('marca');
             $table->string('modelo');
             $table->string('sector');

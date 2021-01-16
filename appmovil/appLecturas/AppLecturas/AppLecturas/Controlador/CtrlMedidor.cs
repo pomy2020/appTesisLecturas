@@ -15,13 +15,7 @@ namespace AppLecturas.Controlador
     {
         string Url;
         //método para crear la variable cliente que realizará la conexión al servidor usando el protocolo http
-        private HttpClient getCliente()
-        {
-            HttpClient client = new HttpClient();
-            client.DefaultRequestHeaders.Add("Accept", "application/json");
-            client.DefaultRequestHeaders.Add("Connection", "close");
-            return client;
-        }
+        
         //método asíncrono que devuelve un objeto enumerable(lista) de tipo clsmedidor del paquete modelo
         public async Task<IEnumerable<ClsMedidor>> Consultar(string Sector)
         {
@@ -114,5 +108,16 @@ namespace AppLecturas.Controlador
             catch { return false; }
             return false;
         }
-}
+        public async Task<IEnumerable<ClsMedidor>> Consultar()//consulta todos los medidores
+        {
+            try
+            {
+                return await App.Database.GetMedidorAsync();//me devuelve todos los medidores de la base de datos
+            }
+            catch
+            {
+                return Enumerable.Empty<ClsMedidor>();//devuelve una lista vacía }
+            }
+        }
+    }
 }

@@ -16,42 +16,21 @@ namespace AppLecturas.Controlador
     {
         string Url;
         //método para crear la variable cliente que realizará la conexión al servidor usando el protocolo http
-        private HttpClient getCliente()
-        {
-            HttpClient client = new HttpClient();
-            client.DefaultRequestHeaders.Add("Accept", "application/json");
-            client.DefaultRequestHeaders.Add("Connection", "close");
-            return client;
-        }
+        
         //método asíncrono que devuelve un listado de Usuarios que aún no han sido sincronizados entre la base local y la remota
-        private async Task<IEnumerable<ClsUsuario>> GetNuevos()
+        private async Task<IEnumerable<ClsUsuario>> GetNuevos()//este metodo GetNuevos es para traer los que no tengo en mi base de datos local.
         {
             try
             {
-                await App.Database.DeleteUsuariosAsync();
-                List<ClsUsuario> ListUsuarios = await App.Database.GetUsuarioAsync();//consulta de los medidores almacenados
-                //en la base de datos local
-                string StrIds = "";//varible tipo cadena para guardar los Id existentes en local
-                if (ListUsuarios.Count > 0)//si el listado de medidores es mayor que cero
-                {
-                    foreach (ClsUsuario item in ListUsuarios)
-                    {
-                        StrIds = StrIds + item.Id + ",";//se arma una cadena de Ids separado por coma(,)
-                    }
-                    StrIds = StrIds.Substring(0, StrIds.Length - 1);
-                }
-                else
-                    StrIds = "0";//si no hay datos asigno el valor 0 a la cadena 
                 //se define la url a la que apunta la petición, indicando el script srvusuarios.php que recibe como parametro 
-                //la cadena de ids ya registrados
-                Url = Servidor + "srvusuarios.php" +
-                    "?StrIds=" + StrIds;
+                Url = Servidor + "srvusuarios.php" + "?StrIds=0";//traemos todos los usuario, porque los usuarios son cambienates
+                //pasamos parametros en http donde tenemos el nobre y el contenido de usuarios en la base local
                 //creación de un nuevo objeto Httpclient para hacer la solicitud al servidor remoto
                 HttpClient client = getCliente();
                 //ejecuta la petición Get al servidor remoto, pasando la url como parámetro
-                var resp = await client.GetAsync(Url);
+                var resp = await client.GetAsync(Url);//está variable respuesta nos trae los usuarios que no están en mi base de datos local, para sincronizarlos
                 
-                if (resp.IsSuccessStatusCode)//si el codigo devuelto es satisfactorio 
+                if (resp.IsSuccessStatusCode)//si el codigo devuelto es satisfactorio es el encabezado de la respuesta correcta
                 {
                     string content = await resp.Content.ReadAsStringAsync();//se lee el contenido de la respuesta del servidor
                     return JsonConvert.DeserializeObject<IEnumerable<ClsUsuario>>(content);//transforma el contenido de respuesta
@@ -69,10 +48,11 @@ namespace AppLecturas.Controlador
         {
             try
             {
-                var Consulta = await GetNuevos();//consulta los usuarios nuevos
+                var Consulta = await GetNuevos();//este metodo GetNuevos consulta todos, traer todos los usuarios mi base de datos local
                 if (Consulta != null)//si la consulta tiene datos
                 {
-                    foreach (ClsUsuario item in Consulta)//recorrer la consulta
+                    await App.Database.DeleteUsuariosAsync();//la idea es mantener actualizado los datos, un ejemplo si a algun usuario le asignamos otro sector, por eso tenemos que eliminar para que se vuelva a crear
+                    foreach (ClsUsuario item in Consulta)//recorrer la consulta es un listado de objeto de clsUsuario
                     {
                         await App.Database.SaveUsuarioAsync(item);//almacenar cada objeto en la base de datos local
                     }
@@ -90,7 +70,7 @@ namespace AppLecturas.Controlador
         {
             try
             {
-                List<ClsUsuario> ObjUsr = await App.Database.LoginUsuarioAsync(email);
+                List<ClsUsuario> ObjUsr = await App.Database.LoginUsuarioAsync(email);//busco al usuario que coincida por email
                 return ObjUsr;
             }
             catch (Exception ex)

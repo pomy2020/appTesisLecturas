@@ -11,9 +11,10 @@ class PermissionsTableSeeder extends Seeder
      *
      * @return void
      */
+    //esta Seeder me sirve para insertar registros de la tabla permisos
     public function run()
     {
-        //Users
+        //Users tenemos 4 permisos porque desde aqui podemos Lista, modificar, eliminar, y ver detalle registros en la tabla usuarios.
         Permission::create([
             'name'          => 'Navegar usuarios',
             'slug'          => 'users.index',
@@ -38,7 +39,7 @@ class PermissionsTableSeeder extends Seeder
             'description'   => 'Podría eliminar cualquier usuario del sistema',      
         ]);
 
-        //Roles
+        //Roles tenemos 5 permisos porque desde aqui podemos Lista, modificar, eliminar, crear y ver detalle registros en la tabla roles.
         Permission::create([
             'name'          => 'Navegar roles',
             'slug'          => 'roles.index',
@@ -69,7 +70,7 @@ class PermissionsTableSeeder extends Seeder
             'description'   => 'Podría eliminar cualquier rol del sistema',      
         ]);
 
-        //Abonados
+        //Abonados tenemos 5 permisos porque desde aqui podemos Lista, modificar, eliminar, crear y ver el detalle registros en la tabla persona (abonados)
         Permission::create([
             'name'          => 'Navegar Abonados',
             'slug'          => 'personas.index',
@@ -99,7 +100,7 @@ class PermissionsTableSeeder extends Seeder
             'slug'          => 'personas.destroy',
             'description'   => 'Podría eliminar cualquier Abonado del sistema',      
         ]);
-//Medidores
+//Medidores tenemos 4 permisos porque desde aqui podemos Lista, modificar, eliminar y crear registros en la tabla medidores
         Permission::create([
             'name'          => 'Navegar medidores',
             'slug'          => 'medidores.index',
@@ -123,7 +124,7 @@ class PermissionsTableSeeder extends Seeder
             'slug'          => 'medidores.destroy',
             'description'   => 'Podría eliminar cualquier medidor del sistema',      
         ]);
-//Lecturas
+//Lecturas tenemos solo un  permiso porque desde aqui solo podemos consultar registros en la tabla lecturas
         Permission::create([
             'name'          => 'Navegar Lecturas',
             'slug'          => 'lecturas.index',

@@ -19,7 +19,7 @@ application_config:
 	/* is_a_bundled_app */
 	.byte	0
 	/* environment_variable_count */
-	.word	8
+	.word	10
 	/* system_property_count */
 	.word	0
 	.zero	4
@@ -53,7 +53,7 @@ mono_aot_mode_name:
 	.section	.rodata..L.str.6,"aMS",@progbits,1
 	.type	.L.str.6, @object
 .L.str.6:
-	.asciz	"7ffc2f62-d72d-45a4-a639-83e5375de3c7"
+	.asciz	"b1c6f97f-2676-46b0-8f48-85062951d6a4"
 	.size	.L.str.6, 37
 	.section	.rodata..L.str.7,"aMS",@progbits,1
 	.type	.L.str.7, @object
@@ -75,6 +75,16 @@ mono_aot_mode_name:
 .L.str.10:
 	.asciz	"btls"
 	.size	.L.str.10, 5
+	.section	.rodata..L.str.11,"aMS",@progbits,1
+	.type	.L.str.11, @object
+.L.str.11:
+	.asciz	"__XA_PACKAGE_NAMING_POLICY__"
+	.size	.L.str.11, 29
+	.section	.rodata..L.str.12,"aMS",@progbits,1
+	.type	.L.str.12, @object
+.L.str.12:
+	.asciz	"LowercaseCrc64"
+	.size	.L.str.12, 15
 	.section	.data.app_environment_variables,"aw",@progbits
 	.type	app_environment_variables, @object
 	.p2align	3
@@ -88,7 +98,9 @@ app_environment_variables:
 	.xword	.L.str.8
 	.xword	.L.str.9
 	.xword	.L.str.10
-	.size	app_environment_variables, 64
+	.xword	.L.str.11
+	.xword	.L.str.12
+	.size	app_environment_variables, 80
 	.section	.data.app_system_properties,"aw",@progbits
 	.type	app_system_properties, @object
 	.p2align	3

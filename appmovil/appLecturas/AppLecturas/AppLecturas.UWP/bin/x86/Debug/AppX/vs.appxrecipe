@@ -10,7 +10,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>ec0cc741-fd3e-485c-81be-68815c480690</PackageIdentityName>
     <PackageIdentityPublisher>CN=b6bc17d9-d1ac-4e86-989c-5d81808a10a3</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,8 +18,8 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>A0737A84208096D44B1ED72AD28B7A60FDD80EDE503A1DB9DAC551240D1EDE74</RegisteredManifestChecksum>
+    <LayoutDir>C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\bin\x86\Debug\AppX</LayoutDir>
+    <RegisteredManifestChecksum>9752F8F0BE93724184F1829153A2C6209EDAD692D901E17730A0DE2E9CB9CC17</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>5b3748c2-7622-4db5-82b5-dc1bbcafffdc_1.0.0.0_x86__4e5qs8q3t1ytc</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>5b3748c2-7622-4db5-82b5-dc1bbcafffdc_4e5qs8q3t1ytc!App</RegisteredUserModeAppID>
     <RegisteredPackageID>5b3748c2-7622-4db5-82b5-dc1bbcafffdc</RegisteredPackageID>
@@ -27,16 +27,16 @@
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-07-03T01:23:47.444</Modified>
+      <Modified>2021-01-09T16:35:00.737</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\bin\x86\Debug\AppLecturas.UWP.exe">
+    <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\bin\x86\Debug\AppLecturas.UWP.exe">
       <PackagePath>entrypoint\AppLecturas.UWP.exe</PackagePath>
-      <Modified>2020-07-03T01:23:28.993</Modified>
+      <Modified>2021-01-09T16:34:44.009</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Pedro\.nuget\packages\bcrypt.net-next\3.3.3\lib\netstandard2.0\BCrypt.Net-Next.dll">
       <PackagePath>BCrypt.Net-Next.dll</PackagePath>
@@ -774,9 +774,9 @@
       <PackagePath>Xamarin.Forms.Xaml.dll</PackagePath>
       <Modified>2019-08-17T07:11:32.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas\bin\Debug\netstandard2.0\AppLecturas.dll">
+    <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas\bin\Debug\netstandard2.0\AppLecturas.dll">
       <PackagePath>AppLecturas.dll</PackagePath>
-      <Modified>2020-06-15T02:55:10.389</Modified>
+      <Modified>2021-01-09T17:21:35.560</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Microsoft\Xamarin\NuGet\win2d.uwp\1.20.0\lib\uap10.0\Microsoft.Graphics.Canvas.winmd">
       <PackagePath>Microsoft.Graphics.Canvas.winmd</PackagePath>
@@ -786,168 +786,168 @@
       <PackagePath>Xamarin.Forms.Platform.UAP\Xamarin.Forms.Platform.UAP.xr.xml</PackagePath>
       <Modified>2019-08-17T07:11:26.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\Assets\LargeTile.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\Assets\LargeTile.scale-100.png">
       <PackagePath>Assets\LargeTile.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-06-15T02:05:37.000</Modified>
+      <Modified>2020-03-28T16:39:53.786</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\Assets\LargeTile.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\Assets\LargeTile.scale-200.png">
       <PackagePath>Assets\LargeTile.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-06-15T02:05:37.000</Modified>
+      <Modified>2020-03-28T16:39:53.790</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\Assets\LargeTile.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\Assets\LargeTile.scale-400.png">
       <PackagePath>Assets\LargeTile.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-06-15T02:05:37.000</Modified>
+      <Modified>2020-03-28T16:39:53.794</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\Assets\SmallTile.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\Assets\SmallTile.scale-100.png">
       <PackagePath>Assets\SmallTile.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-06-15T02:05:37.000</Modified>
+      <Modified>2020-03-28T16:39:53.796</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\Assets\SmallTile.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\Assets\SmallTile.scale-200.png">
       <PackagePath>Assets\SmallTile.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-06-15T02:05:37.000</Modified>
+      <Modified>2020-03-28T16:39:53.842</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\Assets\SmallTile.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\Assets\SmallTile.scale-400.png">
       <PackagePath>Assets\SmallTile.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-06-15T02:05:37.000</Modified>
+      <Modified>2020-03-28T16:39:53.847</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\Assets\SplashScreen.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-06-15T02:05:37.000</Modified>
+      <Modified>2020-03-28T16:39:53.850</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-06-15T02:05:37.000</Modified>
+      <Modified>2020-03-28T16:39:53.853</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\Assets\SplashScreen.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\Assets\SplashScreen.scale-400.png">
       <PackagePath>Assets\SplashScreen.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-06-15T02:05:37.000</Modified>
+      <Modified>2020-03-28T16:39:53.901</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\Assets\Square150x150Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\Assets\Square150x150Logo.scale-100.png">
       <PackagePath>Assets\Square150x150Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-06-15T02:05:37.000</Modified>
+      <Modified>2020-03-28T16:39:53.903</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-06-15T02:05:37.000</Modified>
+      <Modified>2020-03-28T16:39:53.908</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\Assets\Square150x150Logo.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\Assets\Square150x150Logo.scale-400.png">
       <PackagePath>Assets\Square150x150Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-06-15T02:05:37.000</Modified>
+      <Modified>2020-03-28T16:39:53.911</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-16.png">
+    <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-16.png">
       <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-16.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-06-15T02:05:37.000</Modified>
+      <Modified>2020-03-28T16:39:53.959</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-256.png">
+    <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-256.png">
       <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-256.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-06-15T02:05:37.000</Modified>
+      <Modified>2020-03-28T16:39:53.962</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-48.png">
+    <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-48.png">
       <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-48.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-06-15T02:05:37.000</Modified>
+      <Modified>2020-03-28T16:39:53.965</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\Assets\Square44x44Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\Assets\Square44x44Logo.scale-100.png">
       <PackagePath>Assets\Square44x44Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-06-15T02:05:37.000</Modified>
+      <Modified>2020-03-28T16:39:53.969</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-06-15T02:05:37.000</Modified>
+      <Modified>2020-03-28T16:39:54.017</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\Assets\Square44x44Logo.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\Assets\Square44x44Logo.scale-400.png">
       <PackagePath>Assets\Square44x44Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-06-15T02:05:37.000</Modified>
+      <Modified>2020-03-28T16:39:54.020</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\Assets\Square44x44Logo.targetsize-16.png">
+    <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\Assets\Square44x44Logo.targetsize-16.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-16.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-06-15T02:05:37.000</Modified>
+      <Modified>2020-03-28T16:39:54.023</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\Assets\Square44x44Logo.targetsize-256.png">
+    <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\Assets\Square44x44Logo.targetsize-256.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-256.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-06-15T02:05:37.000</Modified>
+      <Modified>2020-03-28T16:39:54.026</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\Assets\Square44x44Logo.targetsize-48.png">
+    <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\Assets\Square44x44Logo.targetsize-48.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-48.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-06-15T02:05:37.000</Modified>
+      <Modified>2020-03-28T16:39:54.074</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\Assets\StoreLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-06-15T02:05:37.000</Modified>
+      <Modified>2020-03-28T16:39:54.079</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\Assets\StoreLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\Assets\StoreLogo.scale-200.png">
       <PackagePath>Assets\StoreLogo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-06-15T02:05:37.000</Modified>
+      <Modified>2020-03-28T16:39:54.081</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\Assets\StoreLogo.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\Assets\StoreLogo.scale-400.png">
       <PackagePath>Assets\StoreLogo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-06-15T02:05:37.000</Modified>
+      <Modified>2020-03-28T16:39:54.124</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\Assets\Wide310x150Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\Assets\Wide310x150Logo.scale-100.png">
       <PackagePath>Assets\Wide310x150Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-06-15T02:05:37.000</Modified>
+      <Modified>2020-03-28T16:39:54.129</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-06-15T02:05:37.000</Modified>
+      <Modified>2020-03-28T16:39:54.131</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\Assets\Wide310x150Logo.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\Assets\Wide310x150Logo.scale-400.png">
       <PackagePath>Assets\Wide310x150Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-06-15T02:05:37.000</Modified>
+      <Modified>2020-03-28T16:39:54.134</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2020-06-15T02:05:37.000</Modified>
+      <Modified>2020-03-28T16:39:54.182</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\bin\x86\Debug\AppLecturas.UWP.xr.xml">
+    <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\bin\x86\Debug\AppLecturas.UWP.xr.xml">
       <PackagePath>AppLecturas.UWP.xr.xml</PackagePath>
-      <Modified>2020-06-15T02:05:37.000</Modified>
+      <Modified>2020-03-28T16:45:39.163</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2020-07-03T01:23:27.143</Modified>
+      <Modified>2021-01-09T16:34:43.361</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\bin\x86\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2020-07-03T01:23:27.144</Modified>
+      <Modified>2021-01-09T16:34:43.361</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17134.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2018-04-20T03:01:52.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2020-06-15T02:55:56.644</Modified>
+      <Modified>2020-08-24T19:19:05.997</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Pedro\Documents\GitHub\appTesisLecturas\appmovil\appLecturas\AppLecturas\AppLecturas.UWP\bin\x86\Debug\Core\AppLecturas.UWP.exe">
+    <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\bin\x86\Debug\Core\AppLecturas.UWP.exe">
       <PackagePath>AppLecturas.UWP.exe</PackagePath>
-      <Modified>2020-07-03T01:23:47.375</Modified>
+      <Modified>2021-01-09T16:35:00.552</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

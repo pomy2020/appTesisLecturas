@@ -11,10 +11,10 @@ namespace AppLecturas
 
     public partial class App : Application,ILoginManager
     {
-        static ILoginManager ObjLoginManager;//objeto de la interfaz Iloginmanager
-        public new static App Current;//variable local
+        //static ILoginManager ObjLoginManager;//objeto de la interfaz Iloginmanager
+        public new static App Current;//variable local que va a representar a la aplicación
 
-        static Base.Database database;
+        static Base.Database database;//crear una variable de la clase database
 
         public static Base.Database Database//crea la base de datos local
         {
@@ -22,16 +22,16 @@ namespace AppLecturas
             {
                 if (database == null)//en caso de aún no existir crea la base de datos 
                 {
-                    database = new Base.Database(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "baselocal12062020820.db3"));//creación de la base de datos local
+                    database = new Base.Database(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "baselocal9121.db3"));//creación de la base de datos local
                 }
-                return database;//retorna la base de datos existente o la creada
+                return database;//retorna cargada con las tablas la base de datos existente o la creada
             }
         }
 
         public App()//constructor
         {
             InitializeComponent();//inicializa elemento visuales
-            Current = this;//asigna aplicación a la variable
+            Current = this;//asigna aplicación a la variable que me permitira usar los metodos de la interfaz
             var isLoggedIn = Properties.ContainsKey("IsLoggedIn") ? (bool)Properties["IsLoggedIn"] : false;//compara si hay usuario autenticado
             if (isLoggedIn)
                 MainPage = new NavigationPage(new PagMenu());//si el usuario ya se ha autenticado muestra el menú principal
@@ -53,7 +53,7 @@ namespace AppLecturas
         {
             // Handle when your app resumes
         }
-        //método que muestra la página principal
+        //método que muestra la página principal, en este caso la página menú
         public void ShowMainPage()
         {
             MainPage = new NavigationPage(new PagMenu());

@@ -9,7 +9,7 @@ namespace AppLecturas.Base
 {
     public class Database//Clase para crear y adminsitrar base de datos local(dispositivo)
     {
-        readonly SQLiteAsyncConnection _database;//variable para manejar la conección a la base de datos local
+        readonly SQLiteAsyncConnection _database;//variable para manejar la conección a la base de datos local, que tiene todo
 
         public Database(string dbPath)//constructor que recibe un parametro de tipo string(la dirección física donde se creará el archivo de base de datos local)
         {
@@ -18,6 +18,11 @@ namespace AppLecturas.Base
             _database.CreateTableAsync<ClsPersona>().Wait();//crear una tabla en la base de datos local según la clase ClsPersona(Abonado) del paquete Modelo
             _database.CreateTableAsync<ClsMedidor>().Wait();//crear una tabla en la base de datos local según la clase ClsMedidor del paquete Modelo
             _database.CreateTableAsync<ClsLectura>().Wait();//crear una tabla en la base de datos local según la clase ClsLectura del paquete Modelo
+            _database.CreateTableAsync<ClsPolitica>().Wait();//crear una tabla en la base de datos local según la clase ClsPolitica del paqueteModelo
+        }
+        public Task<int> SavePoliticaAsync(ClsPolitica politi)//método asíncrono que guarda un nuevo registro en la tabla ClsPolitica, recibe como parametro un objeto de la clase ClsPolitica
+        {
+            return _database.InsertAsync(politi);//invocación al método Insert en la tabla ClsPolitica enviando el objeto de la clase ClsPolitica, devuelve cero si la operación fracasó.
         }
 
         public Task<int> SavePersonaAsync(ClsPersona person)//método asíncrono que guarda un nuevo registro en la tabla ClsPersona, recibe como parametro un objeto de la clase ClsPersona
@@ -103,11 +108,7 @@ namespace AppLecturas.Base
         {
             return _database.UpdateAsync(lectura);//invoca al método asíncrono UpdateAsync que actualiza el registro, respondiendo con 0 si fracazó
         }
-        public Task<int> DeleteLecturaAsync(ClsLectura lectura)//método asíncrono para eliminar un registro ne la tabla ClsLectura de la base de datos local,
-                                                               //recibe como parámetro un objeto de la clase ClsLectura
-        {
-            return _database.DeleteAsync(lectura);//invoca al método asíncrono DeleteAsync que actualiza el registro, respondiendo con 0 si fracazó
-        }
+       
         public Task<int> DeleteUsuariosAsync()//método asíncrono para eliminar un registro ne la tabla ClsLectura de la base de datos local,
                                                                //recibe como parámetro un objeto de la clase ClsLectura
         {
@@ -127,6 +128,15 @@ namespace AppLecturas.Base
         {
             return _database.ExecuteScalarAsync<int>("Update ClsLectura set Estado=?,IdServer=? WHERE Id = ?",StrEstado,IdServ,Id);//invoca al método ExecuteScalarAsync,
             //para actualizar el estado (de 0 a 1) el idServer(id que registra el servidor) en el registro que coincida con el Id recibido(Id de lectura)
+        }
+        public Task<List<ClsPolitica>> GetPoliticaAsync()//método asíncrono que devuelve un listado con todos los registros de la tabla ClsPolitica de la base de datos local
+        {
+            return _database.Table<ClsPolitica>().ToListAsync();//invocación a método ToListAsync que convierte los registros de la tabla en un objeto lista.
+        }
+        public Task<int> DeletePoliticaAsync()//método asíncrono para eliminar un registro ne la tabla Clpolitica de la base de datos local,
+                                              //recibe como parámetro un objeto de la clase ClPolitica
+        {
+            return _database.DeleteAllAsync<ClsPolitica>();//invoca al método asíncrono DeleteAsync que actualiza el registro, respondiendo con 0 si fracazó
         }
     }
 }

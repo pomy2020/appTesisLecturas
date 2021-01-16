@@ -1,4 +1,5 @@
 ﻿using AppLecturas.Modelo;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,28 +17,30 @@ namespace AppLecturas.Vista
     public partial class PagMenu : ContentPage
     {
         private ClsUsuario ObjMiUsuario;//variable local usuario autenticado
-        public PagMenu()
+        public PagMenu()//construcror de la clase pagMenu
         {
             InitializeComponent();
             this.ObjMiUsuario = App.Current.Properties["ObjUsuario"] as ClsUsuario;//recuperar objeto guardado en propieades de la aplicación
             TxtUsuario.Text = ObjMiUsuario.Name;//mostrar en caja de texto el nombre de la persona
             TxtPerfil.Text = ObjMiUsuario.Role;//mostrar el nombre del perfil en una caja de texto
             TxtSector.Text = ObjMiUsuario.Sector;//mostrar el sector asignado al usuario
-            
+            listView.IsVisible = false;
+
         }
         //metodo que se ejecuta cuando se muestra la interfaz
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            CtrlLectura ObjCtrlLectura = new CtrlLectura();
+            CtrlLectura ObjCtrlLectura = new CtrlLectura();//es una instancia de la clase CtrlLectura
 
             try
             {
                 // cada vez que se muestre el menú se busca lecturas para sincronizar
                 if (ObjCtrlLectura.Esta_Conectado())
                 {
-                    await SincronizarLecturasAsync();
-                    var StrMensaje = await ObjCtrlLectura.Sincronizar();
+                    await SincronizarLecturasAsync();//traer lecturas del servidor remoto
+                    ObjCtrlLectura.MiUsuario = ObjMiUsuario;
+                    var StrMensaje = await ObjCtrlLectura.Sincronizar();//enviar lecturas al servidor remoto.
                     TxtConectado.Text = "SI";
                     TxtSincronizacion.Text = StrMensaje;
                 }
@@ -64,12 +67,16 @@ namespace AppLecturas.Vista
         {
             try
             {
-                ClsMedidor ObjMedidor = e.SelectedItem as ClsMedidor;//asignar el objeto seleccionado a la variable obj
+                CtrlMedidor Manager = new CtrlMedidor();
+                Object ObjFila = e.SelectedItem;//asignar el objeto seleccionado a la variable obj
+                var json = JsonConvert.SerializeObject(ObjFila);
+                ClsMedidor ObjMedidor = JsonConvert.DeserializeObject<ClsMedidor>(json);
+                var consulta = await Manager.Consultar(ObjMedidor.Id);
+                ObjMedidor = consulta.First();
                 CtrlLectura ObjCtrlLectura = new CtrlLectura();
                 var LecturaMes = await ObjCtrlLectura.GetLecturaMedidorAsync(DateTime.Today, ObjMedidor.Id);
-                
                 if (!LecturaMes)
-                    await ((NavigationPage)this.Parent).PushAsync(new PagIngresoLectura(ObjMedidor, true));//mostrar la vista adminpersona con los datos cargados para modificar o eliminar
+                    await ((NavigationPage)this.Parent).PushAsync(new PagIngresoLectura(ObjMedidor, true));//mostrar el formulario Ingresos de lecturas con los datos cargados para modificar o eliminar
                 else
                     await DisplayAlert("Mensaje", "Ya se han ingresado datos de este mes para el medidor seleccionado", "ok");
             }
@@ -78,28 +85,46 @@ namespace AppLecturas.Vista
                 await DisplayAlert("Mensaje", ex.Message, "ok");
             }
         }
-        //maneja boton consultar medidores 
+        //maneja boton consultar medidores del sector asignadoal usuario
         private async void ButConsultaMedidores_ClickedAsync(object sender, EventArgs e)
         {
             CtrlMedidor Manager = new CtrlMedidor();
             try
             {
-                if (Manager.Esta_Conectado())
-                    await SincronizarMedidoresAsync();
-                else
-                    TxtConectado.Text = "No";
-                listView.ItemsSource = await Manager.Consultar(ObjMiUsuario.Sector);//consulta medidores por sectora asignado al usuario
-            }catch(Exception ex)
+                await SincronizarMedidoresAsync();
+                CtrlMedidor ObjMedidor = new CtrlMedidor();
+                CtrlPersona ObjPersona = new CtrlPersona();
+                var medidores = await ObjMedidor.Consultar(ObjMiUsuario.Sector);
+                var personas = await ObjPersona.Consultar();
+
+                var result = from med in medidores
+                             join per in personas on med.Persona_id equals per.Id
+                             select new
+                             {
+                                 med.Id,
+                                 med.Codigo,
+                                 per.Nombre,
+                                 per.Apellido,
+                                 med.Numero,
+                                 med.Marca,
+                                 med.Modelo,
+                                 med.Sector
+                             };
+                listView.ItemsSource = result;
+                listView.IsVisible = true;
+            }
+            catch(Exception ex)
             {
                 await DisplayAlert("Mensaje", ex.Message, "ok");
             }
         }
 
-        protected async Task<bool> SincronizarMedidoresAsync()//sincroniza medidores
+        protected async Task<bool> SincronizarMedidoresAsync()//sincroniza medidores asignado al usuario de ese sector
         {
             try
             {
                 CtrlMedidor ObjCtrlMedidor = new CtrlMedidor();
+                ObjCtrlMedidor.MiUsuario = ObjMiUsuario;//cargamos los datos del usuario para que autentique.
                 bool IsValid = await ObjCtrlMedidor.SincronizarAsync();
                 return IsValid;
             }
@@ -112,7 +137,8 @@ namespace AppLecturas.Vista
         {
             try
             {
-                CtrlLectura ObjCtrlLectura = new CtrlLectura();
+                CtrlLectura ObjCtrlLectura = new CtrlLectura();//instanciamo con un objeto de la clase control lecturas
+                ObjCtrlLectura.MiUsuario = ObjMiUsuario;//cargamos los datos del usuario para que autentique.
                 bool IsValid = await ObjCtrlLectura.SincronizarAsync();
                 return IsValid;
             }

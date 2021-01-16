@@ -28,9 +28,9 @@ namespace AppLecturas.Modelo
         public int User_id { get; set; }
         public int IdServer { get; set; }
         public string StrImagen { get; set; }
-        private float CantidadConsumo = 5;
-        private float ValorConsumo = 4;
-        private float VaLorExceso = 5;
+        public float CantidadConsumo { get; set; }
+        public float ValorConsumo { get; set; }
+        public float VaLorExceso { get; set; }
         public float Total { get; set; }
         
         [JsonIgnore]
@@ -53,7 +53,7 @@ namespace AppLecturas.Modelo
         public void Calcular()//método para calcular consumo, exceso y valores según la lectura anterior y la lectura actual
         {
             Consumo = Actual - Anterior;
-            Basico = ValorConsumo;//4$
+            Basico = ValorConsumo;
             if (Consumo > CantidadConsumo)
             {                
                 Exceso = (Consumo - CantidadConsumo) * VaLorExceso;

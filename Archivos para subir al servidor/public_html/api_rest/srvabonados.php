@@ -1,6 +1,6 @@
 <?php
-include "../../apirest/config.php";
-include "../../apirest/utils.php";
+include "config.php";
+include "utils.php";
 
 if(isset($_SERVER['PHP_AUTH_USER']) && isset($_SERVER['PHP_AUTH_PW']))
 {

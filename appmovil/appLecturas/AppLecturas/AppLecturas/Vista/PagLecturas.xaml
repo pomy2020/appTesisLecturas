@@ -7,31 +7,100 @@
              x:Class="AppLecturas.Vista.PagLecturas">
     <ContentPage.Content>
         <StackLayout Margin="20,35,20,20">
-            <Button Text="Ver"
+            <Button Text="Ver todas las lecturas"
                 Clicked="Button_ClickedAsync" />
             <Button x:Name="ButSincr"  Text="Sincronizar con servidor remoto"
                 Clicked="Button_Clicked_SincronizarAsync" />
+            <Button x:Name="BuscarPorFecha"  Text="Buscar por mes y año"
+                Clicked="BuscarPorFecha_Clicked" />
+            <Picker x:Name="Seleccionarmes"
+        Title="Seleccionar el mes"
+        TitleColor="Green">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Enero</x:String>
+                        <x:String>Febrero</x:String>
+                        <x:String>Marzo</x:String>
+                        <x:String>Abril</x:String>
+                        <x:String>Mayo</x:String>
+                        <x:String>Junio</x:String>
+                        <x:String>Julio</x:String>
+                        <x:String>Agosto</x:String>
+                        <x:String>Septiembre</x:String>
+                        <x:String>Octubre</x:String>
+                        <x:String>Noviembre</x:String>
+                        <x:String>Diciembre</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <Picker x:Name="Seleccionaraño"
+        Title="Seleccionar el año"
+        TitleColor="Green">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>2019</x:String>
+                        <x:String>2020</x:String>
+                        <x:String>2021</x:String>
+                        <x:String>2022</x:String>
+                        <x:String>2023</x:String>
+                        <x:String>2023</x:String>
+                        <x:String>2024</x:String>
+                        <x:String>2025</x:String>
+                        <x:String>2026</x:String>
+                        <x:String>2027</x:String>
+                        <x:String>2028</x:String>
+                        <x:String>2029</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
             <ListView x:Name="listView" ItemSelected="listView_ItemSelected">
+                <ListView.Header>
+
+                    <Grid HorizontalOptions="FillAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                            <ColumnDefinition Width="4*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text ="Id" FontSize="Small" Grid.Column="0"/>
+                        <Label Text ="Fecha" FontSize="Small" Grid.Column="1"/>
+                        <Label Text ="Nombre" FontSize="Small" Grid.Column="2"/>
+                        <Label Text ="Apellido" FontSize="Small" Grid.Column="3" />
+                        <Label Text ="Lectura anterior" FontSize="Small" Grid.Column="4"/>
+                        <Label Text ="Lectura actual" FontSize="Small" Grid.Column="5"/>
+                        <Label Text ="Consumo en m3" FontSize="Small" Grid.Column="6"/>
+                    </Grid>
+                </ListView.Header>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout BackgroundColor="#eee"
+                            <StackLayout BackgroundColor="AliceBlue"
                         Orientation="Vertical">
-                                <StackLayout Orientation="Horizontal">
-                                    <Image Source="{Binding Image}" HeightRequest="50" WidthRequest="50" HorizontalOptions="End" />
-                                    <Label Text="{Binding Fecha}"
-                                TextColor="#f35e20" />
-                                    <Label Text="{Binding Anterior}"
-                                TextColor="#503026" />
-                                    <Label Text="{Binding Actual}"
-                                TextColor="#503026" />
-                                    <Label Text="{Binding Consumo}"
-                                TextColor="#503026" />
-                                    <Label Text="{Binding Latitud}"
-                                TextColor="#503026" />
-                                    <Label Text="{Binding Longitud}"
-                                TextColor="#503026" />
-                                </StackLayout>
+                                <Grid HorizontalOptions="FillAndExpand">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Text="{Binding Id}" FontSize="Micro" HorizontalOptions="FillAndExpand" Grid.Column="0" TextColor="#f35e20"></Label>
+                                    <Label Text="{Binding Fecha , StringFormat='{0:MM/dd/yyyy}'}" FontSize="Micro" HorizontalOptions="FillAndExpand"  Grid.Column="1" TextColor="#503026"></Label>
+                                    <Label Text="{Binding Nombre}" FontSize="Micro" HorizontalOptions="FillAndExpand"  Grid.Column="2" TextColor="#503026"></Label>
+                                    <Label Text="{Binding Apellido}" FontSize="Micro" HorizontalOptions="FillAndExpand"  Grid.Column="3" TextColor="#503026"></Label>
+                                    <Label Text="{Binding Anterior}" FontSize="Micro" HorizontalOptions="FillAndExpand"  Grid.Column="4" TextColor="#503026"></Label>
+                                    <Label Text="{Binding Actual}" FontSize="Micro" HorizontalOptions="FillAndExpand"  Grid.Column="5" TextColor="#503026"></Label>
+                                    <Label Text="{Binding Consumo}" FontSize="Micro" HorizontalOptions="FillAndExpand"  Grid.Column="6" TextColor="#503026"></Label>
+   
+                                </Grid>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
@@ -40,3 +109,5 @@
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
+
+        
