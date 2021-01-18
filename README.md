@@ -2,6 +2,7 @@ Sistema para registro de lecturas de medidores de agua potable para el sistema d
 - El directorio sistema web contiene los archivos del gestor de contenido Laravel y es en donde se encuentran los archivo del sistema web de administración.
 - El directorio app movil contiene el código desarrollado en xamarin forms
 - El directorio apirest contiene los scripts php para la interacción entre el dispositivo móvil y la base de datos remota
+- Las ultimas actualizaciones de la appweb, de la appmóvil y la apirest
 
 Pedro Mejía
 Universidad Técnica Particular de Loja
