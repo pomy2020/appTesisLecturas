@@ -24,8 +24,9 @@
                             <tr>
                                 <th width="10px">ID</th>
                                 <th>Cédula</th>
-                                <th>Nombre</th>
-                                <th>Apellido</th>
+                                <th>Nombres</th>
+                                <th>Apellidos</th>
+                                <th>Opciones</th>
                                 <th colspan="3">&nbsp;</th>
                             </tr>
                         </thead>

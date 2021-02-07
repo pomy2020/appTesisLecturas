@@ -24,6 +24,7 @@
                                 <th>Numero</th>
                                 <th>Abonado</th>
                                 <th>Sector</th>
+                                <th>Opciones</th>
                                 <th colspan="3">&nbsp;</th>
                             </tr>
                         </thead>

@@ -7,12 +7,6 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     Politicas
-                    <nav class="navbar navbar-light float-right">
-  <form class="form-inline">
-
-   
-  </form>
-</nav>
                     @can('politica.create')
                     <a href="{{route('politica.create') }}" 
                     class="btn btn-sm btn-primary pull-right">
@@ -29,6 +23,7 @@
                                 <th>CantidadConsumo</th>
                                 <th>ValorConsumo</th>
                                 <th>ValorExeso</th>
+                                <th>Opciones</th>
                                 <th colspan="3">&nbsp;</th>
                             </tr>
                         </thead>

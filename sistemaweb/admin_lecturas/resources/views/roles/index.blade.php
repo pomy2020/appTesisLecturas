@@ -21,6 +21,7 @@
                             <tr>
                                 <th width="10px">ID</th>
                                 <th>Nombre</th>
+                                <th>Opciones</th>
                                 <th colspan="3">&nbsp;</th>
                             </tr>
                         </thead>

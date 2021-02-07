@@ -7,6 +7,12 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     Usuarios
+                    @can('users.create')
+                    <a href="{{ route('users.create') }}"
+                    class="btn btn-sm btn-primary pull-right">
+                    Crear
+                </a>
+                @endcan
                 </div>
 
                 <div class="panel-body">
@@ -14,7 +20,8 @@
                         <thead>
                             <tr>
                                 <th width="10px">ID</th>
-                                <th>Nombre</th>
+                                <th>Nombre y Apellido</th>
+                                <th>Opciones</th>
                                 <th colspan="3">&nbsp;</th>
                             </tr>
                         </thead>

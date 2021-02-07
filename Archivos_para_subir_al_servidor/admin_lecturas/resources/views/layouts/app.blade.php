@@ -8,69 +8,66 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('Sistema Web', 'JAAPSZ') }}</title>
+    <!-- aqui estamos llamando al nombre de la app web -->
+    <title>{{ config('app.name') }}</title>
 
-    <!-- Styles -->
+    <!-- En este archivo tenemos persolizado nustras hojas de estilos, para manejar el ccolor, el fondo y el tipo de letra -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body style="background-color:red;">
+<body class="color">
 
-    <div id="app">
+    <div class="colorfondo" id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
 
                     <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+                
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'JAAPSZ') }}
+                        SISTEMA WEB de la<br>
+                        Junta de Agua de Zumbahuayco
                     </a>
                 </div>
-
+               <!--  -->
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                     <!-- Collapsed Hamburger -->
-                   
+                     
+                   <!--Sí el usuario que está autenticado, tiene permiso para el index de persona, el usuario puede listar los abonados -->
                     <ul class="nav navbar-nav">
                         @can('personas.index')
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('personas.index') }}">Abonados</a>
+                            <a class="nav-link" href="{{ route('personas.index') }}">Lista de Abonados</a>
                         </li>
                         @endcan
+                        <!--Sí el usuario que está autenticado, tiene permiso para el index de medidores, el usuario puede listar los medidores -->
                         @can('medidores.index')
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('medidores.index') }}">Medidores</a>
                         </li>
                         @endcan
+                        <!--Sí el usuario que está autenticado, tiene permiso para el index de lecturas, el usuario puede listar las lecturas -->
                         @can('lecturas.index')
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('lecturas.index') }}">Lecturas</a>
                         </li>
                         @endcan
+                        <!--Sí el usuario que está autenticado, tiene permiso para el index de ususarios, el usuario puede listar los usuarios -->
                         @can('users.index')
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('users.index') }}">Usuarios</a>
                         </li>
                         @endcan
+                        <!--Sí el usuario que está autenticado, tiene permiso para el index de roles, el usuario puede listar los roles -->
                         @can('roles.index')
                         <li class="nav-item">                            
                             <a class="nav-link" href="{{ route('roles.index') }}">Roles</a>
                         </li>
                         @endcan
-                        @can('provincia.index')
-                        <li class="nav-item">                            
-                            <a class="nav-link" href="{{ route('provincia.index') }}">provincias</a>
-                        </li>
-                        @endcan
+                        <!--Sí el usuario que está autenticado, tiene permiso para el index de politicas, el usuario puede listar las politicas -->
                          @can('politica.index')
                         <li class="nav-item">                            
-                            <a class="nav-link" href="{{ route('politica.index') }}">politicas</a>
+                            <a class="nav-link" href="{{ route('politica.index') }}">Politicas</a>
                         </li>
                         @endcan
                     </ul>
