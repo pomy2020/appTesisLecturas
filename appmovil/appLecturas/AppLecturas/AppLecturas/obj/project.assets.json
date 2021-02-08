@@ -3815,11 +3815,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Pedro\\Desktop\\AppLecturas\\AppLecturas\\AppLecturas\\AppLecturas.csproj",
+      "projectUniqueName": "C:\\Users\\Pedro\\Documents\\GitHub\\appTesisLecturas\\appmovil\\appLecturas\\AppLecturas\\AppLecturas\\AppLecturas.csproj",
       "projectName": "AppLecturas",
-      "projectPath": "C:\\Users\\Pedro\\Desktop\\AppLecturas\\AppLecturas\\AppLecturas\\AppLecturas.csproj",
+      "projectPath": "C:\\Users\\Pedro\\Documents\\GitHub\\appTesisLecturas\\appmovil\\appLecturas\\AppLecturas\\AppLecturas\\AppLecturas.csproj",
       "packagesPath": "C:\\Users\\Pedro\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Pedro\\Desktop\\AppLecturas\\AppLecturas\\AppLecturas\\obj\\",
+      "outputPath": "C:\\Users\\Pedro\\Documents\\GitHub\\appTesisLecturas\\appmovil\\appLecturas\\AppLecturas\\AppLecturas\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
