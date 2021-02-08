@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="AppLecturas.Vista.PagIngresoLectura"
-             xmlns:local="clr-namespace:AppLecturas.Behaviours">
+             xmlns:local="clr-namespace:AppLecturas.Behaviours" BackgroundColor="#d4f3f3">
     <ContentPage.Content>
         <ScrollView>
             <Grid>

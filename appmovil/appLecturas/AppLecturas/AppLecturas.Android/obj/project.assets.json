@@ -2427,11 +2427,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Pedro\\Documents\\GitHub\\appTesisLecturas\\appmovil\\appLecturas\\AppLecturas\\AppLecturas.Android\\AppLecturas.Android.csproj",
+      "projectUniqueName": "C:\\Users\\Pedro\\Desktop\\AppLecturas\\AppLecturas\\AppLecturas.Android\\AppLecturas.Android.csproj",
       "projectName": "AppLecturas.Android",
-      "projectPath": "C:\\Users\\Pedro\\Documents\\GitHub\\appTesisLecturas\\appmovil\\appLecturas\\AppLecturas\\AppLecturas.Android\\AppLecturas.Android.csproj",
+      "projectPath": "C:\\Users\\Pedro\\Desktop\\AppLecturas\\AppLecturas\\AppLecturas.Android\\AppLecturas.Android.csproj",
       "packagesPath": "C:\\Users\\Pedro\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Pedro\\Documents\\GitHub\\appTesisLecturas\\appmovil\\appLecturas\\AppLecturas\\AppLecturas.Android\\obj\\",
+      "outputPath": "C:\\Users\\Pedro\\Desktop\\AppLecturas\\AppLecturas\\AppLecturas.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -2452,8 +2452,8 @@
       "frameworks": {
         "monoandroid90": {
           "projectReferences": {
-            "C:\\Users\\Pedro\\Documents\\GitHub\\appTesisLecturas\\appmovil\\appLecturas\\AppLecturas\\AppLecturas\\AppLecturas.csproj": {
-              "projectPath": "C:\\Users\\Pedro\\Documents\\GitHub\\appTesisLecturas\\appmovil\\appLecturas\\AppLecturas\\AppLecturas\\AppLecturas.csproj"
+            "C:\\Users\\Pedro\\Desktop\\AppLecturas\\AppLecturas\\AppLecturas\\AppLecturas.csproj": {
+              "projectPath": "C:\\Users\\Pedro\\Desktop\\AppLecturas\\AppLecturas\\AppLecturas\\AppLecturas.csproj"
             }
           }
         }

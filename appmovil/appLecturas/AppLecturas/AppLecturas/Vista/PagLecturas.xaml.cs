@@ -16,9 +16,9 @@ namespace AppLecturas.Vista
     public partial class PagLecturas : ContentPage
     {
         CtrlLectura Manager;//variable de la clase control lecturas objeto de la clase ctrllectura
-        ClsUsuario ObjMiUsuario;
+        ClsUsuario ObjMiUsuario;//declaramos una variable de tipo ClsUsuario
 
-        public PagLecturas()
+        public PagLecturas()//constructor Paglecturas
         {
             InitializeComponent();//inicializamos los componentes de la clase PagLecturas
             this.ObjMiUsuario = App.Current.Properties["ObjUsuario"] as ClsUsuario;//
@@ -26,8 +26,6 @@ namespace AppLecturas.Vista
             listView.IsVisible = false;
             
             Manager = new CtrlLectura();//es una instancia de la clase control lectura para poder utilizar los metodos de esta clase
-            //txtMesBuscar.Text = DateTime.Now.Month.ToString();
-           // txtAñoBuscar.Text = DateTime.Now.Year.ToString();
         }
         //manejador del boton listar
         private async void Button_ClickedAsync(object sender, EventArgs e)//boton para consultar lecturas, es un controlador 
@@ -35,8 +33,8 @@ namespace AppLecturas.Vista
             try
             {
                 listView.IsVisible = true;
-                CtrlMedidor ObjMedidor = new CtrlMedidor();
-                CtrlPersona ObjPersona = new CtrlPersona();
+                CtrlMedidor ObjMedidor = new CtrlMedidor();//declarando una variable de la clase control medidro e intanciandola
+                CtrlPersona ObjPersona = new CtrlPersona();//declarando una variable de la clase control persona e intanciandola
                 var lecturas = await Manager.Get();
                 var medidores = await ObjMedidor.Consultar(ObjMiUsuario.Sector);
                 var personas = await ObjPersona.Consultar();
@@ -105,8 +103,8 @@ namespace AppLecturas.Vista
                 if (mes != 0 && año != 0)
                 {
                     listView.IsVisible = true;
-                    CtrlMedidor ObjMedidor = new CtrlMedidor();
-                    CtrlPersona ObjPersona = new CtrlPersona();
+                    CtrlMedidor ObjMedidor = new CtrlMedidor();//declarando una variable de la clase control medidor e intanciandola
+                    CtrlPersona ObjPersona = new CtrlPersona();//declarando una variable de la clase control persona e intanciandola
                     var lecturas = await Manager.Get();
                     var medidores = await ObjMedidor.Consultar(ObjMiUsuario.Sector);
                     var personas = await ObjPersona.Consultar();

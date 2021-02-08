@@ -73,7 +73,7 @@ namespace AppLecturas.Vista
                                         ClsUsuario ObjUsuario = ConsUsr.First();//declaro una variable de la clase usuario, y le asigno el primer usuario del liostado de objetos que se recibio
                                         await DisplayAlert("Mensaje", "Bienvenido", "ok");//mensaje de  bienvenida
                                                                                           //ObjUsuario.ObjPerfil = ConsPerfil.First();//asignar objeto encontrado a campo de objeto usuario
-                                        ObjUsuario.Password = TxtPassword.Text;
+                                        ObjUsuario.Password = TxtPassword.Text;//asignando a la propiedad password el password ingresado
                                         App.Current.Properties["name"] = ObjUsuario.Name;//guardar en propiedades de la aplicación el nombre del usuario
                                         App.Current.Properties["IsLoggedIn"] = true;//guardar en propiedades de la aplicación el estado como verdadero
                                         App.Current.Properties["ObjUsuario"] = ObjUsuario;//guardar el objeto usuario en propiedades de la aplicación
@@ -103,7 +103,7 @@ namespace AppLecturas.Vista
             TxtEmail.Text = "";
             TxtPassword.Text = "";
         }
-        //sincronizar los abonados
+        //Metodo para sincronizar los abonados
         protected async Task<bool> SincronizarPersonasAsync()
         {
             try

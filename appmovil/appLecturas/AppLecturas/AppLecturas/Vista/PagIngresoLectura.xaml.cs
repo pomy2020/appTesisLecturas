@@ -252,7 +252,7 @@ namespace AppLecturas.Vista
                 txtConsumo.Text = ObjLectura.Consumo.ToString();//mostrar variable consumo en caja de texto
             }
         }
-        //manejador del botón eliminar
+       
         
         private async void  recuperarpolitica() 
         {

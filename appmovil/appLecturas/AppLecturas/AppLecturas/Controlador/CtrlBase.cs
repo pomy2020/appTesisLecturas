@@ -26,8 +26,8 @@ namespace AppLecturas.Controlador
         public ClsUsuario MiUsuario { get; set; }//declarando una propiedad de mi clase control base de tipo cls usuario
         public CtrlBase()//constructor de la clase
         {
-            //Servidor = "https://tesisingresolecturas.000webhostapp.com/api_rest/";//asignar URL donde están alojados los archivosde la apirest
-            Servidor = "http://localhost/api_rest/";
+            Servidor = "https://tesisingresolecturas.000webhostapp.com/api_rest/";//asignar URL donde están alojados los archivosde la apirest
+            //Servidor = "http://localhost/api_rest/";
         }
         public bool Esta_Conectado()//devuelve verdadero o falso
         {

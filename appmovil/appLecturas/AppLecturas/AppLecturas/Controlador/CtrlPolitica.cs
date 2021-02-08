@@ -17,7 +17,7 @@ namespace AppLecturas.Controlador
         //método para crear la variable cliente que realizará la conexión al servidor usando el protocolo http
        
         
-        //método asíncrono que devuelve un objeto enumerable(lista) de tipo clspersona filtrado por cédula, del paquete modelo
+        //método asíncrono que devuelve un objeto enumerable(lista) de tipo clspolitica, del paquete modelo
         public async Task<IEnumerable<ClsPolitica>> Consultar()
         {
             try

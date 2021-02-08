@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="AppLecturas.Vista.PagMenu">
+             x:Class="AppLecturas.Vista.PagMenu" BackgroundColor="#d4f3f3">
     <ContentPage.Content>
         <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
             <Label Text="JUNTA ADMINISTRADORA DE AGUA POTABLE ZUMBAHUAYCO" HorizontalTextAlignment="Center" TextColor="BlueViolet" FontSize="Caption"/>
@@ -22,7 +22,7 @@
                 <Label Text="Observación." HorizontalTextAlignment="Center" FontSize="Micro"/>
                 <Label x:Name="TxtSincronizacion" TextColor="Red" FontSize="Micro"/>
             </StackLayout>
-            <Button Text="Consultar Medidores" x:Name="ButConsultaMedidores" Clicked="ButConsultaMedidores_ClickedAsync" FontSize="Micro"/>
+            <Button Text="Consultar Medidores" x:Name="ButConsultaMedidores" Clicked="ButConsultaMedidores_ClickedAsync" BackgroundColor="#adb9c5" FontSize="Micro"/>
             <ListView x:Name="listView" ItemSelected="listView_ItemSelected">
                 <ListView.Header>
 
@@ -77,8 +77,8 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button Text="Consultar Lecturas" x:Name="ButConsultarLectura" Clicked="ButConsultarLectura_Clicked" FontSize="Micro"/>           
-            <Button Text="Cerrar Sesión" x:Name="ButCerrarSesion" Clicked="ButCerrarSesion_Clicked" FontSize="Micro"/>
+            <Button Text="Consultar Lecturas" x:Name="ButConsultarLectura" Clicked="ButConsultarLectura_Clicked" BackgroundColor="#adb9c5" FontSize="Micro"/>
+            <Button Text="Cerrar Sesión" x:Name="ButCerrarSesion" Clicked="ButCerrarSesion_Clicked" BackgroundColor="#adb9c5" FontSize="Micro"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

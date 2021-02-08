@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="AppLecturas.Vista.PagLecturas">
+             x:Class="AppLecturas.Vista.PagLecturas" BackgroundColor="#d4f3f3">
     <ContentPage.Content>
         <StackLayout Margin="20,35,20,20">
             <Button Text="Ver todas las lecturas"

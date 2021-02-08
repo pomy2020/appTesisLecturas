@@ -31,7 +31,7 @@ namespace AppLecturas.Vista
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            CtrlLectura ObjCtrlLectura = new CtrlLectura();//es una instancia de la clase CtrlLectura
+            CtrlLectura ObjCtrlLectura = new CtrlLectura();//declaramos la variable y la  instanciamos de la clase CtrlLectura
 
             try
             {
@@ -39,7 +39,7 @@ namespace AppLecturas.Vista
                 if (ObjCtrlLectura.Esta_Conectado())
                 {
                     await SincronizarLecturasAsync();//traer lecturas del servidor remoto
-                    ObjCtrlLectura.MiUsuario = ObjMiUsuario;
+                    ObjCtrlLectura.MiUsuario = ObjMiUsuario;//cargamos los datos del usuario para que autentique.
                     var StrMensaje = await ObjCtrlLectura.Sincronizar();//enviar lecturas al servidor remoto.
                     TxtConectado.Text = "SI";
                     TxtSincronizacion.Text = StrMensaje;
@@ -62,18 +62,18 @@ namespace AppLecturas.Vista
         {
             App.Current.Logout();
         }
-        //maneja la seleccion de un medidor del listado
+        //maneja la seleccion de un medidor del listado para crear una nueva lectura
         private async void listView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             try
             {
-                CtrlMedidor Manager = new CtrlMedidor();
-                Object ObjFila = e.SelectedItem;//asignar el objeto seleccionado a la variable obj
-                var json = JsonConvert.SerializeObject(ObjFila);
-                ClsMedidor ObjMedidor = JsonConvert.DeserializeObject<ClsMedidor>(json);
-                var consulta = await Manager.Consultar(ObjMedidor.Id);
-                ObjMedidor = consulta.First();
-                CtrlLectura ObjCtrlLectura = new CtrlLectura();
+                CtrlMedidor Manager = new CtrlMedidor();//declarando una variable de la clase control medidor e intanciandola
+                Object ObjFila = e.SelectedItem;//asignar el objeto seleccionado a la variable de tipo object
+                var json = JsonConvert.SerializeObject(ObjFila);//declaramos una variable json, y serializo el objeto fila
+                ClsMedidor ObjMedidor = JsonConvert.DeserializeObject<ClsMedidor>(json);//transformamos ese json con jsonConver a un cls medidor
+                var consulta = await Manager.Consultar(ObjMedidor.Id);//en esta variable vamos a cargar lo que me trae del metodo consultar de la clase medidor por id
+                ObjMedidor = consulta.First();//aqui tenemos todos los datos cargados de mi clase medidor
+                CtrlLectura ObjCtrlLectura = new CtrlLectura();//declamos una varible de tipo ctrllectura e intanciamos para usar sus metdos
                 var LecturaMes = await ObjCtrlLectura.GetLecturaMedidorAsync(DateTime.Today, ObjMedidor.Id);
                 if (!LecturaMes)
                     await ((NavigationPage)this.Parent).PushAsync(new PagIngresoLectura(ObjMedidor, true));//mostrar el formulario Ingresos de lecturas con los datos cargados para modificar o eliminar

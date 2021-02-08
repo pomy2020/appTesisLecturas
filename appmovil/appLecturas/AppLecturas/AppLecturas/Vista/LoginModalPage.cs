@@ -14,7 +14,7 @@ namespace AppLecturas.Vista
         {
             Login = new PagLogin(ObjIlm);//instanciación de un objeto de la clase PagLogin del espacio de nombres vista
             this.Children.Add(Login);//se añade a la pila de vistas de la aplicación la vista login
-            MessagingCenter.Subscribe<ContentPage>(this, "Login", (sender) =>
+            MessagingCenter.Subscribe<ContentPage>(this, "Login", (sender) =>//es para seleccionar el formulario login
               {
                   this.SelectedItem = Login;//para mostrar la vista login
               });

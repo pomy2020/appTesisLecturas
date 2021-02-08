@@ -655,4 +655,3 @@ C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\obj\x86\Debug\qua
 C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\obj\x86\Debug\ProjectArchitectures.txt
 C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\obj\x86\Debug\.winmd_cache\$Microsoft.Graphics.Canvas.winmd_636160679180000000.json
-C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\obj\x86\Debug\.winmd_cache\$Microsoft.Graphics.Canvas.winmd_636160895180000000.json
