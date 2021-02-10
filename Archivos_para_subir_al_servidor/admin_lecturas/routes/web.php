@@ -40,29 +40,7 @@ Route::middleware(['auth'])->group(function () {
 		->middleware('permission:roles.destroy');
 
 	Route::get('roles/{role}/edit', 'RoleController@edit')->name('roles.edit')
-		->middleware('permission:roles.edit');
-
-		//Provincia
-	Route::post('provincia/store', 'ProvinciaController@store')->name('provincia.store')
-		->middleware('permission:provincia.store');
-
-	Route::get('Provincia/{provincia?}', 'ProvinciaController@index')->name('provincia.index')
-		->middleware('permission:provincia.index');
-
-	Route::get('provincia/create', 'provinciaController@create')->name('provincia.create')
-		->middleware('permission:provincia.create');
-
-	Route::put('provincia/{provincia}', 'provinciaController@update')->name('provincia.update')
-		->middleware('permission:provincia.edit');
-
-	Route::get('provincia/{provincia}', 'ProvinciaController@show')->name('provincia.show')
-		->middleware('permission:provincia.show');
-
-	Route::delete('provincia/{provincia}', 'ProvinciaController@destroy')->name('provincia.destroy')
-		->middleware('permission:provincia.destroy');
-
-	Route::get('provincia/{provincia}/edit', 'ProvinciaController@edit')->name('provincia.edit')
-		->middleware('permission:provincia.edit');	
+		->middleware('permission:roles.edit');	
 	
 	//politicas
 		Route::post('politica/store', 'PoliticaController@store')->name('politica.store')
@@ -172,6 +150,6 @@ Route::put('lecturas/store', 'LecturaController@update')->name('lecturas.update'
 	Route::get('lecturas/{lectura}/edit', 'LecturaController@edit')->name('lecturas.edit')
 		->middleware('permission:lecturas.edit');
 
-	Route::get('descargar-lecturas', 'LecturaController@pdf')->name('lecturas.pdf');
+	Route::get('descargar-lecturas/{mes?}/{anio?}/{sector?}/{todos?}', 'lecturacontroller@pdf')->name('lecturas.pdf');
 //////
 });

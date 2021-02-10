@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -39,8 +40,35 @@ Route::middleware(['auth'])->group(function () {
 		->middleware('permission:roles.destroy');
 
 	Route::get('roles/{role}/edit', 'RoleController@edit')->name('roles.edit')
-		->middleware('permission:roles.edit');
-	//Users
+		->middleware('permission:roles.edit');	
+	
+	//politicas
+		Route::post('politica/store', 'PoliticaController@store')->name('politica.store')
+		->middleware('permission:politica.store');
+
+	Route::get('Politica/{politica?}', 'PoliticaController@index')->name('politica.index')
+		->middleware('permission:politica.index');
+
+	Route::get('politica/create', 'politicaController@create')->name('politica.create')
+		->middleware('permission:politica.create');
+
+	Route::put('politica/{politica}', 'politicaController@update')->name('politica.update')
+		->middleware('permission:politica.edit');
+
+	Route::get('politica/{politica}', 'PoliticaController@show')->name('politica.show')
+		->middleware('permission:politica.show');
+
+	Route::delete('politica/{politica}', 'PoliticaController@destroy')->name('politica.destroy')
+		->middleware('permission:politica.destroy');
+
+	Route::get('politica/{politica}/edit', 'PoliticaController@edit')->name('politica.edit')
+		->middleware('permission:politica.edit');
+	//User
+		Route::post('users/store', 'UserController@store')->name('users.store')
+		->middleware('permission:users.create');
+		Route::get('users/create', 'UserController@create')->name('users.create')
+		->middleware('permission:users.create');
+
 	Route::get('users', 'UserController@index')->name('users.index')
 		->middleware('permission:users.index');
 
@@ -122,6 +150,6 @@ Route::put('lecturas/store', 'LecturaController@update')->name('lecturas.update'
 	Route::get('lecturas/{lectura}/edit', 'LecturaController@edit')->name('lecturas.edit')
 		->middleware('permission:lecturas.edit');
 
-	Route::get('descargar-lecturas', 'LecturaController@pdf')->name('lecturas.pdf');
+	Route::get('descargar-lecturas/{mes?}/{anio?}/{sector?}/{todos?}', 'lecturacontroller@pdf')->name('lecturas.pdf');
 //////
 });

@@ -8,14 +8,14 @@
                 <div class="panel-heading">
                     lecturas
                                   
-                    <a href="{{ route('lecturas.pdf') }}" class="btn btn-sm btn-primary pull-right">
+                    <a href="{{ route('lecturas.pdf',[$mes,$anio,$sector,$todos]) }}" class="btn btn-sm btn-primary pull-right">
                         Reporte en PDF
                     </a>    
                 </div>
                 <form>
                 <div class="panel-heading">
                  <label for="mes">Seleccione mes:</label>
-
+<!-- Aquí seleccionamos un mes para buscar las lecturas -->
 <select class="form-control form-control-sm" name="mes" id="mes">
   <option value="1">Enero</option>
   <option value="2">Febrero</option>
@@ -31,8 +31,8 @@
   <option value="12">Diciembre</option>
 </select> 
 
+<!-- Aquí seleccionamos el año para buscar  las lecturas -->
 <label for="anio">Seleccione año:</label>
-
 <select class="form-control form-control-sm" name="anio" id="anio">
   <option value="2020">2020</option>
   <option value="2021">2021</option>
@@ -40,18 +40,22 @@
   <option value="2023">2023</option>
 </select> 
 
+<!-- Aquí seleccionamos el sector para buscar las lecturas -->
 <label for="sector">Seleccione sector:</label>
-
 <select class="form-control form-control-sm" name="sector" id="sector">
   <option value="Portete">Portete</option>
   <option value="Pedregal">Pedregal</option>
   <option value="La Unión">La Unión</option>
   <option value="Rayoloma">Rayoloma</option>
 </select> 
+
+<!-- Aquí damos clik en ver todas, si queremos todas las lecturas -->
 <div class="form-check">
     <input type="checkbox" class="form-check-input" id="todos" name="todos">
     <label class="form-check-label" for="todos">Ver Todas las lecturas</label>
   </div>
+
+  <!-- Este es el boton para buscar, bien sea por mes, año, y sector, o todas -->
  <button type="submit" class="btn btn-sm btn-primary pull-right">Buscar</button>
  </div>
                 </form>

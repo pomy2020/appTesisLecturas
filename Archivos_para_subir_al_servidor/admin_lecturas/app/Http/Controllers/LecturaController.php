@@ -13,15 +13,16 @@ class LecturaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //está funsión lo que hace es mostrarme en el index la manera de listar las lecturas, tanto por mes y año y todas.
     public function index(Request $request)
     {
-        //
         $todos=$request['todos'];
-        if($todos==false)
-        {
         $mes=$request['mes'];
         $anio=$request['anio'];
         $sector=$request['sector'];
+        if($todos==false)
+        {
+             
         $lecturas = Lectura::whereYear('fecha', '=', $anio)
         ->whereMonth('fecha', '=', $mes)
             ->Join('medidors', 'medidors.id', '=', 'lecturas.medidor_id')
@@ -39,7 +40,7 @@ class LecturaController extends Controller
             ->select('lecturas.*' ,'personas.nombre','personas.apellido','medidors.sector','medidors.codigo','users.name')
             ->paginate();
         }
-        return view('lecturas.index', compact('lecturas'));
+        return view('lecturas.index', compact('lecturas','mes','anio','sector','todos'));
     }
 
     /**
@@ -72,6 +73,7 @@ class LecturaController extends Controller
      * @param  \App\Lectura  $lectura
      * @return \Illuminate\Http\Response
      */
+    //está lo que hace es mostrarme una lectura del listado
     public function show($id)
     {
         //
@@ -118,17 +120,29 @@ class LecturaController extends Controller
     {
         //
     }
-    public function pdf()
+    //está función me permite descargarme las lecturas en formato PDF
+    public function pdf($mes=0,$anio=0,$sector='',$todos=false)
     {        
-        /**
-         * toma en cuenta que para ver los mismos 
-         * datos debemos hacer la misma consulta
-        **/
-        $lecturas = Lectura::
-            Join('medidors', 'medidors.id', '=', 'lecturas.medidor_id')
+         if($todos==false)
+        {
+        $lecturas = Lectura::whereYear('fecha', '=', $anio)
+        ->whereMonth('fecha', '=', $mes)
+            ->Join('medidors', 'medidors.id', '=', 'lecturas.medidor_id')
             ->Join('personas', 'personas.id', '=', 'medidors.persona_id')
-            ->select('lecturas.*' ,'personas.nombre','personas.apellido','medidors.sector','medidors.codigo')->get();
-        $pdf = PDF::loadView('lecturas.pdf.lecturas', compact('lecturas'));
+            ->Join('users', 'users.id', '=', 'lecturas.user_id')
+            ->Where('medidors.sector', '=',$sector)
+            ->select('lecturas.*' ,'personas.nombre','personas.apellido','medidors.sector','medidors.codigo','users.name')
+            ->get();
+        }
+        else
+        {
+            $lecturas = Lectura::Join('medidors', 'medidors.id', '=', 'lecturas.medidor_id')
+            ->Join('personas', 'personas.id', '=', 'medidors.persona_id')
+            ->Join('users', 'users.id', '=', 'lecturas.user_id')
+            ->select('lecturas.*' ,'personas.nombre','personas.apellido','medidors.sector','medidors.codigo','users.name')
+            ->get();
+        }
+        $pdf = PDF::loadView('lecturas.pdf.lecturas',compact('lecturas'));
 
         return $pdf->download('listado.pdf');
     }
