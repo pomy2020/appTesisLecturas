@@ -30,6 +30,27 @@ namespace AppLecturas.Vista
         {
             InitializeComponent();
         }
+        //metodo que se ejecuta cuando se muestra la interfaz
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            ClsUsuarioActual UsuarioActual = await BuscarUsuarioActualAsync();
+            if (UsuarioActual != null)
+            {
+                App.Current.Properties["name"] = UsuarioActual.Name;//guardar en propiedades de la aplicación el nombre del usuario
+                App.Current.Properties["IsLoggedIn"] = true;//guardar en propiedades de la aplicación el estado como verdadero
+                ObjUsuario = new ClsUsuario();
+                ObjUsuario.Id = UsuarioActual.Id;
+                ObjUsuario.Name = UsuarioActual.Name;
+                ObjUsuario.Email = UsuarioActual.Email;
+                ObjUsuario.Password = UsuarioActual.Password;
+                ObjUsuario.Role = UsuarioActual.Role;
+                ObjUsuario.Sector = UsuarioActual.Sector;
+                ObjUsuario.Updated_at = UsuarioActual.Updated_at;
+                App.Current.Properties["ObjUsuario"] = ObjUsuario;//guardar el objeto usuario en propiedades de la aplicación
+                Ilm.ShowMainPage();
+            }
+        }
         /// Encripta una cadena
         private bool VerificarPassword(string StrEncPassword, string UsrPassword)//metodo que compara el password ingresado por el usuario
         {
@@ -41,7 +62,7 @@ namespace AppLecturas.Vista
         {
             try
             {
-                if (!string.IsNullOrWhiteSpace(TxtEmail.Text))//Este metodo es de la clase String del paquete de la plataforma .Net, que me valida el email no nulo
+                    if (!string.IsNullOrWhiteSpace(TxtEmail.Text))//Este metodo es de la clase String del paquete de la plataforma .Net, que me valida el email no nulo
                     if (!string.IsNullOrWhiteSpace(TxtPassword.Text))//validar password no nulo
                         if (TxtEmail.TextColor == Color.Green)//validar email con formato correcto
                             if (TxtPassword.Text.Length >= 6)//validar que el password sea mayor o igual a 6 caracteres 
@@ -77,6 +98,17 @@ namespace AppLecturas.Vista
                                         App.Current.Properties["name"] = ObjUsuario.Name;//guardar en propiedades de la aplicación el nombre del usuario
                                         App.Current.Properties["IsLoggedIn"] = true;//guardar en propiedades de la aplicación el estado como verdadero
                                         App.Current.Properties["ObjUsuario"] = ObjUsuario;//guardar el objeto usuario en propiedades de la aplicación
+                                        ClsUsuarioActual ObjUsuarioActual = new ClsUsuarioActual
+                                        {
+                                            Id = ObjUsuario.Id,
+                                            Name = ObjUsuario.Name,
+                                            Password = ObjUsuario.Password,
+                                            Email = ObjUsuario.Email,
+                                            Role = ObjUsuario.Role,
+                                            Sector = ObjUsuario.Sector,
+                                            Updated_at = ObjUsuario.Updated_at
+                                        };
+                                        await ObjCtrlUsuario.CrearUsuarioActualAsync(ObjUsuarioActual);
                                         Ilm.ShowMainPage();
 
 
@@ -88,7 +120,7 @@ namespace AppLecturas.Vista
                                         await DisplayAlert("Mensaje", "Datos no encontrados, vuelva a intentar", "ok");
                             }
                             else
-                                await DisplayAlert("Mensaje", "Password con formato incorrecto", "ok");
+                                await DisplayAlert("Mensaje", "Debe ingresar minimo 6 caracteres en el password", "ok");
                         else
                             await DisplayAlert("Mensaje", "Email con formato incorrecto", "ok");
                     else
@@ -136,6 +168,20 @@ namespace AppLecturas.Vista
                 return false;
             }
         }
-        
+        //buscar usuario logueado
+        protected async Task<ClsUsuarioActual> BuscarUsuarioActualAsync()
+        {
+            try
+            {
+                CtrlUsuario ObjCtrlUsuario = new CtrlUsuario();
+                return await ObjCtrlUsuario.GetUsuarioActual();
+
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
     }
 }

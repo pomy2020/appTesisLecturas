@@ -4,18 +4,23 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="AppLecturas.Vista.PagLecturas" BackgroundColor="#d4f3f3">
+             x:Class="AppLecturas.Vista.PagLecturas" BackgroundColor="#EAAB00">
     <ContentPage.Content>
         <StackLayout Margin="20,35,20,20">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
             <Button Text="Ver todas las lecturas"
-                Clicked="Button_ClickedAsync" />
+                Clicked="Button_ClickedAsync" BackgroundColor="#003F72" TextColor="#fff" BorderWidth="3" CornerRadius="25" WidthRequest="250" HeightRequest="50" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
             <Button x:Name="ButSincr"  Text="Sincronizar con servidor remoto"
-                Clicked="Button_Clicked_SincronizarAsync" />
+                Clicked="Button_Clicked_SincronizarAsync" BackgroundColor="#003F72" TextColor="#fff" BorderWidth="3" CornerRadius="25" WidthRequest="250" HeightRequest="50" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
             <Button x:Name="BuscarPorFecha"  Text="Buscar por mes y año"
-                Clicked="BuscarPorFecha_Clicked" />
-            <Picker x:Name="Seleccionarmes"
-        Title="Seleccionar el mes"
-        TitleColor="Green">
+                Clicked="BuscarPorFecha_Clicked" BackgroundColor="#003F72" TextColor="#fff" BorderWidth="3" CornerRadius="25" WidthRequest="250" HeightRequest="50" />
+            </StackLayout>
+            <Label Text="Seleccionar mes" TextColor="#003F72" FontAttributes="Bold"></Label>
+            <Picker x:Name="Seleccionarmes"  BackgroundColor="#E0DED8" TextColor="#003F72">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>Enero</x:String>
@@ -33,9 +38,8 @@
                     </x:Array>
                 </Picker.ItemsSource>
             </Picker>
-            <Picker x:Name="Seleccionaraño"
-        Title="Seleccionar el año"
-        TitleColor="Green">
+            <Label Text="Seleccionar año" TextColor="#003F72" FontAttributes="Bold"></Label>
+            <Picker x:Name="Seleccionaraño" BackgroundColor="#E0DED8" TextColor="#003F72">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>2019</x:String>
@@ -67,19 +71,19 @@
                             <ColumnDefinition Width="3*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
 
-                        <Label Text ="Id" FontSize="Small" Grid.Column="0"/>
-                        <Label Text ="Fecha" FontSize="Small" Grid.Column="1"/>
-                        <Label Text ="Nombre" FontSize="Small" Grid.Column="2"/>
-                        <Label Text ="Apellido" FontSize="Small" Grid.Column="3" />
-                        <Label Text ="Lectura anterior" FontSize="Small" Grid.Column="4"/>
-                        <Label Text ="Lectura actual" FontSize="Small" Grid.Column="5"/>
-                        <Label Text ="Consumo en m3" FontSize="Small" Grid.Column="6"/>
+                        <Label Text ="Id" FontSize="Small" Grid.Column="0" TextColor="#003F72"/>
+                        <Label Text ="Fecha" FontSize="Small" Grid.Column="1" TextColor="#003F72"/>
+                        <Label Text ="Nombres" FontSize="Small" Grid.Column="2" TextColor="#003F72"/>
+                        <Label Text ="Apellidos" FontSize="Small" Grid.Column="3" TextColor="#003F72"/>
+                        <Label Text ="Lectura anterior" FontSize="Small" Grid.Column="4" TextColor="#003F72"/>
+                        <Label Text ="Lectura actual" FontSize="Small" Grid.Column="5" TextColor="#003F72"/>
+                        <Label Text ="Consumo en m3" FontSize="Small" Grid.Column="6" TextColor="#003F72"/>
                     </Grid>
                 </ListView.Header>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout BackgroundColor="AliceBlue"
+                            <StackLayout BackgroundColor="#E0DED8"
                         Orientation="Vertical">
                                 <Grid HorizontalOptions="FillAndExpand">
                                     <Grid.ColumnDefinitions>
@@ -92,13 +96,13 @@
                                         <ColumnDefinition Width="2*"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
 
-                                    <Label Text="{Binding Id}" FontSize="Micro" HorizontalOptions="FillAndExpand" Grid.Column="0" TextColor="#f35e20"></Label>
-                                    <Label Text="{Binding Fecha , StringFormat='{0:MM/dd/yyyy}'}" FontSize="Micro" HorizontalOptions="FillAndExpand"  Grid.Column="1" TextColor="#503026"></Label>
-                                    <Label Text="{Binding Nombre}" FontSize="Micro" HorizontalOptions="FillAndExpand"  Grid.Column="2" TextColor="#503026"></Label>
-                                    <Label Text="{Binding Apellido}" FontSize="Micro" HorizontalOptions="FillAndExpand"  Grid.Column="3" TextColor="#503026"></Label>
-                                    <Label Text="{Binding Anterior}" FontSize="Micro" HorizontalOptions="FillAndExpand"  Grid.Column="4" TextColor="#503026"></Label>
-                                    <Label Text="{Binding Actual}" FontSize="Micro" HorizontalOptions="FillAndExpand"  Grid.Column="5" TextColor="#503026"></Label>
-                                    <Label Text="{Binding Consumo}" FontSize="Micro" HorizontalOptions="FillAndExpand"  Grid.Column="6" TextColor="#503026"></Label>
+                                    <Label Text="{Binding Id}" FontSize="Micro" HorizontalOptions="FillAndExpand" Grid.Column="0" TextColor="#003F72"></Label>
+                                    <Label Text="{Binding Fecha , StringFormat='{0:MM/dd/yyyy}'}" FontSize="Micro" HorizontalOptions="FillAndExpand"  Grid.Column="1" TextColor="#003F72"></Label>
+                                    <Label Text="{Binding Nombre}" FontSize="Micro" HorizontalOptions="FillAndExpand"  Grid.Column="2" TextColor="#003F72"></Label>
+                                    <Label Text="{Binding Apellido}" FontSize="Micro" HorizontalOptions="FillAndExpand"  Grid.Column="3" TextColor="#003F72"></Label>
+                                    <Label Text="{Binding Anterior}" FontSize="Micro" HorizontalOptions="FillAndExpand"  Grid.Column="4" TextColor="#003F72"></Label>
+                                    <Label Text="{Binding Actual}" FontSize="Micro" HorizontalOptions="FillAndExpand"  Grid.Column="5" TextColor="#003F72"></Label>
+                                    <Label Text="{Binding Consumo}" FontSize="Micro" HorizontalOptions="FillAndExpand"  Grid.Column="6" TextColor="#003F72"></Label>
    
                                 </Grid>
                             </StackLayout>

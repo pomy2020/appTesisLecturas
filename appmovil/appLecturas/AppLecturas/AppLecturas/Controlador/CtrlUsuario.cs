@@ -77,6 +77,41 @@ namespace AppLecturas.Controlador
             {
                 throw new Exception("Error al consultar informacion del origen remoto. Razon: " + ex.Message);//devuelve error
             }
-        }   
+        }
+        public async Task<bool> CrearUsuarioActualAsync(ClsUsuarioActual item)//método para sincronizar usuarios entre la base local y la remota
+        {
+            try
+            { 
+                 await App.Database.SaveUsuarioActualAsync(item);//almacenar cada objeto en la base de datos local
+                 return true;    
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al consultar informacion del origen remoto. Razon: " + ex.Message);//devuelve error 
+            }
+        }
+        public async Task<bool> EliminarUsuarioActualAsync()//método para sincronizar usuarios entre la base local y la remota
+        {
+            try
+            {
+                await App.Database.DeleteUsuariActualAsync();//almacenar cada objeto en la base de datos local
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al consultar informacion del origen remoto. Razon: " + ex.Message);//devuelve error 
+            }
+        }
+        public async Task<ClsUsuarioActual> GetUsuarioActual()
+        {
+            try
+            {
+                return await App.Database.GetUsuarioActualAsync();
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }

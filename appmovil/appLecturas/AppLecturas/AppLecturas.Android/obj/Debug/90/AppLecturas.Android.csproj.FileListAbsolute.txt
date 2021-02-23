@@ -885,4 +885,3 @@ C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.Android\obj\Debug\90\
 C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.Android\obj\Debug\90\stamp\_GenerateJavaStubs.stamp
 C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.Android\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.Android\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
-C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.Android\obj\Debug\90\stamp\SetupDependenciesForDesigner.stamp

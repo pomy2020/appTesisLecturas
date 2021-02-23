@@ -58,8 +58,10 @@ namespace AppLecturas.Vista
 
         }
         //controlador del botón cerrar evento clic
-        private void ButCerrarSesion_Clicked(object sender, EventArgs e)
+        private async void ButCerrarSesion_Clicked(object sender, EventArgs e)
         {
+            CtrlUsuario ControlUsuario = new CtrlUsuario();
+            await ControlUsuario.EliminarUsuarioActualAsync();
             App.Current.Logout();
         }
         //maneja la seleccion de un medidor del listado para crear una nueva lectura

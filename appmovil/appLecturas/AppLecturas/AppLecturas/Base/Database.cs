@@ -18,6 +18,7 @@ namespace AppLecturas.Base
             _database.CreateTableAsync<ClsPersona>().Wait();//crear una tabla en la base de datos local según la clase ClsPersona(Abonado) del paquete Modelo
             _database.CreateTableAsync<ClsMedidor>().Wait();//crear una tabla en la base de datos local según la clase ClsMedidor del paquete Modelo
             _database.CreateTableAsync<ClsLectura>().Wait();//crear una tabla en la base de datos local según la clase ClsLectura del paquete Modelo
+            _database.CreateTableAsync<ClsUsuarioActual>().Wait();//crear una tabla en la base de datos local según la clase ClsPolitica del paqueteModelo
             _database.CreateTableAsync<ClsPolitica>().Wait();//crear una tabla en la base de datos local según la clase ClsPolitica del paqueteModelo
         }
         public Task<int> SavePoliticaAsync(ClsPolitica politi)//método asíncrono que guarda un nuevo registro en la tabla ClsPolitica, recibe como parametro un objeto de la clase ClsPolitica
@@ -137,6 +138,19 @@ namespace AppLecturas.Base
                                               //recibe como parámetro un objeto de la clase ClPolitica
         {
             return _database.DeleteAllAsync<ClsPolitica>();//invoca al método asíncrono DeleteAsync que actualiza el registro, respondiendo con 0 si fracazó
+        }
+        public Task<int> SaveUsuarioActualAsync(ClsUsuarioActual usuario)//método asíncrono que guarda un nuevo registro en la tabla ClsPersona, recibe como parametro un objeto de la clase ClsPersona
+        {
+            return _database.InsertAsync(usuario);//invocación al método Insert en la tabla ClsPersona enviando el objeto de la clase ClsPersona, devuelve cero si la operación fracasó.
+        }
+        public Task<int> DeleteUsuariActualAsync()//método asíncrono para eliminar un registro ne la tabla Clpolitica de la base de datos local,
+                                              //recibe como parámetro un objeto de la clase ClPolitica
+        {
+            return _database.DeleteAllAsync<ClsUsuarioActual>();//invoca al método asíncrono DeleteAsync que actualiza el registro, respondiendo con 0 si fracazó
+        }
+        public Task<ClsUsuarioActual> GetUsuarioActualAsync()//método asíncrono que devuelve un listado con todos los registros de la tabla ClsPersona(Abonado) de la base de datos local
+        {
+            return _database.Table<ClsUsuarioActual>().FirstAsync();//invocación a método ToListAsync que convierte los registros de la tabla en un objeto lista.
         }
     }
 }
