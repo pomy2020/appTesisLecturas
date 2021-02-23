@@ -40,6 +40,10 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
+        //validaciones
+        $validator = $request->validate([
+        'name'=>'required',
+        ]);
         $role = Role::create($request->all());
 
         $role->permissions()->sync($request->get('permissions'));
@@ -85,6 +89,10 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //validaciones
+        $validator = $request->validate([
+        'name'=>'required',
+        ]);
         $role = Role::find($id);
         $role->update($request->all());
 

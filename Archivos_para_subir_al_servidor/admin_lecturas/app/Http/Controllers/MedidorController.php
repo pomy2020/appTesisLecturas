@@ -15,12 +15,9 @@ class MedidorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //está función me lista los medidores
     public function index()
     {
-        //
-        //$medidores = Medidor::paginate();
-
-        //return view('medidores.index', compact('medidores'));
         $medidores = Medidor::
             LeftJoin('personas', 'personas.id', '=', 'medidors.persona_id')
             ->select('medidors.*' ,'personas.nombre','personas.apellido')
@@ -34,6 +31,7 @@ class MedidorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //está función me permite crear un nuevo medidores
     public function create()
     {
         //
@@ -46,14 +44,15 @@ class MedidorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //está fu
     public function store(Request $request)
     {
         //
         $name=$request->imagen;
         //validaciones
          $request->validate([
-            'codigo'=>'required|unique:medidors|max:10',
-            'numero'=>'required|unique:medidors|max:3',
+            'codigo'=>'required|unique:medidors|max:15',
+            'numero'=>'required|unique:medidors|max:20',
             'sector'=>'required|max:20'
         ]);
         $medidorNuevo = new Medidor;
@@ -130,8 +129,10 @@ class MedidorController extends Controller
     {
         //validaciones
          $request->validate([
-            'codigo'=>'required|max:10',
-            'numero'=>'required|max:3',
+            'codigo'=>'required|max:15',
+            'numero'=>'required|max:20',
+            'marca'=>'required|max:20',
+            'modelo'=>'required|max:20',
             'sector'=>'required|max:20'
         ]);
         $medidorUpdate = Medidor::findOrFail($id);

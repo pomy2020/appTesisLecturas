@@ -73,6 +73,7 @@ class PersonaController extends Controller
 
         return view('personas.show', compact('persona'));
     }
+
     /**
      * Show the form for editing the specified resource.
      *
