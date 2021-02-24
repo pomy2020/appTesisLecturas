@@ -13,6 +13,10 @@
                     <p><strong>Descripción</strong>  {{ $role->description }}</p>
                 </div>
             </div>
+            <a href="{{ route('roles.index') }}" 
+                    class="btn btn-sm btn-primary pull-left">
+                        Regresar
+                    </a>
         </div>
     </div>
 </div>

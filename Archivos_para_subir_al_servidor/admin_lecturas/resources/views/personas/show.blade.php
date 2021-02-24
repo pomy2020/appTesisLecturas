@@ -14,7 +14,14 @@
                     <p><strong>Teléfono</strong>    {{ $persona->telefono }}</p>
                     <p><strong>Email</strong>      {{ $persona->email }}</p>
                 </div>
+                <div class="form-group">
+                    
+               </div>
             </div>
+            <a href="{{ route('personas.index') }}" 
+                    class="btn btn-sm btn-primary pull-left">
+                        Regresar
+                    </a>
         </div>
     </div>
 </div>

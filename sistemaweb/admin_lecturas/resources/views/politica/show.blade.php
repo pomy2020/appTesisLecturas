@@ -14,6 +14,10 @@
                     
                 </div>
             </div>
+            <a href="{{ route('politica.index') }}" 
+                    class="btn btn-sm btn-primary pull-left">
+                        Regresar
+                    </a>
         </div>
     </div>
 </div>

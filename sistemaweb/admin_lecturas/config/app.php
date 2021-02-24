@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Sistema Web de la Junta de Agua de Zumbahuayco'),
 
     /*
     |--------------------------------------------------------------------------
@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -104,7 +104,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY'),
+    'key' => env('APP_KEY',base64_decode(':nCZO87XX9C+trm6+01Y6QQtI/TnPS05TdWPD499x8n4=')),
 
     'cipher' => 'AES-256-CBC',
 

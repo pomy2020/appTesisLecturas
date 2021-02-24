@@ -13,6 +13,10 @@
                     <p><strong>Sector</strong>      {{ $user->sector }}</p>
                 </div>
             </div>
+            <a href="{{ route('users.index') }}" 
+                    class="btn btn-sm btn-primary pull-left">
+                        Regresar
+                    </a>
         </div>
     </div>
 </div>
