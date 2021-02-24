@@ -26,7 +26,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        SISTEMA WEB de la<br>
+                        |SISTEMA WEB de la<br>
                         Junta de Agua de Zumbahuayco
                     </a>
                 </div>
@@ -37,19 +37,22 @@
                     <ul class="nav navbar-nav">
                         @can('personas.index')
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('personas.index') }}">Lista de Abonados</a>
+                            <a class="nav-link" href="{{ route('personas.index') }}" 
+                            >Lista de Abonados</a>
                         </li>
                         @endcan
                         <!--Sí el usuario que está autenticado, tiene permiso para el index de medidores, el usuario puede listar los medidores -->
                         @can('medidores.index')
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('medidores.index') }}">Medidores</a>
+                            <a class="nav-link" href="{{ route('medidores.index') }}"
+                            >Medidores</a>
                         </li>
                         @endcan
                         <!--Sí el usuario que está autenticado, tiene permiso para el index de lecturas, el usuario puede listar las lecturas -->
                         @can('lecturas.index')
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('lecturas.index') }}">Lecturas</a>
+                            <a class="nav-link" href="{{ route('lecturas.index') }}"
+                            >Lecturas</a>
                         </li>
                         @endcan
                         <!--Sí el usuario que está autenticado, tiene permiso para el index de ususarios, el usuario puede listar los usuarios -->
@@ -67,7 +70,8 @@
                         <!--Sí el usuario que está autenticado, tiene permiso para el index de politicas, el usuario puede listar las politicas -->
                          @can('politica.index')
                         <li class="nav-item">                            
-                            <a class="nav-link" href="{{ route('politica.index') }}">Politicas</a>
+                            <a class="nav-link" href="{{ route('politica.index') }}"
+                            >Politicas</a>
                         </li>
                         @endcan
                     </ul>
@@ -89,7 +93,7 @@
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout
+                                            Cerrar Sesión
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -117,6 +121,17 @@
         @endif
 
         @yield('content')
+        <div class="footer">
+            <div class="row">
+                <div class="col-md-6">   
+                    <h4 class="text-center">Sistema de Agua potable de Zumbahuayco</h4>
+                    <h5 class="text-center">Año 2019 - 2020</h5>
+                </div>
+                <div class="col-md-6">   
+                    <h4 class="text-center">Cañar Azogues</h4>
+                    <h5 class="text-center">Autor: Pedro Omar Mejía Yépez</h5>
+                </div>                              
+        </div>       
     </div>
 
     <!-- Scripts -->

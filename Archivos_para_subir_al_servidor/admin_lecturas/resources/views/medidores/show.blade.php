@@ -14,9 +14,13 @@
                     <p><strong>Modelo</strong>      {{ $medidor->modelo }}</p>
                     <p><strong>Sector</strong>      {{ $medidor->sector }}</p>
                     <img class="card-img-top" src="http://localhost/admin_lecturas/public/images/{{$medidor->imagen}}" alt="">
-                    <p><strong>Id de abonado</strong>    {{ $medidor->persona_id }}</p>
+                    <p><strong>Nombre del abonado</strong>    {{ $abonado->nombre }} {{ $abonado->apellido }}</p>
                 </div>
             </div>
+            <a href="{{ route('medidores.index') }}" 
+                    class="btn btn-sm btn-primary pull-left">
+                        Regresar
+                    </a>
         </div>
     </div>
 </div>
