@@ -1,6 +1,6 @@
 <?php
-include "../../apirest/config.php";
-include "../../apirest/utils.php";
+include "apirest/config.php";
+include "apirest/utils.php";
 
 
 if(isset($_SERVER['PHP_AUTH_USER']) && isset($_SERVER['PHP_AUTH_PW']))
@@ -60,6 +60,12 @@ if(validar_usuario_password($email,$password,$dbConn))
 // Crear una nueva lectura
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
+    
+    try
+    {
+        $id=$_GET['id'];
+        if($id==0)
+        {
     $input = $_POST;
     $sql = "INSERT INTO lecturas
           (fecha,anterior,actual,consumo,basico,exceso,observacion,imagen,latitud,longitud,estado,medidor_id,user_id,created_at,updated_at)
@@ -76,8 +82,42 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
       echo json_encode($input);
       exit();
    }
+        }
+        else
+        {
+            $input = $_POST;
+    $sql = "UPDATE  lecturas SET 
+          fecha=:Fecha,
+          anterior=:Anterior,
+          actual=:Actual,
+          consumo=:Consumo,
+          basico=:Basico,
+          exceso=:Exceso,
+          observacion=:Observacion,
+          imagen=:Imagen,
+          latitud=:Latitud,
+          longitud=:Longitud,
+          estado=:Estado,
+          medidor_id=:Medidor_id,
+          user_id=:User_id,
+          created_at=:Created_at,
+          updated_at=:Updated_at
+          WHERE
+          id=:idServer";
+    $statement = $dbConn->prepare($sql);
+    bindAllValues($statement, $input);
+    $statement->execute();
+    header("HTTP/1.1 200 OK");
+    echo ('ok');
+    exit();
+        }
+    }
+   catch (PDOException $e)
+    {
+        header("HTTP/1.1 400 Bad Request");
+        echo($e);
+    }
 }
-
 //En caso de que ninguna de las opciones anteriores se haya ejecutado
 header("HTTP/1.1 400 Bad Request");
 }
