@@ -18,7 +18,8 @@ namespace AppLecturas.Vista
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PagIngresoLectura : ContentPage
     {
-        bool opc;
+        string opc;
+        bool nuevo = false;
         ClsLectura ObjLectura;//variables de las clases que intervienen en el proceso de ingreso de la lectura 
         CtrlPersona ObjCtrlPersona;
         ClsPersona ObjPersona;
@@ -101,7 +102,7 @@ namespace AppLecturas.Vista
             try
             {
                 manager = new CtrlLectura();//instancia de clase control lectura
-                if (opc)//cuando se está creando una lectura nueva
+                if (nuevo)//cuando se está creando una lectura nueva
                 {
                     this.ObjCtrlPersona = new CtrlPersona();//instancia la variable en objeto de la clase control persona (abonado)
                     var ListPersona = await ObjCtrlPersona.ConsultarId(this.ObjMedidor.Persona_id);
@@ -119,10 +120,12 @@ namespace AppLecturas.Vista
                         TxtAnterior.Text = ObjLecAnterior.Actual.ToString();
                         ObjLectura.Anterior = ObjLecAnterior.Actual;
                     }
-                    recuperarpolitica();
+                    
                 }
                 else
+ 
                 {
+                    if(opc=="ver")
                     //cuando se está consultando una lectura
                     ButGuardar.IsVisible = false;
                     this.ObjCtrlPersona = new CtrlPersona();
@@ -140,7 +143,6 @@ namespace AppLecturas.Vista
                             txtConsumo.Text = this.ObjLectura.Consumo.ToString();
                             TxtObservacion.Text = this.ObjLectura.Observacion;
                             TxtAnterior.Text = ObjLectura.Anterior.ToString();
-                            ObjLectura.Anterior = ObjLectura.Actual;
                             lblCodigo.Text = ObjMedidor.Codigo.ToString();
                             lblNumero.Text = ObjMedidor.Numero.ToString();
                             if (ObjLectura.Image != null)
@@ -148,6 +150,7 @@ namespace AppLecturas.Vista
                         }
                     }
                 }
+                recuperarpolitica();
             }
            catch(Exception ex)
             {
@@ -156,10 +159,10 @@ namespace AppLecturas.Vista
                      
         }
 
-        public PagIngresoLectura(ClsMedidor Obj, bool opc)//constructor para ingresar nuevo
+        public PagIngresoLectura(ClsMedidor Obj, bool nuevo)//constructor para ingresar nuevo
         {
             InitializeComponent();
-            this.opc = opc;//asignación de variable local
+            this.nuevo = nuevo;//asignación de variable local
             this.ObjMedidor = Obj;//asignación de objeto local
             lblCodigo.Text = this.ObjMedidor.Codigo;
             lblNumero.Text = this.ObjMedidor.Numero;
@@ -171,13 +174,13 @@ namespace AppLecturas.Vista
             BindingContext = this.ObjLectura;//indica que la vista se relacionará con los valores del objeto
             this.ObjLectura.Localizar();
         }
-        public PagIngresoLectura(ClsLectura Obj, bool opc)//constructor para consultar
+        public PagIngresoLectura(ClsLectura Obj, string opc)//constructor para consultar y modificar
         {
-            InitializeComponent();
-            this.opc = opc;//asignación de variable local
-            this.ObjLectura = Obj;//asignación de objeto local
+            InitializeComponent();//inicializamos los componentes para poderlos utilizar
+            this.opc = opc;//asignación de variable local,  opc que es el resultado de la condición de para editar 
+            this.ObjLectura = Obj;//asignación la variable local, de objeto lectura que vamos a modificar
             BindingContext = this.ObjLectura;//indica que la vista se relacionará con los valores del objeto
-            this.ObjLectura.Localizar();
+            this.ObjLectura.Localizar();//estamos istanciando al metodo localizar, que es para utilizarlo en una nueva versión
         }
 
         public string ConvertirImagen()//transforma la imagen a Texto en base 64
@@ -196,8 +199,8 @@ namespace AppLecturas.Vista
                     ObjLectura.Observacion = "s/n";
                 if (ObjLectura.Image == null)
                     ObjLectura.StrImagen = "";
-                if (opc)
-                {
+                
+                
                     if (!string.IsNullOrWhiteSpace(LblNombres.Text) &&
                         !string.IsNullOrWhiteSpace(lblNumero.Text) &&
                         !string.IsNullOrWhiteSpace(txtConsumo.Text)//validación de no nulos
@@ -206,15 +209,27 @@ namespace AppLecturas.Vista
                         if (txtCedula.Text.Length == 10 &&
                         ObjLectura.Actual >= 0)//validación cedula con 10 caracteres
                         {
-                           
-                                var ObjLecturaInsert = await manager.SaveAsync(ObjLectura);//llamada a método que inserta un nuevo registro
-                                if (ObjLecturaInsert != null)
-                                {
-                                    res = ObjLecturaInsert;//respuesta positiva
-                                }
-                                else
-                                    res = null;//respuesta negativa si no se realizó correctamente 
+                        ObjLectura.Calcular();
+                        if (ObjLectura.Consumo >= 0)
+                        {
+                            string ObjLecturaGuardada = null;//declaramos una variable tipo string, que se inicializa en nulo
+                            if (nuevo)//si nuevo es verdadero, entonces haga la linea 217, caso contrario haga 219
+                                ObjLecturaGuardada = await manager.SaveAsync(ObjLectura);//llamada a método que inserta un nuevo registro
+                            else
+                                ObjLecturaGuardada = await manager.UpdateAsync(ObjLectura);
+                            if (ObjLecturaGuardada != null)
+                            {
+                                res = ObjLecturaGuardada;//respuesta positiva
+                            }
+                            else
+                                res = null;//respuesta negativa si no se realizó correctamente 
                         }
+                        else
+                        {
+                            await DisplayAlert("Mensaje", "El consumo no puede ser negativo", "ok");
+                            res = null;
+                        }
+                    }
                         else
                         {
                             await DisplayAlert("Mensaje", "Faltan Datos Necesarios", "ok");
@@ -226,8 +241,6 @@ namespace AppLecturas.Vista
                         await DisplayAlert("Mensaje", "Faltan Datos", "ok");
                         res = null;
                     }
-
-                }
                 
                 if(res != null)
                 {

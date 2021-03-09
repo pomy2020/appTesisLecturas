@@ -118,7 +118,7 @@ namespace AppLecturas.Base
         public Task<List<ClsLectura>> GetLecturaAsync(string Estado)//método asíncrono que devuelve un listado con los registros de la tabla ClsLectura de la base de datos local, 
                                                                     //recibe un parametro tipo string
         {
-            return _database.Table<ClsLectura>().Where(c => c.Estado == Estado).ToListAsync();//invoca al método ToListAsync filtrando los registros por Estado con el comando Where
+            return _database.Table<ClsLectura>().Where(c => c.Estado != Estado).ToListAsync();//invoca al método ToListAsync filtrando los registros por Estado con el comando Where
         }  
         public Task<int> UpdateLecturaAsync(int Id, int IdServ,string StrEstado)//Método asíncrono para actualizar estado de un registro en la tabla ClsLectura
             //luego de sincronizar con el servidor remoto
@@ -130,6 +130,16 @@ namespace AppLecturas.Base
             return _database.ExecuteScalarAsync<int>("Update ClsLectura set Estado=?,IdServer=? WHERE Id = ?",StrEstado,IdServ,Id);//invoca al método ExecuteScalarAsync,
             //para actualizar el estado (de 0 a 1) el idServer(id que registra el servidor) en el registro que coincida con el Id recibido(Id de lectura)
         }
+        public Task<int> UpdateLecturaAsync(int Id, string StrEstado)//Método asíncrono para actualizar estado de un registro en la tabla ClsLectura
+                                                                                 //luego de sincronizar con el servidor remoto
+                                                                                 //recibe tres parametros 
+                                                                                 //id representa el id del resgistro de la tabla ClsLectura
+                                                                                 //IdServ es el id del registro en la tabla del serrvidor remoto
+                                                                                 //strestado es el nuevo estado del registro (1 sincronizado,0 no sincronizado) 
+        {
+            return _database.ExecuteScalarAsync<int>("Update ClsLectura set Estado=? WHERE Id = ?", StrEstado, Id);//invoca al método ExecuteScalarAsync,
+            //para actualizar el estado (de 0 a 1) el idServer(id que registra el servidor) en el registro que coincida con el Id recibido(Id de lectura)
+        }
         public Task<List<ClsPolitica>> GetPoliticaAsync()//método asíncrono que devuelve un listado con todos los registros de la tabla ClsPolitica de la base de datos local
         {
             return _database.Table<ClsPolitica>().ToListAsync();//invocación a método ToListAsync que convierte los registros de la tabla en un objeto lista.
@@ -139,16 +149,16 @@ namespace AppLecturas.Base
         {
             return _database.DeleteAllAsync<ClsPolitica>();//invoca al método asíncrono DeleteAsync que actualiza el registro, respondiendo con 0 si fracazó
         }
-        public Task<int> SaveUsuarioActualAsync(ClsUsuarioActual usuario)//método asíncrono que guarda un nuevo registro en la tabla ClsPersona, recibe como parametro un objeto de la clase ClsPersona
+        public Task<int> SaveUsuarioActualAsync(ClsUsuarioActual usuario)//método asíncrono que guarda un nuevo registro en la tabla ClsUsuarioActual, recibe como parametro un objeto de la clase ClsUsuarioActual
         {
-            return _database.InsertAsync(usuario);//invocación al método Insert en la tabla ClsPersona enviando el objeto de la clase ClsPersona, devuelve cero si la operación fracasó.
+            return _database.InsertAsync(usuario);//invocación al método Insert en la tabla ClsUsuarioActual enviando el objeto de la clase ClsUsuarioActual, devuelve cero si la operación fracasó.
         }
-        public Task<int> DeleteUsuariActualAsync()//método asíncrono para eliminar un registro ne la tabla Clpolitica de la base de datos local,
-                                              //recibe como parámetro un objeto de la clase ClPolitica
+        public Task<int> DeleteUsuariActualAsync()//método asíncrono para eliminar un registro ne la tabla ClsUsuarioActual de la base de datos local,
+                                              //recibe como parámetro un objeto de la clase ClsusuarioActual
         {
             return _database.DeleteAllAsync<ClsUsuarioActual>();//invoca al método asíncrono DeleteAsync que actualiza el registro, respondiendo con 0 si fracazó
         }
-        public Task<ClsUsuarioActual> GetUsuarioActualAsync()//método asíncrono que devuelve un listado con todos los registros de la tabla ClsPersona(Abonado) de la base de datos local
+        public Task<ClsUsuarioActual> GetUsuarioActualAsync()//método asíncrono que devuelve un listado con todos los registros de la tabla ClsUsuarioActual de la base de datos local
         {
             return _database.Table<ClsUsuarioActual>().FirstAsync();//invocación a método ToListAsync que convierte los registros de la tabla en un objeto lista.
         }

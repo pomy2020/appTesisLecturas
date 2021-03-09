@@ -78,7 +78,7 @@ namespace AppLecturas.Controlador
                 throw new Exception("Error al consultar informacion del origen remoto. Razon: " + ex.Message);//devuelve error
             }
         }
-        public async Task<bool> CrearUsuarioActualAsync(ClsUsuarioActual item)//método para sincronizar usuarios entre la base local y la remota
+        public async Task<bool> CrearUsuarioActualAsync(ClsUsuarioActual item)//método para crear el usuario actual en la base local 
         {
             try
             { 
@@ -90,11 +90,11 @@ namespace AppLecturas.Controlador
                 throw new Exception("Error al consultar informacion del origen remoto. Razon: " + ex.Message);//devuelve error 
             }
         }
-        public async Task<bool> EliminarUsuarioActualAsync()//método para sincronizar usuarios entre la base local y la remota
+        public async Task<bool> EliminarUsuarioActualAsync()//método para eliminar el usuario en la base local 
         {
             try
             {
-                await App.Database.DeleteUsuariActualAsync();//almacenar cada objeto en la base de datos local
+                await App.Database.DeleteUsuariActualAsync();//elimina cada objeto en la base de datos local
                 return true;
             }
             catch (Exception ex)
@@ -102,7 +102,7 @@ namespace AppLecturas.Controlador
                 throw new Exception("Error al consultar informacion del origen remoto. Razon: " + ex.Message);//devuelve error 
             }
         }
-        public async Task<ClsUsuarioActual> GetUsuarioActual()
+        public async Task<ClsUsuarioActual> GetUsuarioActual()//método para consultar el usuario que está logeado a la base local 
         {
             try
             {

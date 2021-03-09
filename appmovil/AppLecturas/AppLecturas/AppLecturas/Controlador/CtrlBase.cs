@@ -19,8 +19,8 @@ namespace AppLecturas.Controlador
             client.DefaultRequestHeaders.Add("Accept", "application/json");// en esta variable agregamos en el encabezado para eceptar formato Json
             client.DefaultRequestHeaders.Add("Connection", "close");//agregamos en el encabezado para cerrar sesión
             var authData = string.Format("{0}:{1}", MiUsuario.Email, MiUsuario.Password);//declaramos una variable para enviar los datos de email y contraseña del usuario
-            var authHeaderValue = Convert.ToBase64String(Encoding.UTF8.GetBytes(authData));//se convierte a texto de base 64, es una forma de representar los datos no entendibles 
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", authHeaderValue);
+            var authHeaderValue = Convert.ToBase64String(Encoding.UTF8.GetBytes(authData));//se convierte a texto de base 64, es una forma de representar los datos encryptados 
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", authHeaderValue);//declarandome una variable, que es de la clase utenticacio
             return client;
         }
         public ClsUsuario MiUsuario { get; set; }//declarando una propiedad de mi clase control base de tipo cls usuario

@@ -30,7 +30,7 @@ namespace AppLecturas.Vista
         //metodo que se ejecuta cuando se muestra la interfaz
         protected override async void OnAppearing()
         {
-            base.OnAppearing();
+            base.OnAppearing();//es unmetodo que esta definido en los conten page, es porque vamos a personalizar
             CtrlLectura ObjCtrlLectura = new CtrlLectura();//declaramos la variable y la  instanciamos de la clase CtrlLectura
 
             try
@@ -61,7 +61,7 @@ namespace AppLecturas.Vista
         private async void ButCerrarSesion_Clicked(object sender, EventArgs e)
         {
             CtrlUsuario ControlUsuario = new CtrlUsuario();
-            await ControlUsuario.EliminarUsuarioActualAsync();
+            await ControlUsuario.EliminarUsuarioActualAsync();//es para eliminar el usuario el momento que cierre sesión
             App.Current.Logout();
         }
         //maneja la seleccion de un medidor del listado para crear una nueva lectura
@@ -77,10 +77,16 @@ namespace AppLecturas.Vista
                 ObjMedidor = consulta.First();//aqui tenemos todos los datos cargados de mi clase medidor
                 CtrlLectura ObjCtrlLectura = new CtrlLectura();//declamos una varible de tipo ctrllectura e intanciamos para usar sus metdos
                 var LecturaMes = await ObjCtrlLectura.GetLecturaMedidorAsync(DateTime.Today, ObjMedidor.Id);
-                if (!LecturaMes)
+                if (LecturaMes==null)
                     await ((NavigationPage)this.Parent).PushAsync(new PagIngresoLectura(ObjMedidor, true));//mostrar el formulario Ingresos de lecturas con los datos cargados para modificar o eliminar
                 else
-                    await DisplayAlert("Mensaje", "Ya se han ingresado datos de este mes para el medidor seleccionado", "ok");
+                {
+                    var resp = await DisplayAlert("Mensaje", "Desea Modificar", "si", "no");
+                    if (resp)
+                    {
+                        await ((NavigationPage)this.Parent).PushAsync(new PagIngresoLectura(LecturaMes, "edit"));//mostrar la vista para modificar una lectura con los datos cargados
+                    }
+                }
             }
             catch(Exception ex)
             {

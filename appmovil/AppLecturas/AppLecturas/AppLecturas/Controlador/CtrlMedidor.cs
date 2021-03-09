@@ -64,7 +64,7 @@ namespace AppLecturas.Controlador
                 {
                     foreach (ClsMedidor item in ListMedidores)
                     {
-                        StrIds = StrIds + item.Id + ",";//se arma una cadena de Ids separado por coma(,)
+                        StrIds = StrIds + item.Id + ",";//se arma una cadena de Ids separado por coma(,), consuntando los ides que tenemos en nuetras propiedad de la clase medidor
                     }
                     StrIds = StrIds.Substring(0, StrIds.Length - 1);
                 }
@@ -73,7 +73,7 @@ namespace AppLecturas.Controlador
                 //se define la url a la que apunta la petición, indicando el script srvmedidores.php que recibe como parametro 
                 //la cadena de ids ya registrados
                 Url = Servidor + "srvmedidores.php" +
-                    "?StrIds=" + StrIds;
+                    "?StrIds=" + StrIds;//pasando los ides de los medidores que ya estan guardados mi base de datos localmente
                 //creación de un nuevo objeto Httpclient para hacer la solicitud al servidor remoto
                 HttpClient client = getCliente();
                 //ejecuta la petición Get al servidor remoto, pasando la url como parámetro

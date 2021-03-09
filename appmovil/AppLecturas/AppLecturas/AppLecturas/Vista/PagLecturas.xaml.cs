@@ -72,7 +72,7 @@ namespace AppLecturas.Vista
                 ClsLectura ObjLectura = JsonConvert.DeserializeObject<ClsLectura>(json);
                 var consulta = await Manager.Get(ObjLectura.Id);
                 ObjLectura = consulta.First();
-                await ((NavigationPage)this.Parent).PushAsync(new PagIngresoLectura(ObjLectura, false));//mostrar la vista ingreso de lectura con los datos cargados
+                await ((NavigationPage)this.Parent).PushAsync(new PagIngresoLectura(ObjLectura, "ver"));//mostrar la vista ingreso de lectura con los datos cargados
             }
             catch(Exception ex)
             {

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AppLecturas.Modelo
 {
-    //clase que modela la tabla usuario
+    //clase que modela la tabla usuario actual
     public class ClsUsuarioActual:ClsBase
     {
         [PrimaryKey]

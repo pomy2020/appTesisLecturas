@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-02-23T16:15:47.468</Modified>
+      <Modified>2021-03-01T19:41:41.401</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\bin\x86\Debug\AppLecturas.UWP.exe">
       <PackagePath>entrypoint\AppLecturas.UWP.exe</PackagePath>
-      <Modified>2021-02-23T16:15:37.552</Modified>
+      <Modified>2021-03-01T19:41:33.373</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Pedro\.nuget\packages\bcrypt.net-next\3.3.3\lib\netstandard2.0\BCrypt.Net-Next.dll">
       <PackagePath>BCrypt.Net-Next.dll</PackagePath>
@@ -776,7 +776,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas\bin\Debug\netstandard2.0\AppLecturas.dll">
       <PackagePath>AppLecturas.dll</PackagePath>
-      <Modified>2021-02-23T16:14:50.030</Modified>
+      <Modified>2021-03-04T20:55:33.947</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Microsoft\Xamarin\NuGet\win2d.uwp\1.20.0\lib\uap10.0\Microsoft.Graphics.Canvas.winmd">
       <PackagePath>Microsoft.Graphics.Canvas.winmd</PackagePath>
@@ -931,11 +931,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2021-02-23T16:15:37.050</Modified>
+      <Modified>2021-03-01T19:41:32.866</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2021-02-23T16:15:37.051</Modified>
+      <Modified>2021-03-01T19:41:32.866</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17134.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -947,7 +947,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Pedro\Desktop\AppLecturas\AppLecturas\AppLecturas.UWP\bin\x86\Debug\Core\AppLecturas.UWP.exe">
       <PackagePath>AppLecturas.UWP.exe</PackagePath>
-      <Modified>2021-02-23T16:15:47.427</Modified>
+      <Modified>2021-03-01T19:41:41.361</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

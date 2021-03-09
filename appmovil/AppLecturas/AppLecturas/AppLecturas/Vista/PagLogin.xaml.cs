@@ -31,7 +31,7 @@ namespace AppLecturas.Vista
             InitializeComponent();
         }
         //metodo que se ejecuta cuando se muestra la interfaz
-        protected override async void OnAppearing()
+        protected override async void OnAppearing()//metodo que se ejecuta cuando se va a mostar el contenpage
         {
             base.OnAppearing();
             ClsUsuarioActual UsuarioActual = await BuscarUsuarioActualAsync();
@@ -98,7 +98,7 @@ namespace AppLecturas.Vista
                                         App.Current.Properties["name"] = ObjUsuario.Name;//guardar en propiedades de la aplicación el nombre del usuario
                                         App.Current.Properties["IsLoggedIn"] = true;//guardar en propiedades de la aplicación el estado como verdadero
                                         App.Current.Properties["ObjUsuario"] = ObjUsuario;//guardar el objeto usuario en propiedades de la aplicación
-                                        ClsUsuarioActual ObjUsuarioActual = new ClsUsuarioActual
+                                        ClsUsuarioActual ObjUsuarioActual = new ClsUsuarioActual//aqlamcenamos el usuario actual en la base de datos local
                                         {
                                             Id = ObjUsuario.Id,
                                             Name = ObjUsuario.Name,
@@ -169,7 +169,7 @@ namespace AppLecturas.Vista
             }
         }
         //buscar usuario logueado
-        protected async Task<ClsUsuarioActual> BuscarUsuarioActualAsync()
+        protected async Task<ClsUsuarioActual> BuscarUsuarioActualAsync()//este metodo es para buscar el usuario que está logeado en la base de datos local
         {
             try
             {
